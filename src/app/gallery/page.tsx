@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
+import { InteractiveGallery } from "@/components/interactive-gallery";
 import { galleryImages } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -26,13 +26,7 @@ export default function GalleryPage() {
 
       <section className="section-light">
         <div className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {galleryImages.map((image, index) => (
-              <div key={image.src} className={`image-frame relative ${index % 3 === 1 ? "h-[420px]" : "h-[340px]"}`}>
-                <Image src={image.src} alt={image.alt} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
+          <InteractiveGallery images={galleryImages} />
         </div>
       </section>
 

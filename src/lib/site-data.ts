@@ -67,13 +67,13 @@ export const coaches = [
   {
     name: "Darren Curtis",
     role: "Head Coach",
-    image: "/images/gallery-5.jpg",
+    image: "/images/coach-darren.jpg",
     bio: "Training since 2009, Darren is Professor Chris Bowes' first black belt and brings years of competition experience, technical depth, and hands-on coaching to every class.",
   },
   {
     name: "Brian Connolly",
     role: "Coach",
-    image: "/images/gallery-6.jpg",
+    image: "/images/coach-brian.jpg",
     bio: "Brian began training in 2009, earned his black belt in 2022, and built a strong reputation for coaching kids and teens with structure, patience, and real care.",
   },
 ];
@@ -190,13 +190,18 @@ export const faqs = [
 ];
 
 export const galleryImages = [
-  { src: "/images/gallery-1.jpg", alt: "Brazilian Jiu Jitsu class training in Carlow" },
-  { src: "/images/gallery-2.jpg", alt: "Grappling exchange during class at Attic Jiu Jitsu" },
-  { src: "/images/gallery-3.jpg", alt: "Training partners drilling in a BJJ class in Carlow" },
-  { src: "/images/gallery-4.jpg", alt: "No-gi and mixed-level training at Attic Jiu Jitsu" },
-  { src: "/images/gallery-5.jpg", alt: "Coach-led Brazilian Jiu Jitsu instruction in Carlow" },
-  { src: "/images/gallery-6.jpg", alt: "Students building technique in a Carlow jiu jitsu academy" },
-  { src: "/images/gallery-7.jpg", alt: "Live training atmosphere at Attic Jiu Jitsu Carlow" },
+  { src: "/images/gallery-1.jpg", alt: "Brazilian Jiu Jitsu class training in Carlow", title: "Live rolling", category: "Adults" },
+  { src: "/images/gallery-2.jpg", alt: "Grappling exchange during class at Attic Jiu Jitsu", title: "Pressure and control", category: "Adults" },
+  { src: "/images/gallery-3.jpg", alt: "Training partners drilling in a BJJ class in Carlow", title: "Guard passing rounds", category: "Technique" },
+  { src: "/images/gallery-4.jpg", alt: "No-gi and mixed-level training at Attic Jiu Jitsu", title: "Movement on the mats", category: "No-Gi" },
+  { src: "/images/gallery-5.jpg", alt: "Coach-led Brazilian Jiu Jitsu instruction in Carlow", title: "Coach-led detail work", category: "Coaching" },
+  { src: "/images/gallery-6.jpg", alt: "Students building technique in a Carlow jiu jitsu academy", title: "Technical reps", category: "Technique" },
+  { src: "/images/gallery-7.jpg", alt: "Live training atmosphere at Attic Jiu Jitsu Carlow", title: "Mat-side coaching", category: "Community" },
+  { src: "/images/gallery-8.jpg", alt: "Coach working with students during BJJ training in Carlow", title: "Hands-on coaching", category: "Coaching" },
+  { src: "/images/gallery-9.jpg", alt: "Students grappling during class at Attic Jiu Jitsu", title: "Team rounds", category: "Adults" },
+  { src: "/images/gallery-10.jpg", alt: "Technique discussion on the mats at Attic Jiu Jitsu", title: "Details between rounds", category: "Coaching" },
+  { src: "/images/gallery-11.jpg", alt: "Women's training round in Brazilian Jiu Jitsu class in Carlow", title: "All levels welcome", category: "Community" },
+  { src: "/images/gallery-12.jpg", alt: "Submission practice during BJJ class in Carlow", title: "Live problem solving", category: "Adults" },
 ];
 
 export const formOptions = [

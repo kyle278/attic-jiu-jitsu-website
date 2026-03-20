@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <section className="relative overflow-hidden">
         <Image
-          src="/images/hero.jpg"
+          src="/images/hero-live.jpeg"
           alt="Attic Jiu Jitsu training on the mats in Carlow"
           fill
           priority
