@@ -63,7 +63,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="grid gap-4 rounded-[20px] border border-white/10 bg-white/4 p-5">
+              <div className="grid gap-4 rounded-[20px] border border-white/10 bg-[rgba(67,25,34,0.42)] p-5">
                 <p className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">
                   {site.address}
                 </p>
@@ -96,10 +96,10 @@ export default function Home() {
               <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em]">
                 A local academy with serious coaching and a supportive atmosphere.
               </h2>
-              <p className="max-w-xl text-lg leading-8 text-black/75">
+              <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
                 Whether you want fitness, self-belief, a new challenge, or a competitive edge, Attic gives you a place to train consistently and improve the right way.
               </p>
-              <div className="image-frame relative h-72 overflow-hidden border-black/10">
+              <div className="image-frame relative h-72 overflow-hidden border-white/10">
                 <Image src="/images/gallery-2.jpg" alt="Live grappling exchange during class at Attic Jiu Jitsu" fill className="object-cover" />
               </div>
             </div>
@@ -157,13 +157,13 @@ export default function Home() {
             <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em]">
               Simple memberships for the way you want to train.
             </h2>
-            <p className="max-w-xl text-lg leading-8 text-black/75">
+            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
               Beginner packs, monthly memberships, student rates, and family options make it easy to start well and stay consistent.
             </p>
             <Link href="/memberships" className="button-primary" data-track="pricing_cta_click" data-label="See Membership Options" data-location="home_pricing">
               See Membership Options
             </Link>
-            <div className="image-frame relative h-72 overflow-hidden border-black/10">
+            <div className="image-frame relative h-72 overflow-hidden border-white/10">
               <Image src="/images/gallery-3.jpg" alt="Training partners drilling in the academy in Carlow" fill className="object-cover" />
             </div>
           </div>
@@ -174,12 +174,12 @@ export default function Home() {
                 <p className="eyebrow">{group.title}</p>
                 <div className="mt-4 grid gap-4">
                   {group.plans.slice(0, 2).map((plan) => (
-                    <div key={plan.name} className="rounded-[18px] border border-black/8 bg-white/55 p-4">
+                    <div key={plan.name} className="rounded-[18px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-4">
                       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                         <h3 className="font-heading text-2xl uppercase tracking-[0.12em]">{plan.name}</h3>
-                        <span className="text-sm font-semibold uppercase tracking-[0.12em] text-black/70">{plan.price}</span>
+                        <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--fog)]">{plan.price}</span>
                       </div>
-                      <p className="mt-2 text-black/70">{plan.detail}</p>
+                      <p className="mt-2 text-[color:var(--fog)]">{plan.detail}</p>
                     </div>
                   ))}
                 </div>
@@ -191,7 +191,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryImages.slice(0, 4).map((image) => (
+          {galleryImages.slice(4, 8).map((image) => (
             <div key={image.src} className="image-frame relative h-72">
               <Image src={image.src} alt={image.alt} fill className="object-cover" />
             </div>
@@ -222,7 +222,7 @@ export default function Home() {
                 <summary className="cursor-pointer list-none font-heading text-2xl uppercase tracking-[0.1em]" data-track="faq_expand" data-label={faq.question} data-location="home_faq">
                   {faq.question}
                 </summary>
-                <p className="mt-3 text-black/75">{faq.answer}</p>
+                <p className="mt-3 text-[color:var(--fog)]">{faq.answer}</p>
               </details>
             ))}
           </div>

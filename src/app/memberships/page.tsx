@@ -54,11 +54,11 @@ export default function MembershipsPage() {
                 <h2 className="mt-2 font-heading text-3xl uppercase tracking-[0.12em]">{group.title} Options</h2>
                 <div className="mt-6 grid gap-4">
                   {group.plans.map((plan) => (
-                    <div key={plan.name} className="rounded-[18px] border border-black/8 bg-white/55 p-4">
+                    <div key={plan.name} className="rounded-[18px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-4">
                       <div className="flex flex-col gap-2">
                         <h3 className="font-heading text-2xl uppercase tracking-[0.12em]">{plan.name}</h3>
-                        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-black/65">{plan.price}</p>
-                        <p className="text-black/75">{plan.detail}</p>
+                        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--fog)]">{plan.price}</p>
+                        <p className="text-[color:var(--fog)]">{plan.detail}</p>
                       </div>
                     </div>
                   ))}

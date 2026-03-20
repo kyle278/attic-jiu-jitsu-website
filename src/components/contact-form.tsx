@@ -135,7 +135,7 @@ export function ContactForm() {
       </button>
 
       {message ? (
-        <p className={status === "success" ? "text-sm text-[color:var(--bronze)]" : "text-sm text-red-300"}>{message}</p>
+        <p className={status === "success" ? "text-sm text-[color:var(--bronze)]" : "text-sm text-[#f0a7b2]"}>{message}</p>
       ) : null}
     </form>
   );

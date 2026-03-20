@@ -29,6 +29,7 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
 
   const safeIndex = Math.min(activeIndex, Math.max(filteredImages.length - 1, 0));
   const activeImage = filteredImages[safeIndex] ?? images[0];
+  const thumbnailImages = filteredImages.filter((image) => image.src !== activeImage?.src);
 
   return (
     <div className="grid gap-8">
@@ -42,7 +43,7 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
               className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] ${
                 active
                   ? "border-[color:var(--bronze)] bg-[color:var(--bronze)] text-[color:var(--chalk)]"
-                  : "border-black/10 bg-white/55 text-black/70"
+                  : "border-white/12 bg-[rgba(63,24,32,0.38)] text-[color:var(--fog)]"
               }`}
               onClick={() => {
                 setActiveCategory(category);
@@ -62,25 +63,24 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
           onClick={() => setLightboxOpen(true)}
         >
           <Image src={activeImage.src} alt={activeImage.alt} fill className="object-cover" />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent p-6 text-white">
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(15,12,13,0.88)] via-[rgba(45,20,28,0.34)] to-transparent p-6 text-[color:var(--chalk)]">
             <p className="eyebrow !text-[color:var(--chalk)]">{activeImage.category}</p>
             <h2 className="font-heading text-4xl uppercase tracking-[0.1em]">{activeImage.title}</h2>
-            <p className="mt-2 text-sm uppercase tracking-[0.14em] text-white/80">Tap to expand</p>
+            <p className="mt-2 text-sm uppercase tracking-[0.14em] text-[color:var(--fog)]">Tap to expand</p>
           </div>
         </button>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {filteredImages.map((image, index) => {
-            const selected = index === safeIndex;
+          {thumbnailImages.map((image) => {
             return (
               <button
                 key={image.src}
                 type="button"
-                className={`image-frame relative h-44 overflow-hidden text-left ${selected ? "ring-2 ring-[color:var(--bronze)]" : ""}`}
-                onClick={() => setActiveIndex(index)}
+                className="image-frame relative h-44 overflow-hidden text-left"
+                onClick={() => setActiveIndex(filteredImages.findIndex((entry) => entry.src === image.src))}
               >
                 <Image src={image.src} alt={image.alt} fill className="object-cover" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent p-4 text-white">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(15,12,13,0.88)] via-[rgba(45,20,28,0.32)] to-transparent p-4 text-[color:var(--chalk)]">
                   <p className="font-heading text-xl uppercase tracking-[0.08em]">{image.title}</p>
                 </div>
               </button>
@@ -90,11 +90,11 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
       </div>
 
       {lightboxOpen ? (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/88 p-5" onClick={() => setLightboxOpen(false)}>
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-[rgba(15,12,13,0.9)] p-5" onClick={() => setLightboxOpen(false)}>
           <div className="relative h-[80vh] w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>
             <button
               type="button"
-              className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-black/30 px-4 py-2 text-xs uppercase tracking-[0.16em] text-white"
+              className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-[rgba(28,22,24,0.78)] px-4 py-2 text-xs uppercase tracking-[0.16em] text-[color:var(--chalk)]"
               onClick={() => setLightboxOpen(false)}
             >
               Close

@@ -34,21 +34,21 @@ export default function AboutPage() {
           <div className="panel-light p-6">
             <p className="eyebrow">Culture</p>
             <h2 className="font-heading text-3xl uppercase tracking-[0.12em]">Supportive on day one</h2>
-            <p className="mt-4 text-black/75">
+            <p className="mt-4 text-[color:var(--fog)]">
               Beginners are coached clearly, welcomed into the room, and given a realistic path into training without pressure.
             </p>
           </div>
           <div className="panel-light p-6">
             <p className="eyebrow">Coaching</p>
             <h2 className="font-heading text-3xl uppercase tracking-[0.12em]">Black belt experience</h2>
-            <p className="mt-4 text-black/75">
+            <p className="mt-4 text-[color:var(--fog)]">
               Years of training, competition, and youth coaching experience shape the academy from the first fundamentals class to advanced rounds.
             </p>
           </div>
           <div className="panel-light p-6">
             <p className="eyebrow">Community</p>
             <h2 className="font-heading text-3xl uppercase tracking-[0.12em]">Built for long-term progress</h2>
-            <p className="mt-4 text-black/75">
+            <p className="mt-4 text-[color:var(--fog)]">
               Adults, kids, teens, hobbyists, and competitors all have space to learn, improve, and stay consistent.
             </p>
           </div>
@@ -77,19 +77,19 @@ export default function AboutPage() {
           <div className="space-y-5">
             <p className="eyebrow">Train With Us</p>
             <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em]">A good fit for first-timers, parents, and committed students.</h2>
-            <p className="max-w-xl text-lg leading-8 text-black/75">
+            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
               Train for fitness, confidence, a new challenge, or competition. There is a route into the academy that meets you at your level.
             </p>
           </div>
           <div className="panel-light p-6">
             <p className="eyebrow">Find Us</p>
             <p className="font-heading text-3xl uppercase tracking-[0.12em]">{site.address}</p>
-            <p className="mt-4 text-black/75">Contact the team if you want help choosing the best class or membership.</p>
+            <p className="mt-4 text-[color:var(--fog)]">Contact the team if you want help choosing the best class or membership.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/#trial-form" className="button-primary" data-track="cta_click" data-label="Book a Free Trial" data-location="about_cta">
                 Book a Free Trial
               </Link>
-              <a href={site.phoneHref} className="button-secondary !border-black/15 !text-black" data-track="phone_click" data-label={site.phone} data-location="about_cta">
+              <a href={site.phoneHref} className="button-secondary" data-track="phone_click" data-label={site.phone} data-location="about_cta">
                 Call The Academy
               </a>
             </div>

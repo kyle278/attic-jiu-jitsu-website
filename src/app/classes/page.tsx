@@ -56,8 +56,8 @@ export default function ClassesPage() {
               <article key={program.title} className="panel-light p-6">
                 <p className="eyebrow">Program</p>
                 <h2 className="mt-2 font-heading text-3xl uppercase tracking-[0.12em]">{program.title}</h2>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-black/65">{program.duration}</p>
-                <p className="mt-4 text-black/75">{program.description}</p>
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--fog)]">{program.duration}</p>
+                <p className="mt-4 text-[color:var(--fog)]">{program.description}</p>
               </article>
             ))}
           </div>
@@ -77,11 +77,11 @@ export default function ClassesPage() {
             </div>
           </div>
           <div className="grid gap-4">
-            <div className="rounded-[20px] border border-white/10 bg-white/5 p-5">
+            <div className="rounded-[20px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-5">
               <h3 className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">Best for complete beginners</h3>
               <p className="mt-2 text-[color:var(--fog)]">Adults Beginners or No-Gi Beginners are the easiest first step into the academy.</p>
             </div>
-            <div className="rounded-[20px] border border-white/10 bg-white/5 p-5">
+            <div className="rounded-[20px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-5">
               <h3 className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">Best for parents</h3>
               <p className="mt-2 text-[color:var(--fog)]">Kids and teens classes focus on discipline, confidence, movement, and a positive team environment.</p>
             </div>
