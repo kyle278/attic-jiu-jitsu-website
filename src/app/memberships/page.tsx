@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { pricingGroups, site } from "@/lib/site-data";
@@ -22,7 +23,11 @@ export default function MembershipsPage() {
               Choose a beginner pack, monthly membership, student rate, or family plan and train in the way that makes sense for your routine.
             </p>
           </div>
-          <div className="panel-dark p-6 sm:p-8">
+          <div className="panel-dark overflow-hidden">
+            <div className="image-frame relative h-60">
+              <Image src="/images/gallery-6.jpg" alt="Students building technique at Attic Jiu Jitsu Carlow" fill className="object-cover" />
+            </div>
+            <div className="p-6 sm:p-8">
             <p className="eyebrow">Need Help Choosing?</p>
             <p className="text-lg leading-8 text-[color:var(--fog)]">
               If you are new, the beginner routes are the simplest way to start. If you want regular access, unlimited monthly training offers the strongest value per class.
@@ -34,6 +39,7 @@ export default function MembershipsPage() {
               <a href={site.membershipUrl} target="_blank" rel="noreferrer" className="button-secondary" data-track="external_link_click" data-label="Current Live Pricing" data-location="memberships_intro">
                 Current Live Pricing
               </a>
+            </div>
             </div>
           </div>
         </div>

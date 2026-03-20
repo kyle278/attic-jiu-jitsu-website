@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { classPrograms, site } from "@/lib/site-data";
@@ -31,14 +32,19 @@ export default function ClassesPage() {
             </div>
           </div>
 
-          <div className="panel-dark p-6 sm:p-8">
-            <p className="eyebrow">What To Expect</p>
-            <ul className="mt-4 grid gap-4 text-lg text-[color:var(--fog)]">
-              <li>Start with the class that matches your current experience level.</li>
-              <li>Train in gi, no-gi, youth, or sparring sessions as your confidence grows.</li>
-              <li>Use the live booking calendar for the latest session times and availability.</li>
-              <li>Ask for guidance if you are not sure where to begin.</li>
-            </ul>
+          <div className="panel-dark overflow-hidden">
+            <div className="image-frame relative h-64">
+              <Image src="/images/gallery-1.jpg" alt="Brazilian Jiu Jitsu class training in Carlow" fill className="object-cover" />
+            </div>
+            <div className="p-6 sm:p-8">
+              <p className="eyebrow">What To Expect</p>
+              <ul className="mt-4 grid gap-4 text-lg text-[color:var(--fog)]">
+                <li>Start with the class that matches your current experience level.</li>
+                <li>Train in gi, no-gi, youth, or sparring sessions as your confidence grows.</li>
+                <li>Use the live booking calendar for the latest session times and availability.</li>
+                <li>Ask for guidance if you are not sure where to begin.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -59,13 +65,16 @@ export default function ClassesPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="panel-dark grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="panel-dark grid gap-8 overflow-hidden p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-4">
             <p className="eyebrow">Timetable</p>
             <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">Use the live schedule for the latest class times.</h2>
             <p className="text-lg leading-8 text-[color:var(--fog)]">
               The booking calendar is the best place to see current class times, availability, and session updates.
             </p>
+            <div className="image-frame relative h-72">
+              <Image src="/images/gallery-7.jpg" alt="Live training atmosphere on the mats at Attic Jiu Jitsu" fill className="object-cover" />
+            </div>
           </div>
           <div className="grid gap-4">
             <div className="rounded-[20px] border border-white/10 bg-white/5 p-5">

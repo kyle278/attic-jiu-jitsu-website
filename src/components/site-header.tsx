@@ -13,32 +13,34 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[color:var(--ink)]/92 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="flex min-w-0 items-center gap-3"
           data-track="nav_click"
           data-label="Logo"
           data-location="header"
           onClick={() => setOpen(false)}
         >
           <Image src="/images/logo.png" alt="Attic Jiu Jitsu logo" width={44} height={44} className="rounded-full" />
-          <div>
-            <div className="font-heading text-lg uppercase tracking-[0.24em] text-[color:var(--chalk)]">
+          <div className="min-w-0">
+            <div className="font-heading text-base uppercase tracking-[0.18em] text-[color:var(--chalk)] sm:text-lg">
               Attic
             </div>
-            <div className="text-xs uppercase tracking-[0.3em] text-[color:var(--fog)]">Jiu Jitsu Carlow</div>
+            <div className="whitespace-nowrap text-[10px] uppercase tracking-[0.22em] text-[color:var(--fog)] sm:text-xs">
+              Jiu Jitsu Carlow
+            </div>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-4 xl:gap-5 lg:flex">
           {navigation.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm uppercase tracking-[0.22em] transition ${
+                className={`whitespace-nowrap text-xs uppercase tracking-[0.16em] transition xl:text-sm ${
                   active ? "text-[color:var(--bronze)]" : "text-[color:var(--fog)] hover:text-[color:var(--chalk)]"
                 }`}
                 data-track="nav_click"
@@ -51,26 +53,26 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 xl:gap-3 lg:flex">
           <a
             href={site.bookingUrl}
             target="_blank"
             rel="noreferrer"
-            className="button-secondary"
+            className="button-secondary px-4 xl:px-5"
             data-track="external_link_click"
             data-label="View Timetable"
             data-location="header"
           >
             View Timetable
           </a>
-          <Link href="/#trial-form" className="button-primary" data-track="cta_click" data-label="Book a Free Trial" data-location="header">
+          <Link href="/#trial-form" className="button-primary px-4 xl:px-5" data-track="cta_click" data-label="Book a Free Trial" data-location="header">
             Book a Free Trial
           </Link>
         </div>
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.24em] text-[color:var(--chalk)] lg:hidden"
+          className="inline-flex min-h-11 items-center justify-center rounded-[14px] border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.16em] text-[color:var(--chalk)] lg:hidden"
           onClick={() => setOpen((value) => !value)}
         >
           Menu
@@ -84,7 +86,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm uppercase tracking-[0.22em] text-[color:var(--fog)]"
+                className="whitespace-nowrap text-sm uppercase tracking-[0.16em] text-[color:var(--fog)]"
                 data-track="nav_click"
                 data-label={item.label}
                 data-location="mobile_menu"

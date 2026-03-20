@@ -99,6 +99,9 @@ export default function Home() {
               <p className="max-w-xl text-lg leading-8 text-black/75">
                 Whether you want fitness, self-belief, a new challenge, or a competitive edge, Attic gives you a place to train consistently and improve the right way.
               </p>
+              <div className="image-frame relative h-72 overflow-hidden border-black/10">
+                <Image src="/images/gallery-2.jpg" alt="Live grappling exchange during class at Attic Jiu Jitsu" fill className="object-cover" />
+              </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {proofPoints.map((point) => (
@@ -160,6 +163,9 @@ export default function Home() {
             <Link href="/memberships" className="button-primary" data-track="pricing_cta_click" data-label="See Membership Options" data-location="home_pricing">
               See Membership Options
             </Link>
+            <div className="image-frame relative h-72 overflow-hidden border-black/10">
+              <Image src="/images/gallery-3.jpg" alt="Training partners drilling in the academy in Carlow" fill className="object-cover" />
+            </div>
           </div>
 
           <div className="grid gap-4">
