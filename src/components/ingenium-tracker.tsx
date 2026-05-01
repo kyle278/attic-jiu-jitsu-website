@@ -34,6 +34,16 @@ function initTracker() {
   return true;
 }
 
+function getScrollDepthPercent() {
+  const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+  if (pageHeight <= 0) {
+    return 100;
+  }
+
+  return Math.min(100, Math.max(0, Math.round((window.scrollY / pageHeight) * 100)));
+}
+
 export function IngeniumTracker() {
   const pathname = usePathname();
 
@@ -60,11 +70,53 @@ export function IngeniumTracker() {
       return;
     }
 
-    window.IngeniumTracker.track("page_view", {}, {
+    const startedAt = Date.now();
+    let maxScrollDepth = getScrollDepthPercent();
+    let metricsSent = false;
+
+    const track = window.IngeniumTracker.track;
+    const pageProperties = () => ({
       path: pathname,
       url: window.location.href,
       title: document.title,
     });
+
+    const handleScroll = () => {
+      maxScrollDepth = Math.max(maxScrollDepth, getScrollDepthPercent());
+    };
+
+    const sendPageMetrics = () => {
+      if (metricsSent) {
+        return;
+      }
+
+      metricsSent = true;
+
+      track("scroll_depth", {}, {
+        ...pageProperties(),
+        depth_percent: maxScrollDepth,
+      });
+      track("time_on_page", {}, {
+        ...pageProperties(),
+        seconds_on_page: Math.max(1, Math.round((Date.now() - startedAt) / 1000)),
+      });
+    };
+
+    const handlePageHide = () => {
+      sendPageMetrics();
+    };
+
+    window.IngeniumTracker.track("page_view", {}, {
+      ...pageProperties(),
+    });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("pagehide", handlePageHide);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("pagehide", handlePageHide);
+      sendPageMetrics();
+    };
   }, [pathname]);
 
   return null;
