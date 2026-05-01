@@ -86,7 +86,13 @@ export default function AboutPage() {
             <p className="font-heading text-3xl uppercase tracking-[0.12em]">{site.address}</p>
             <p className="mt-4 text-[color:var(--fog)]">Contact the team if you want help choosing the best class or membership.</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/#trial-form" className="button-primary">
+              <Link
+                href="/#trial-form"
+                className="button-primary"
+                data-ingenium-event="contact_cta_click"
+                data-ingenium-label="Book a Free Trial"
+                data-ingenium-location="about_cta"
+              >
                 Book a Free Trial
               </Link>
               <a href={site.phoneHref} className="button-secondary">

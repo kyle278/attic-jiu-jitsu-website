@@ -15,7 +15,13 @@ export function SiteFooter() {
             Build fitness, confidence, and real grappling skill with a team that welcomes beginners and supports long-term growth.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/#trial-form" className="button-primary">
+            <Link
+              href="/#trial-form"
+              className="button-primary"
+              data-ingenium-event="contact_cta_click"
+              data-ingenium-label="Book a Free Trial"
+              data-ingenium-location="footer"
+            >
               Book a Free Trial
             </Link>
             <a
@@ -23,6 +29,9 @@ export function SiteFooter() {
               target="_blank"
               rel="noreferrer"
               className="button-secondary"
+              data-ingenium-event="booking_cta_click"
+              data-ingenium-label="View Timetable"
+              data-ingenium-location="footer"
             >
               View Timetable
             </a>
@@ -55,6 +64,9 @@ export function SiteFooter() {
               key={item.href}
               href={item.href}
               className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]"
+              data-ingenium-event="nav_click"
+              data-ingenium-label={item.label}
+              data-ingenium-location="footer"
             >
               {item.label}
             </Link>

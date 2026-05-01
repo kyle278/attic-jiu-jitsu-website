@@ -1,50 +1,66 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { site } from "@/lib/site-data";
 
-function buildMailtoLink(formData: FormData) {
-  const firstName = String(formData.get("first_name") ?? "").trim();
-  const lastName = String(formData.get("last_name") ?? "").trim();
-  const email = String(formData.get("email") ?? "").trim();
-  const phone = String(formData.get("phone") ?? "").trim();
-  const message = String(formData.get("message") ?? "").trim();
-  const marketingConsent = formData.get("marketing_consent") === "yes" ? "Yes" : "No";
-
-  const subject = encodeURIComponent(`Website enquiry from ${firstName} ${lastName}`.trim());
-  const body = encodeURIComponent(
-    [
-      `First name: ${firstName}`,
-      `Last name: ${lastName}`,
-      `Email: ${email}`,
-      `Phone number: ${phone || "Not provided"}`,
-      `Marketing updates consent: ${marketingConsent}`,
-      "",
-      "Message / query:",
-      message || "Not provided",
-    ].join("\n"),
-  );
-
-  return `mailto:${site.email}?subject=${subject}&body=${body}`;
-}
+type SubmitState = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
-    const form = event.currentTarget;
+  useEffect(() => {
+    const form = formRef.current;
 
-    if (!form.reportValidity()) {
+    if (!form) {
       return;
     }
 
-    const mailtoLink = buildMailtoLink(new FormData(form));
-    window.location.href = mailtoLink;
-  }
+    const handleSubmitting = () => {
+      setSubmitState("submitting");
+      setFeedbackMessage("");
+    };
+
+    const handleSuccess = () => {
+      form.reset();
+      setSubmitState("success");
+      setFeedbackMessage("Thanks. Your enquiry has been sent and someone will be in touch soon.");
+    };
+
+    const handleError = (event: Event) => {
+      const detail = "detail" in event && event.detail && typeof event.detail === "object"
+        ? event.detail
+        : null;
+      const nextMessage = detail && "message" in detail && typeof detail.message === "string"
+        ? detail.message
+        : "Something went wrong. Please try again or call the academy directly.";
+
+      setSubmitState("error");
+      setFeedbackMessage(nextMessage);
+    };
+
+    form.addEventListener("ingenium:form-submitting", handleSubmitting);
+    form.addEventListener("ingenium:form-success", handleSuccess);
+    form.addEventListener("ingenium:form-error", handleError);
+
+    return () => {
+      form.removeEventListener("ingenium:form-submitting", handleSubmitting);
+      form.removeEventListener("ingenium:form-success", handleSuccess);
+      form.removeEventListener("ingenium:form-error", handleError);
+    };
+  }, []);
 
   return (
-    <form id="trial-form" className="panel-dark grid gap-5 p-6 sm:p-8" onSubmit={handleSubmit}>
+    <form
+      ref={formRef}
+      id="trial-form"
+      className="panel-dark grid gap-5 p-6 sm:p-8"
+      data-ingenium-submit="portal"
+      data-form-slug="contact"
+      data-ingenium-form-label="Contact Form"
+    >
       <div className="space-y-3">
         <div>
           <p className="eyebrow">Get In Touch</p>
@@ -53,7 +69,7 @@ export function ContactForm() {
           </h3>
         </div>
         <p className="text-base leading-7 text-[color:var(--fog)]">
-          Fill out the form below and your device will open a draft email addressed to the academy.
+          Fill out the form below and your enquiry will be sent directly to the academy.
         </p>
         <p className="text-sm text-[color:var(--fog)]">Fields marked with * are required.</p>
       </div>
@@ -103,9 +119,7 @@ export function ContactForm() {
             type="checkbox"
             required
           />
-          <span>
-            I consent to Attic Jiu Jitsu using my details to respond to my enquiry.*
-          </span>
+          <span>I consent to Attic Jiu Jitsu using my details to respond to my enquiry.*</span>
         </label>
 
         <label className="flex items-start gap-3">
@@ -135,13 +149,19 @@ export function ContactForm() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <button type="submit" className="button-primary w-full sm:w-fit">
-          Create Email Enquiry
+        <button type="submit" className="button-primary w-full sm:w-fit" disabled={submitState === "submitting"}>
+          {submitState === "submitting" ? "Sending..." : "Send Enquiry"}
         </button>
         <a href={site.phoneHref} className="button-secondary w-full sm:w-fit">
           Call {site.phone}
         </a>
       </div>
+
+      {feedbackMessage ? (
+        <p className={submitState === "success" ? "text-sm text-[color:var(--bronze)]" : "text-sm text-red-300"}>
+          {feedbackMessage}
+        </p>
+      ) : null}
     </form>
   );
 }

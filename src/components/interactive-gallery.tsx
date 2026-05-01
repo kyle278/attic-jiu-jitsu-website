@@ -40,6 +40,9 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
             <button
               key={category}
               type="button"
+              data-ingenium-event="filter_apply"
+              data-ingenium-label={category}
+              data-ingenium-location="gallery_filter"
               className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] ${
                 active
                   ? "border-[color:var(--bronze)] bg-[color:var(--bronze)] text-[color:var(--chalk)]"
@@ -59,6 +62,9 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
       <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
         <button
           type="button"
+          data-ingenium-event="gallery_interaction"
+          data-ingenium-label={activeImage.title}
+          data-ingenium-location="gallery_featured"
           className="image-frame relative block min-h-[420px] overflow-hidden text-left"
           onClick={() => setLightboxOpen(true)}
         >
@@ -76,6 +82,9 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
               <button
                 key={image.src}
                 type="button"
+                data-ingenium-event="gallery_interaction"
+                data-ingenium-label={image.title}
+                data-ingenium-location="gallery_thumbnail"
                 className="image-frame relative h-44 overflow-hidden text-left"
                 onClick={() => setActiveIndex(filteredImages.findIndex((entry) => entry.src === image.src))}
               >
@@ -94,6 +103,9 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
           <div className="relative h-[80vh] w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>
             <button
               type="button"
+              data-ingenium-event="gallery_interaction"
+              data-ingenium-label="Close Lightbox"
+              data-ingenium-location="gallery_lightbox"
               className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-[rgba(28,22,24,0.78)] px-4 py-2 text-xs uppercase tracking-[0.16em] text-[color:var(--chalk)]"
               onClick={() => setLightboxOpen(false)}
             >

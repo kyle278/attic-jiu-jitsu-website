@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
-import Script from "next/script";
 
 import { IngeniumTracker } from "@/components/ingenium-tracker";
 import { SiteFooter } from "@/components/site-footer";
@@ -61,11 +60,23 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${heading.variable} ${body.variable} h-full antialiased`}>
-      <body className="min-h-full bg-[color:var(--ink)] font-body text-[color:var(--chalk)]">
-        <Script
-          src="https://portal.ingeniumconsulting.net/ingenium-tracker.js"
-          strategy="beforeInteractive"
+      <head>
+        <script src="https://portal.ingeniumconsulting.net/ingenium-tracker.js" defer />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener("DOMContentLoaded", function () {
+                if (!window.IngeniumTracker) return;
+                window.IngeniumTracker.init({
+                  endpoint: "https://portal.ingeniumconsulting.net/api/websites/tracking/events",
+                  siteId: "8b0e89c9-3090-46b2-b008-4d5c46233647"
+                });
+              });
+            `,
+          }}
         />
+      </head>
+      <body className="min-h-full bg-[color:var(--ink)] font-body text-[color:var(--chalk)]">
         <IngeniumTracker />
         <script
           type="application/ld+json"

@@ -17,6 +17,9 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex min-w-0 items-center gap-3"
+          data-ingenium-event="nav_click"
+          data-ingenium-label="Logo"
+          data-ingenium-location="header"
           onClick={() => setOpen(false)}
         >
           <Image src="/images/logo.png" alt="Attic Jiu Jitsu logo" width={44} height={44} className="rounded-full" />
@@ -40,6 +43,9 @@ export function SiteHeader() {
                 className={`whitespace-nowrap text-xs uppercase tracking-[0.16em] transition xl:text-sm ${
                   active ? "text-[color:var(--bronze)]" : "text-[color:var(--fog)] hover:text-[color:var(--chalk)]"
                 }`}
+                data-ingenium-event="nav_click"
+                data-ingenium-label={item.label}
+                data-ingenium-location="header"
               >
                 {item.label}
               </Link>
@@ -53,10 +59,19 @@ export function SiteHeader() {
             target="_blank"
             rel="noreferrer"
             className="button-secondary px-4 xl:px-5"
+            data-ingenium-event="booking_cta_click"
+            data-ingenium-label="View Timetable"
+            data-ingenium-location="header"
           >
             View Timetable
           </a>
-          <Link href="/#trial-form" className="button-primary px-4 xl:px-5">
+          <Link
+            href="/#trial-form"
+            className="button-primary px-4 xl:px-5"
+            data-ingenium-event="contact_cta_click"
+            data-ingenium-label="Book a Free Trial"
+            data-ingenium-location="header"
+          >
             Book a Free Trial
           </Link>
         </div>
@@ -78,6 +93,9 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className="whitespace-nowrap text-sm uppercase tracking-[0.16em] text-[color:var(--fog)]"
+                data-ingenium-event="nav_click"
+                data-ingenium-label={item.label}
+                data-ingenium-location="mobile_menu"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -88,12 +106,18 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
               className="button-secondary mt-2 text-center"
+              data-ingenium-event="booking_cta_click"
+              data-ingenium-label="View Timetable"
+              data-ingenium-location="mobile_menu"
             >
               View Timetable
             </a>
             <Link
               href="/#trial-form"
               className="button-primary text-center"
+              data-ingenium-event="contact_cta_click"
+              data-ingenium-label="Book a Free Trial"
+              data-ingenium-location="mobile_menu"
               onClick={() => setOpen(false)}
             >
               Book a Free Trial

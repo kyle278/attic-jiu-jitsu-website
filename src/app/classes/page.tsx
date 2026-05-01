@@ -23,10 +23,24 @@ export default function ClassesPage() {
               Whether you want a complete beginner start, more live rounds, youth coaching, or a stronger no-gi routine, there is a class path that fits.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/#trial-form" className="button-primary">
+              <Link
+                href="/#trial-form"
+                className="button-primary"
+                data-ingenium-event="contact_cta_click"
+                data-ingenium-label="Book a Free Trial"
+                data-ingenium-location="classes_hero"
+              >
                 Book a Free Trial
               </Link>
-              <a href={site.bookingUrl} target="_blank" rel="noreferrer" className="button-secondary">
+              <a
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="button-secondary"
+                data-ingenium-event="booking_cta_click"
+                data-ingenium-label="Open Booking Calendar"
+                data-ingenium-location="classes_hero"
+              >
                 Open Booking Calendar
               </a>
             </div>
@@ -85,7 +99,15 @@ export default function ClassesPage() {
               <h3 className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">Best for parents</h3>
               <p className="mt-2 text-[color:var(--fog)]">Kids and teens classes focus on discipline, confidence, movement, and a positive team environment.</p>
             </div>
-            <a href={site.bookingUrl} target="_blank" rel="noreferrer" className="button-primary w-fit">
+            <a
+              href={site.bookingUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="button-primary w-fit"
+              data-ingenium-event="booking_cta_click"
+              data-ingenium-label="View The Live Timetable"
+              data-ingenium-location="classes_timetable"
+            >
               View The Live Timetable
             </a>
           </div>

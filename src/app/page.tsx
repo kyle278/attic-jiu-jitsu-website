@@ -36,7 +36,13 @@ export default function Home() {
                 Friendly classes for adults, teens, and kids with experienced coaching, gi and no-gi training, and a clear path from your first class to long-term progress.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/#trial-form" className="button-primary">
+                <Link
+                  href="/#trial-form"
+                  className="button-primary"
+                  data-ingenium-event="contact_cta_click"
+                  data-ingenium-label="Book a Free Trial"
+                  data-ingenium-location="home_hero"
+                >
                   Book a Free Trial
                 </Link>
                 <a
@@ -44,6 +50,9 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   className="button-secondary"
+                  data-ingenium-event="booking_cta_click"
+                  data-ingenium-label="View Timetable"
+                  data-ingenium-location="home_hero"
                 >
                   View Timetable
                 </a>
@@ -76,7 +85,14 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-3">
           {audiencePaths.map((path) => (
-            <Link key={path.title} href={path.href} className="panel-dark block p-6">
+            <Link
+              key={path.title}
+              href={path.href}
+              className="panel-dark block p-6"
+              data-ingenium-event="service_card_click"
+              data-ingenium-label={path.title}
+              data-ingenium-location="home_paths"
+            >
               <p className="eyebrow">{path.eyebrow}</p>
               <h2 className="mt-3 font-heading text-3xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">{path.title}</h2>
               <p className="mt-4 text-base leading-7 text-[color:var(--fog)]">{path.description}</p>
@@ -157,7 +173,13 @@ export default function Home() {
             <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
               Beginner packs, monthly memberships, student rates, and family options make it easy to start well and stay consistent.
             </p>
-            <Link href="/memberships" className="button-primary">
+            <Link
+              href="/memberships"
+              className="button-primary"
+              data-ingenium-event="pricing_cta_click"
+              data-ingenium-label="See Membership Options"
+              data-ingenium-location="home_memberships"
+            >
               See Membership Options
             </Link>
             <div className="image-frame relative h-72 overflow-hidden border-white/10">
@@ -199,7 +221,13 @@ export default function Home() {
             <p className="eyebrow">Inside The Academy</p>
             <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">See the atmosphere before you step on the mats.</h2>
           </div>
-          <Link href="/gallery" className="button-secondary">
+          <Link
+            href="/gallery"
+            className="button-secondary"
+            data-ingenium-event="cta_click"
+            data-ingenium-label="View Gallery"
+            data-ingenium-location="home_gallery"
+          >
             View Gallery
           </Link>
         </div>
@@ -215,7 +243,13 @@ export default function Home() {
           </div>
           <div className="grid gap-4">
             {faqs.map((faq) => (
-              <details key={faq.question} className="panel-light p-5">
+              <details
+                key={faq.question}
+                className="panel-light p-5"
+                data-ingenium-event="faq_expand"
+                data-ingenium-label={faq.question}
+                data-ingenium-location="home_faq"
+              >
                 <summary className="cursor-pointer list-none font-heading text-2xl uppercase tracking-[0.1em]">
                   {faq.question}
                 </summary>

@@ -38,7 +38,13 @@ export default function GalleryPage() {
               The best way to judge the academy is to step onto the mats yourself.
             </h2>
           </div>
-          <Link href="/#trial-form" className="button-primary">
+          <Link
+            href="/#trial-form"
+            className="button-primary"
+            data-ingenium-event="contact_cta_click"
+            data-ingenium-label="Come Try A Class"
+            data-ingenium-location="gallery_cta"
+          >
             Come Try A Class
           </Link>
         </div>
