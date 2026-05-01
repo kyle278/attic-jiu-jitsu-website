@@ -35,13 +35,22 @@ function initTracker() {
 }
 
 function getScrollDepthPercent() {
-  const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const documentHeight = Math.max(
+    document.documentElement.scrollHeight,
+    document.body?.scrollHeight ?? 0,
+  );
 
-  if (pageHeight <= 0) {
+  if (documentHeight <= 0) {
+    return 0;
+  }
+
+  if (documentHeight <= window.innerHeight) {
     return 100;
   }
 
-  return Math.min(100, Math.max(0, Math.round((window.scrollY / pageHeight) * 100)));
+  const viewedHeight = Math.min(documentHeight, window.scrollY + window.innerHeight);
+
+  return Math.min(100, Math.max(0, Math.round((viewedHeight / documentHeight) * 100)));
 }
 
 export function IngeniumTracker() {
@@ -75,13 +84,13 @@ export function IngeniumTracker() {
     let metricsSent = false;
 
     const track = window.IngeniumTracker.track;
-    const pageProperties = () => ({
+    const pageContext = {
       path: pathname,
       url: window.location.href,
       title: document.title,
-    });
+    };
 
-    const handleScroll = () => {
+    const updateScrollDepth = () => {
       maxScrollDepth = Math.max(maxScrollDepth, getScrollDepthPercent());
     };
 
@@ -93,11 +102,11 @@ export function IngeniumTracker() {
       metricsSent = true;
 
       track("scroll_depth", {}, {
-        ...pageProperties(),
+        ...pageContext,
         depth_percent: maxScrollDepth,
       });
       track("time_on_page", {}, {
-        ...pageProperties(),
+        ...pageContext,
         seconds_on_page: Math.max(1, Math.round((Date.now() - startedAt) / 1000)),
       });
     };
@@ -107,13 +116,15 @@ export function IngeniumTracker() {
     };
 
     window.IngeniumTracker.track("page_view", {}, {
-      ...pageProperties(),
+      ...pageContext,
     });
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", updateScrollDepth, { passive: true });
+    window.addEventListener("resize", updateScrollDepth);
     window.addEventListener("pagehide", handlePageHide);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", updateScrollDepth);
+      window.removeEventListener("resize", updateScrollDepth);
       window.removeEventListener("pagehide", handlePageHide);
       sendPageMetrics();
     };
