@@ -18,6 +18,33 @@ export function ContactForm() {
       return;
     }
 
+    const url = new URL(window.location.href);
+    const values: Record<string, string> = {
+      utm_Campaign: url.searchParams.get("utm_campaign") ?? "",
+      utm_Source: url.searchParams.get("utm_source") ?? "",
+      utm_Medium: url.searchParams.get("utm_medium") ?? "",
+      utm_Content: url.searchParams.get("utm_content") ?? "",
+      utm_Term: url.searchParams.get("utm_term") ?? "",
+      CID: url.searchParams.get("cid") ?? "",
+      "Submission URL": window.location.href,
+    };
+
+    Object.entries(values).forEach(([name, value]) => {
+      const input = form.elements.namedItem(name);
+
+      if (input instanceof HTMLInputElement) {
+        input.value = value;
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const form = formRef.current;
+
+    if (!form) {
+      return;
+    }
+
     const handleSubmitting = () => {
       setSubmitState("submitting");
       setFeedbackMessage("");
@@ -104,6 +131,14 @@ export function ContactForm() {
           placeholder="Tell the academy what you would like help with."
         />
       </label>
+
+      <input type="hidden" name="utm_Campaign" />
+      <input type="hidden" name="utm_Source" />
+      <input type="hidden" name="utm_Medium" />
+      <input type="hidden" name="utm_Content" />
+      <input type="hidden" name="utm_Term" />
+      <input type="hidden" name="CID" />
+      <input type="hidden" name="Submission URL" />
 
       <div className="grid gap-4 rounded-[20px] border border-white/10 bg-[rgba(63,24,32,0.28)] p-5 text-sm text-[color:var(--fog)]">
         <p className="font-semibold text-[color:var(--chalk)]">Privacy and consent</p>
