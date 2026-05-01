@@ -36,7 +36,7 @@ export default function Home() {
                 Friendly classes for adults, teens, and kids with experienced coaching, gi and no-gi training, and a clear path from your first class to long-term progress.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/#trial-form" className="button-primary" data-track="cta_click" data-label="Book a Free Trial" data-location="hero">
+                <Link href="/#trial-form" className="button-primary">
                   Book a Free Trial
                 </Link>
                 <a
@@ -44,9 +44,6 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                   className="button-secondary"
-                  data-track="booking_start"
-                  data-label="View Timetable"
-                  data-location="hero"
                 >
                   View Timetable
                 </a>
@@ -67,7 +64,7 @@ export default function Home() {
                 <p className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">
                   {site.address}
                 </p>
-                <a href={site.phoneHref} className="text-lg text-[color:var(--fog)]" data-track="phone_click" data-label={site.phone} data-location="hero_card">
+                <a href={site.phoneHref} className="text-lg text-[color:var(--fog)]">
                   {site.phone}
                 </a>
               </div>
@@ -79,7 +76,7 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-3">
           {audiencePaths.map((path) => (
-            <Link key={path.title} href={path.href} className="panel-dark block p-6" data-track="cta_click" data-label={path.title} data-location="path_cards">
+            <Link key={path.title} href={path.href} className="panel-dark block p-6">
               <p className="eyebrow">{path.eyebrow}</p>
               <h2 className="mt-3 font-heading text-3xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">{path.title}</h2>
               <p className="mt-4 text-base leading-7 text-[color:var(--fog)]">{path.description}</p>
@@ -160,7 +157,7 @@ export default function Home() {
             <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
               Beginner packs, monthly memberships, student rates, and family options make it easy to start well and stay consistent.
             </p>
-            <Link href="/memberships" className="button-primary" data-track="pricing_cta_click" data-label="See Membership Options" data-location="home_pricing">
+            <Link href="/memberships" className="button-primary">
               See Membership Options
             </Link>
             <div className="image-frame relative h-72 overflow-hidden border-white/10">
@@ -202,7 +199,7 @@ export default function Home() {
             <p className="eyebrow">Inside The Academy</p>
             <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">See the atmosphere before you step on the mats.</h2>
           </div>
-          <Link href="/gallery" className="button-secondary" data-track="cta_click" data-label="View Gallery" data-location="home_gallery">
+          <Link href="/gallery" className="button-secondary">
             View Gallery
           </Link>
         </div>
@@ -219,7 +216,7 @@ export default function Home() {
           <div className="grid gap-4">
             {faqs.map((faq) => (
               <details key={faq.question} className="panel-light p-5">
-                <summary className="cursor-pointer list-none font-heading text-2xl uppercase tracking-[0.1em]" data-track="faq_expand" data-label={faq.question} data-location="home_faq">
+                <summary className="cursor-pointer list-none font-heading text-2xl uppercase tracking-[0.1em]">
                   {faq.question}
                 </summary>
                 <p className="mt-3 text-[color:var(--fog)]">{faq.answer}</p>
@@ -240,10 +237,10 @@ export default function Home() {
               If you are not sure where to start, send an enquiry and the team can point you toward the best class, membership, or beginner route.
             </p>
             <div className="grid gap-3 text-base text-[color:var(--fog)]">
-              <a href={site.phoneHref} data-track="phone_click" data-label={site.phone} data-location="home_contact">
+              <a href={site.phoneHref}>
                 {site.phone}
               </a>
-              <a href={site.emailHref} data-track="email_click" data-label={site.email} data-location="home_contact">
+              <a href={site.emailHref}>
                 {site.email}
               </a>
               <p>{site.address}</p>

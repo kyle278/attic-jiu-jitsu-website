@@ -33,10 +33,10 @@ export default function MembershipsPage() {
               If you are new, the beginner routes are the simplest way to start. If you want regular access, unlimited monthly training offers the strongest value per class.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/#trial-form" className="button-primary" data-track="pricing_cta_click" data-label="Ask About The Best Option" data-location="memberships_intro">
+              <Link href="/#trial-form" className="button-primary">
                 Ask About The Best Option
               </Link>
-              <a href={site.membershipUrl} target="_blank" rel="noreferrer" className="button-secondary" data-track="external_link_click" data-label="Current Live Pricing" data-location="memberships_intro">
+              <a href={site.membershipUrl} target="_blank" rel="noreferrer" className="button-secondary">
                 Current Live Pricing
               </a>
             </div>

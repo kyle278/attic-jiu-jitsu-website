@@ -15,7 +15,7 @@ export function SiteFooter() {
             Build fitness, confidence, and real grappling skill with a team that welcomes beginners and supports long-term growth.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/#trial-form" className="button-primary" data-track="cta_click" data-label="Book a Free Trial" data-location="footer">
+            <Link href="/#trial-form" className="button-primary">
               Book a Free Trial
             </Link>
             <a
@@ -23,9 +23,6 @@ export function SiteFooter() {
               target="_blank"
               rel="noreferrer"
               className="button-secondary"
-              data-track="external_link_click"
-              data-label="View Timetable"
-              data-location="footer"
             >
               View Timetable
             </a>
@@ -35,17 +32,17 @@ export function SiteFooter() {
         <div className="space-y-3">
           <p className="eyebrow">Find Us</p>
           <p className="text-[color:var(--chalk)]">{site.address}</p>
-          <a href={site.phoneHref} className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]" data-track="phone_click" data-label={site.phone} data-location="footer">
+          <a href={site.phoneHref} className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]">
             {site.phone}
           </a>
-          <a href={site.emailHref} className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]" data-track="email_click" data-label={site.email} data-location="footer">
+          <a href={site.emailHref} className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]">
             {site.email}
           </a>
           <div className="flex gap-4 pt-2 text-sm uppercase tracking-[0.22em] text-[color:var(--fog)]">
-            <a href={site.facebookUrl} target="_blank" rel="noreferrer" data-track="external_link_click" data-label="Facebook" data-location="footer">
+            <a href={site.facebookUrl} target="_blank" rel="noreferrer">
               Facebook
             </a>
-            <a href={site.instagramUrl} target="_blank" rel="noreferrer" data-track="external_link_click" data-label="Instagram" data-location="footer">
+            <a href={site.instagramUrl} target="_blank" rel="noreferrer">
               Instagram
             </a>
           </div>
@@ -58,9 +55,6 @@ export function SiteFooter() {
               key={item.href}
               href={item.href}
               className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]"
-              data-track="nav_click"
-              data-label={item.label}
-              data-location="footer"
             >
               {item.label}
             </Link>

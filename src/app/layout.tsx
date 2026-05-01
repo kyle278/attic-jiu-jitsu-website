@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 
-import { AnalyticsBindings } from "@/components/analytics-bindings";
-import { PortalTracker } from "@/components/portal-tracker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site-data";
@@ -62,8 +60,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${heading.variable} ${body.variable} h-full antialiased`}>
       <body className="min-h-full bg-[color:var(--ink)] font-body text-[color:var(--chalk)]">
-        <PortalTracker />
-        <AnalyticsBindings />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

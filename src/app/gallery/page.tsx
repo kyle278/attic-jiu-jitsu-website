@@ -38,7 +38,7 @@ export default function GalleryPage() {
               The best way to judge the academy is to step onto the mats yourself.
             </h2>
           </div>
-          <Link href="/#trial-form" className="button-primary" data-track="cta_click" data-label="Come Try A Class" data-location="gallery_cta">
+          <Link href="/#trial-form" className="button-primary">
             Come Try A Class
           </Link>
         </div>

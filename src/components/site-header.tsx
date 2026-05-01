@@ -17,9 +17,6 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex min-w-0 items-center gap-3"
-          data-track="nav_click"
-          data-label="Logo"
-          data-location="header"
           onClick={() => setOpen(false)}
         >
           <Image src="/images/logo.png" alt="Attic Jiu Jitsu logo" width={44} height={44} className="rounded-full" />
@@ -43,9 +40,6 @@ export function SiteHeader() {
                 className={`whitespace-nowrap text-xs uppercase tracking-[0.16em] transition xl:text-sm ${
                   active ? "text-[color:var(--bronze)]" : "text-[color:var(--fog)] hover:text-[color:var(--chalk)]"
                 }`}
-                data-track="nav_click"
-                data-label={item.label}
-                data-location="header"
               >
                 {item.label}
               </Link>
@@ -59,13 +53,10 @@ export function SiteHeader() {
             target="_blank"
             rel="noreferrer"
             className="button-secondary px-4 xl:px-5"
-            data-track="external_link_click"
-            data-label="View Timetable"
-            data-location="header"
           >
             View Timetable
           </a>
-          <Link href="/#trial-form" className="button-primary px-4 xl:px-5" data-track="cta_click" data-label="Book a Free Trial" data-location="header">
+          <Link href="/#trial-form" className="button-primary px-4 xl:px-5">
             Book a Free Trial
           </Link>
         </div>
@@ -87,9 +78,6 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className="whitespace-nowrap text-sm uppercase tracking-[0.16em] text-[color:var(--fog)]"
-                data-track="nav_click"
-                data-label={item.label}
-                data-location="mobile_menu"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -100,18 +88,12 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
               className="button-secondary mt-2 text-center"
-              data-track="external_link_click"
-              data-label="View Timetable"
-              data-location="mobile_menu"
             >
               View Timetable
             </a>
             <Link
               href="/#trial-form"
               className="button-primary text-center"
-              data-track="cta_click"
-              data-label="Book a Free Trial"
-              data-location="mobile_menu"
               onClick={() => setOpen(false)}
             >
               Book a Free Trial

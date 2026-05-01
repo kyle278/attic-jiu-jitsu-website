@@ -1,6 +1,6 @@
 # Attic Jiu Jitsu Website
 
-Marketing website draft for Attic Jiu Jitsu Carlow, built with Next.js and Tailwind CSS.
+Marketing website for Attic Jiu Jitsu Carlow, built with Next.js and Tailwind CSS.
 
 ## Local development
 
@@ -13,12 +13,9 @@ Open `http://localhost:3000`.
 
 ## Environment
 
-Copy `.env.example` to `.env.local` and fill in the Ingenium Portal values when available.
+No environment variables are required for the current standalone site.
 
 ## Production checklist
 
-- Add portal env vars to Vercel.
-- Provision the matching Ingenium Portal organisation, site, and forms.
-- Verify form submissions land in `website_form_submissions`.
-- Verify analytics events land in `website_interaction_events`.
+- Confirm all contact details and outbound booking links are correct.
 - Connect the final domain when it is approved.

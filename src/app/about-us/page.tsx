@@ -86,10 +86,10 @@ export default function AboutPage() {
             <p className="font-heading text-3xl uppercase tracking-[0.12em]">{site.address}</p>
             <p className="mt-4 text-[color:var(--fog)]">Contact the team if you want help choosing the best class or membership.</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/#trial-form" className="button-primary" data-track="cta_click" data-label="Book a Free Trial" data-location="about_cta">
+              <Link href="/#trial-form" className="button-primary">
                 Book a Free Trial
               </Link>
-              <a href={site.phoneHref} className="button-secondary" data-track="phone_click" data-label={site.phone} data-location="about_cta">
+              <a href={site.phoneHref} className="button-secondary">
                 Call The Academy
               </a>
             </div>
