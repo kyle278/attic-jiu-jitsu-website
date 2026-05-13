@@ -1,0 +1,16 @@
+[
+  {
+    "id": "6a468b28-d9ee-4187-92c8-25bd34728775",
+    "slug": "nogi-beginner",
+    "name": "Nogi - Beginner",
+    "description": null,
+    "category_slug": null,
+    "category_label": null,
+    "coach_name": null,
+    "location_name": null,
+    "duration_minutes": 60,
+    "default_capacity": 30,
+    "booking_window_hours": 168,
+    "cancellation_window_hours": 24
+  }
+]

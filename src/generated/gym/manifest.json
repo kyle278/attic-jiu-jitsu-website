@@ -1,0 +1,67 @@
+{
+  "contract_version": "2026-05-07.v1",
+  "generated_at": "2026-05-13T15:13:36.008Z",
+  "site": {
+    "id": "8b0e89c9-3090-46b2-b008-4d5c46233647",
+    "name": "Attic Jiu jitsu Website",
+    "slug": "main-site"
+  },
+  "config": {
+    "contract_version": "2026-05-07.v1",
+    "gym_name": "Attic Jiu jitsu Website",
+    "booking_policy": "",
+    "membership_copy": ""
+  },
+  "categories": [],
+  "plans": [
+    {
+      "id": "3efd3c94-24b2-471a-8fcb-c365c14d75ce",
+      "slug": "beginners-package",
+      "name": "Beginners Package",
+      "description": "2 months of training + a Free Kimono",
+      "usage_limit_kind": "capped",
+      "usage_limit_count": 16,
+      "usage_period_unit": "month",
+      "access_rules": [
+        {
+          "rule_type": "all_classes",
+          "category_slug": null,
+          "class_template_id": null
+        }
+      ]
+    },
+    {
+      "id": "011c9461-4ebb-4dfa-8523-b341293be8f6",
+      "slug": "unlimited",
+      "name": "Unlimited",
+      "description": null,
+      "usage_limit_kind": "unlimited",
+      "usage_limit_count": null,
+      "usage_period_unit": null,
+      "access_rules": [
+        {
+          "rule_type": "all_classes",
+          "category_slug": null,
+          "class_template_id": null
+        }
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "id": "6a468b28-d9ee-4187-92c8-25bd34728775",
+      "slug": "nogi-beginner",
+      "name": "Nogi - Beginner",
+      "description": null,
+      "category_slug": null,
+      "category_label": null,
+      "coach_name": null,
+      "location_name": null,
+      "duration_minutes": 60,
+      "default_capacity": 30,
+      "booking_window_hours": 168,
+      "cancellation_window_hours": 24
+    }
+  ],
+  "sessions": []
+}

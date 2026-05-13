@@ -4,6 +4,7 @@ import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 import { IngeniumTracker } from "@/components/ingenium-tracker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { portalConnect, portalTrackingEndpoint, portalTrackingScriptSrc } from "@/lib/portal-connect";
 import { site } from "@/lib/site-data";
 
 import "./globals.css";
@@ -61,15 +62,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${heading.variable} ${body.variable} h-full antialiased`}>
       <head>
-        <script src="https://portal.ingeniumconsulting.net/ingenium-tracker.js" defer />
+        <script src={portalTrackingScriptSrc} defer />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.addEventListener("DOMContentLoaded", function () {
                 if (!window.IngeniumTracker) return;
                 window.IngeniumTracker.init({
-                  endpoint: "https://portal.ingeniumconsulting.net/api/websites/tracking/events",
-                  siteId: "8b0e89c9-3090-46b2-b008-4d5c46233647"
+                  endpoint: "${portalTrackingEndpoint}",
+                  siteId: "${portalConnect.siteId}"
                 });
               });
             `,

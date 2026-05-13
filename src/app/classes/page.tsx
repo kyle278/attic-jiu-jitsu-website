@@ -2,14 +2,19 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { classPrograms, site } from "@/lib/site-data";
+import { GymMemberPortal } from "@/components/gym-member-portal";
+import { getClassCards, gymConfig, gymSessions } from "@/lib/gym-data";
 
 export const metadata: Metadata = {
   title: "Classes",
-  description: "Explore adult, kids, teens, gi, and no-gi classes at Attic Jiu Jitsu Carlow.",
+  description:
+    "Explore adult, kids, teens, gi, and no-gi classes at Attic Jiu Jitsu Carlow with an on-site live schedule and member booking area.",
 };
 
 export default function ClassesPage() {
+  const classCards = getClassCards();
+  const scheduleReady = gymSessions.length > 0;
+
   return (
     <>
       <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
@@ -17,10 +22,10 @@ export default function ClassesPage() {
           <div className="space-y-5">
             <p className="eyebrow">Classes</p>
             <h1 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)]">
-              Find the right class for your level and your goals.
+              Train by level, then move straight into the live Attic schedule.
             </h1>
             <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              Whether you want a complete beginner start, more live rounds, youth coaching, or a stronger no-gi routine, there is a class path that fits.
+              The Attic site now acts as the class guide and the utility layer. You can explore the academy’s class types here, then use the live schedule and member tools further down the page.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -33,30 +38,37 @@ export default function ClassesPage() {
                 Book a Free Trial
               </Link>
               <a
-                href={site.bookingUrl}
-                target="_blank"
-                rel="noreferrer"
+                href="#live-schedule"
                 className="button-secondary"
                 data-ingenium-event="booking_cta_click"
-                data-ingenium-label="Open Booking Calendar"
+                data-ingenium-label="Jump To Live Schedule"
                 data-ingenium-location="classes_hero"
               >
-                Open Booking Calendar
+                Jump To Live Schedule
               </a>
             </div>
           </div>
 
           <div className="panel-dark overflow-hidden">
             <div className="image-frame relative h-64">
-              <Image src="/images/gallery-1.jpg" alt="Brazilian Jiu Jitsu class training in Carlow" fill className="object-cover" />
+              <Image
+                src="/images/gallery-1.jpg"
+                alt="Brazilian Jiu Jitsu class training in Carlow"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="p-6 sm:p-8">
-              <p className="eyebrow">What To Expect</p>
+              <p className="eyebrow">How It Works Now</p>
               <ul className="mt-4 grid gap-4 text-lg text-[color:var(--fog)]">
-                <li>Start with the class that matches your current experience level.</li>
-                <li>Train in gi, no-gi, youth, or sparring sessions as your confidence grows.</li>
-                <li>Use the live booking calendar for the latest session times and availability.</li>
-                <li>Ask for guidance if you are not sure where to begin.</li>
+                <li>Class pages stay on brand and on site instead of sending members away.</li>
+                <li>Program cards describe the type of training the academy offers.</li>
+                <li>The lower schedule surface is ready for portal-fed session times and booking actions.</li>
+                <li>
+                  {scheduleReady
+                    ? "Published sessions are already available to browse below."
+                    : "The schedule utility is live, but it still needs the first successful gym sync to show published session times."}
+                </li>
               </ul>
             </div>
           </div>
@@ -66,12 +78,26 @@ export default function ClassesPage() {
       <section className="section-light">
         <div className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {classPrograms.map((program) => (
-              <article key={program.title} className="panel-light p-6">
-                <p className="eyebrow">Program</p>
-                <h2 className="mt-2 font-heading text-3xl uppercase tracking-[0.12em]">{program.title}</h2>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--fog)]">{program.duration}</p>
-                <p className="mt-4 text-[color:var(--fog)]">{program.description}</p>
+            {classCards.map((program) => (
+              <article key={program.id} className="panel-light p-6">
+                <p className="eyebrow">{program.category_label ?? "Program"}</p>
+                <h2 className="mt-2 font-heading text-3xl uppercase tracking-[0.12em]">
+                  {program.name}
+                </h2>
+                <div className="mt-3 flex flex-wrap gap-2 text-xs uppercase tracking-[0.16em] text-[color:var(--fog)]">
+                  <span className="rounded-full border border-white/10 px-3 py-1">
+                    {program.duration_minutes} min
+                  </span>
+                  <span className="rounded-full border border-white/10 px-3 py-1">
+                    {program.upcoming_sessions > 0
+                      ? `${program.upcoming_sessions} upcoming session${program.upcoming_sessions === 1 ? "" : "s"}`
+                      : "Schedule sync pending"}
+                  </span>
+                </div>
+                <p className="mt-4 text-[color:var(--fog)]">
+                  {program.description ??
+                    "Program detail will update here once the class sync has been published from the portal."}
+                </p>
               </article>
             ))}
           </div>
@@ -79,39 +105,20 @@ export default function ClassesPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="panel-dark grid gap-8 overflow-hidden p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-4">
-            <p className="eyebrow">Timetable</p>
-            <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">Use the live schedule for the latest class times.</h2>
-            <p className="text-lg leading-8 text-[color:var(--fog)]">
-              The booking calendar is the best place to see current class times, availability, and session updates.
-            </p>
-            <div className="image-frame relative h-72">
-              <Image src="/images/gallery-7.jpg" alt="Live training atmosphere on the mats at Attic Jiu Jitsu" fill className="object-cover" />
-            </div>
-          </div>
-          <div className="grid gap-4">
-            <div className="rounded-[20px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-5">
-              <h3 className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">Best for complete beginners</h3>
-              <p className="mt-2 text-[color:var(--fog)]">Adults Beginners or No-Gi Beginners are the easiest first step into the academy.</p>
-            </div>
-            <div className="rounded-[20px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-5">
-              <h3 className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">Best for parents</h3>
-              <p className="mt-2 text-[color:var(--fog)]">Kids and teens classes focus on discipline, confidence, movement, and a positive team environment.</p>
-            </div>
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="button-primary w-fit"
-              data-ingenium-event="booking_cta_click"
-              data-ingenium-label="View The Live Timetable"
-              data-ingenium-location="classes_timetable"
-            >
-              View The Live Timetable
-            </a>
-          </div>
-        </div>
+        <GymMemberPortal
+          bookingPolicy={
+            gymConfig.booking_policy ??
+            "Use the member area to unlock booking once the schedule has been synced from the portal."
+          }
+          emptyScheduleMessage="The live timetable is ready for the portal connection, but no published sessions have been synced into this site yet. Run the Attic gym sync against the local or deployed Ingenium Portal once the gym routes are available."
+          membershipCopy={
+            gymConfig.membership_copy ??
+            "Existing members will be able to unlock bookings and manage recent sessions here without leaving the Attic site."
+          }
+          scheduleHeading={gymConfig.schedule_heading ?? "Live schedule and member bookings"}
+          sessions={gymSessions}
+          showSchedule
+        />
       </section>
     </>
   );

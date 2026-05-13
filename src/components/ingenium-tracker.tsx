@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+import { portalConnect, portalTrackingEndpoint } from "@/lib/portal-connect";
+
 declare global {
   interface Window {
     IngeniumTracker?: {
@@ -20,8 +22,8 @@ declare global {
   }
 }
 
-const TRACKING_ENDPOINT = "https://portal.ingeniumconsulting.net/api/websites/tracking/events";
-const SITE_ID = "8b0e89c9-3090-46b2-b008-4d5c46233647";
+const TRACKING_ENDPOINT = portalTrackingEndpoint;
+const SITE_ID = portalConnect.siteId;
 
 function initTracker() {
   if (!window.IngeniumTracker) {
