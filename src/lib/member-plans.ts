@@ -4,6 +4,7 @@ export type MemberPlan = {
   description: string;
   audience: string;
   price: string;
+  checkout?: { enabled: boolean; reason: string | null; terms: string; billing_label: string };
 };
 
 // Only project public catalogue fields. Never send arbitrary plan metadata,

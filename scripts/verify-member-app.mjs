@@ -46,16 +46,23 @@ try {
       created = 0,
       ambiguous = true,
       dataRequests = 0,
-      planFailure = false;
+      planFailure = false,
+      paymentsEnabled = false,
+      purchaseState = null,
+      checkoutKeys = [],
+      loseCheckoutResponse = true,
+      useKyle = false,
+      testingGranted = false,
+      emailCodeRequests = 0;
     const starts = new Date(Date.now() + 86400000);
     starts.setUTCHours(18, 0, 0, 0);
     const ends = new Date(starts.getTime() + 3600000),
       id = "00000000-0000-4000-8000-000000000001";
     const data = () => ({
       site_name: "Attic",
-      member: { name: "Alex Member", email: "alex@example.invalid" },
+      member: { name: "Alex Member", email: useKyle ? "kyle@ingeniumconsulting.net" : "alex@example.invalid" },
       membership: {
-        label: "Adult membership",
+        label: purchaseState === "paid" ? "Purchased membership" : "Adult membership",
         service_ids: ["class"],
         weekly_limit: 2,
         starts_at: new Date(Date.now() - 86400000).toISOString(),
@@ -104,6 +111,7 @@ try {
     });
     await page.route("**/*", async (route) => {
       const url = new URL(route.request().url());
+      if (["https://checkout.stripe.com", "https://billing.stripe.com"].includes(url.origin)) return route.fulfill({ contentType: "text/html", body: "<h1>Synthetic payment provider</h1>" });
       if (url.origin !== base) return route.abort();
       if (url.pathname === "/members/plans") return route.fulfill({
         status: planFailure ? 503 : 200,
@@ -119,10 +127,29 @@ try {
           status = signedIn ? 200 : 401;
           payload = signedIn ? data() : { error: "Sign in to continue." };
         }
-        if (body.action === "request_code")
+        if (body.action === "plans") {
+          status = planFailure ? 503 : 200;
+          payload = planFailure ? { error: "Membership catalogue unavailable" } : {
+            plans: publishedPlans.map((p) => ({ ...p, checkout: { enabled: paymentsEnabled && !["paid", "past_due"].includes(purchaseState) && p.name === "Membership", reason: "Online purchasing is being set up", terms: "Monthly membership. Renews automatically until cancelled.", billing_label: "Renews every month" } })), purchasing_enabled: paymentsEnabled,
+            purchase: purchaseState ? { id, plan_id: publishedPlans.find((p) => p.name === "Membership").id, name: "Membership", status: purchaseState, recurring: true, can_manage: purchaseState !== "pending", paid_until: null } : null,
+          };
+        }
+        if (body.action === "checkout") {
+          const key = route.request().headers()["idempotency-key"];
+          checkoutKeys.push(key); purchaseState = "pending";
+          if (loseCheckoutResponse) { loseCheckoutResponse = false; return route.abort("failed"); }
+          payload = { purchase_id: id, url: "https://checkout.stripe.com/c/pay/synthetic" };
+        }
+        if (body.action === "checkout_status") payload = { purchase: { id, status: purchaseState, plan_id: publishedPlans.find((p) => p.name === "Membership").id, name: "Membership", recurring: true, can_manage: purchaseState === "paid", paid_until: null } };
+        if (body.action === "cancel_checkout") { purchaseState = null; payload = { purchase: { id, status: "expired" } }; }
+        if (body.action === "billing_portal") payload = { url: "https://billing.stripe.com/p/session/synthetic" };
+        if (body.action === "request_code") {
+          emailCodeRequests++;
           payload = { ok: true, challenge: "synthetic-challenge" };
+        }
+        if (body.action === "test_signin") { testingGranted = true; signedIn = false; payload = { email: "kyle@ingeniumconsulting.net", challenge: "synthetic-test-challenge", testing: true, expires_at: new Date(Date.now()+2*3600000).toISOString() }; }
         if (body.action === "verify_code") {
-          if (body.input.code === "12345678") signedIn = true;
+          if (body.input.code === "12345678" || (testingGranted && body.input.code === "00000000")) signedIn = true;
           else {
             status = 401;
             payload = { error: "The code is invalid or expired." };
@@ -147,7 +174,7 @@ try {
           }
         }
         if (body.action === "cancel") cancelled = true;
-        if (body.action === "logout") signedIn = false;
+        if (body.action === "logout") { signedIn = false; testingGranted = false; }
         return route.fulfill({
           status,
           contentType: "application/json",
@@ -281,7 +308,37 @@ try {
     await page.getByRole("dialog").waitFor({ state: "hidden" });
     assert.equal(cancelled, true);
     checks.push(`confirmed cancellation at ${width}`);
+    paymentsEnabled = true;
+    await page.goto(base + "/members/membership");
+    await page.getByRole("button", { name: "View Membership", exact: true }).click();
+    await page.getByRole("button", { name: "Continue to secure checkout", exact: true }).click();
+    await page.getByRole("dialog").getByRole("alert").waitFor();
+    const checkoutHandoff = page.waitForRequest("https://checkout.stripe.com/c/pay/synthetic");
+    await page.getByRole("button", { name: "Continue to secure checkout", exact: true }).click();
+    await checkoutHandoff;
+    await page.getByRole("heading", { name: "Synthetic payment provider" }).waitFor();
+    assert.equal(checkoutKeys.length, 2); assert.equal(checkoutKeys[0], checkoutKeys[1]);
+    purchaseState = "paid";
+    await page.goto(base + `/members/membership?purchase=${id}`);
+    await page.getByRole("status").filter({ hasText: "Payment confirmed" }).waitFor();
+    await page.getByRole("heading", { name: "Purchased membership", exact: true }).waitFor();
+    assert.equal(await page.getByRole("button", { name: "Manage billing", exact: true }).isEnabled(), true);
+    await page.screenshot({ path: path.join(output, `membership-paid-${width}.png`), fullPage: true });
+    const billingHandoff = page.waitForRequest("https://billing.stripe.com/p/session/synthetic");
+    await page.getByRole("button", { name: "Manage billing", exact: true }).click(); await billingHandoff;
+    await page.getByRole("heading", { name: "Synthetic payment provider" }).waitFor();
+    checks.push(`checkout retry, verified return and billing handoff at ${width}`);
+    useKyle = true;
     await page.goto(base + "/members/account");
+    await page.getByRole("button", { name: "Open test sign-in", exact: true }).click();
+    await page.getByText(/Enter 00000000 for your test sign-in/).waitFor();
+    await page.screenshot({ path: path.join(output, `test-signin-${width}.png`), fullPage: true });
+    const emailsBeforeTest = emailCodeRequests;
+    await page.getByLabel("Sign-in code", { exact: true }).fill("00000000");
+    await page.getByRole("button", { name: "Sign in", exact: true }).click();
+    await page.getByRole("heading", { name: "Your account", exact: true }).waitFor();
+    assert.equal(emailCodeRequests, emailsBeforeTest);
+    checks.push(`authorised zero-code test sign-in without email at ${width}`);
     await page
       .getByRole("button", { name: "Add to home screen" })
       .last()

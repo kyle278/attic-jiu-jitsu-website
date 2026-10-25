@@ -134,3 +134,16 @@ test("reports upstream failure without disclosing server credentials", async () 
   assert.equal(r.status, 503);
   assert.ok(!(await r.text()).includes("secret"));
 });
+
+test("keeps the two-hour test credential in an HttpOnly browser cookie and clears it on normal logout", async () => {
+  const f = fixture(() => Response.json({ test_token: "browser-test-secret", test_expires_at: "2026-10-25T20:00:00Z", email: "kyle@ingeniumconsulting.net", challenge: "test-challenge" }));
+  const r = await forwardMemberRequest(request({ action: "test_signin" }), f.config);
+  const payload = await r.json();
+  assert.equal(payload.testing, true); assert.equal(payload.test_token, undefined);
+  assert.equal(f.writes[0][0], "__Host-attic-member-test");
+  assert.equal(f.writes[0][2].httpOnly, true); assert.equal(f.writes[0][2].secure, true);
+  assert.equal(f.writes[1][0], "__Host-attic-member"); assert.equal(f.writes[1][2].maxAge, 0);
+  const g = fixture(() => Response.json({ ok: true }));
+  await forwardMemberRequest(request({ action: "logout" }), g.config);
+  assert.equal(g.writes.find((write) => write[0] === "__Host-attic-member-test")[2].maxAge, 0);
+});

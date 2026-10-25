@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MemberError, request } from "@/lib/member-request";
 import { MembershipOptions } from "./membership-options";
 import {
   useCallback,
@@ -61,42 +62,6 @@ export type MemberData = {
   sessions: Session[];
   bookings: Booking[];
 };
-class MemberError extends Error {
-  constructor(
-    message: string,
-    public status: number,
-  ) {
-    super(message);
-  }
-}
-async function request<T>(
-  action: string,
-  input: object = {},
-  key?: string,
-  signal?: AbortSignal,
-): Promise<T> {
-  const response = await fetch("/members/api", {
-    method: "POST",
-    credentials: "same-origin",
-    cache: "no-store",
-    signal,
-    headers: {
-      "Content-Type": "application/json",
-      ...(key ? { "Idempotency-Key": key } : {}),
-    },
-    body: JSON.stringify({ action, input }),
-  }).catch((cause) => {
-    if (cause instanceof Error && cause.name === "AbortError") throw cause;
-    throw new MemberError("Connection lost. Reconnect and try again.", 503);
-  });
-  const data = await response.json().catch(() => null);
-  if (!response.ok)
-    throw new MemberError(
-      data?.error || "We couldn’t complete that request. Try again.",
-      response.status,
-    );
-  return data as T;
-}
 const dateKey = (date: string | Date) =>
   new Intl.DateTimeFormat("en-CA", {
     timeZone: "Europe/Dublin",
@@ -314,9 +279,17 @@ function Modal({
     </dialog>
   );
 }
-function Login({ onSignedIn }: { onSignedIn: () => void }) {
-  const [email, setEmail] = useState(""),
-    [challenge, setChallenge] = useState(""),
+type TestSignin = { email: string; challenge: string; expires_at: string };
+function Login({
+  onSignedIn,
+  testSignin,
+}: {
+  onSignedIn: () => void;
+  testSignin: TestSignin | null;
+}) {
+  const [email, setEmail] = useState(testSignin?.email ?? ""),
+    [challenge, setChallenge] = useState(testSignin?.challenge ?? ""),
+    [testing, setTesting] = useState(Boolean(testSignin)),
     [code, setCode] = useState(""),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
@@ -331,10 +304,14 @@ function Login({ onSignedIn }: { onSignedIn: () => void }) {
     setBusy(true);
     setError("");
     try {
-      const result = await request<{ challenge: string }>("request_code", {
-        email,
-      });
+      const result = await request<{ challenge: string; testing?: boolean }>(
+        "request_code",
+        {
+          email,
+        },
+      );
       setChallenge(result.challenge);
+      setTesting(Boolean(result.testing));
       setRemaining(60);
     } catch (cause) {
       setError(
@@ -386,10 +363,12 @@ function Login({ onSignedIn }: { onSignedIn: () => void }) {
         </div>
         <section className="memberLoginCard" aria-label="Member sign-in">
           <span className="memberEyebrow">Attic members</span>
-          <h2>{challenge ? "Check your inbox" : "Welcome back"}</h2>
+          <h2>{challenge ? testing ? "Test sign-in" : "Check your inbox" : "Welcome back"}</h2>
           <p className="memberMuted">
             {challenge
-              ? `If ${email} has member access, we’ve sent an eight-digit code. It expires in 10 minutes.`
+              ? testing
+                ? "Enter 00000000 for your test sign-in. This shortcut works only in this authorised browser; it expires after two hours. Each code screen expires after 10 minutes."
+                : `If ${email} has member access, we’ve sent an eight-digit code. It expires in 10 minutes.`
               : "Use the email address the academy has enabled for your member account."}
           </p>
           {error && (
@@ -434,6 +413,7 @@ function Login({ onSignedIn }: { onSignedIn: () => void }) {
                   disabled={busy}
                   onClick={() => {
                     setChallenge("");
+                    setTesting(false);
                     setCode("");
                     setError("");
                   }}
@@ -487,6 +467,7 @@ export function MemberApp() {
     account: "Getting your account ready",
   };
   const [data, setData] = useState<MemberData | null>(null),
+    [testSignin, setTestSignin] = useState<TestSignin | null>(null),
     [status, setStatus] = useState<
       "checking" | "signedout" | "ready" | "error"
     >("checking"),
@@ -593,9 +574,33 @@ export function MemberApp() {
       setData(null);
       setDialog(null);
       setNotice("");
+      setTestSignin(null);
       setStatus("signedout");
     } catch {
       setError("Sign-out couldn’t be completed. Reconnect and try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function openTestSignin() {
+    if (busy) return;
+    setBusy(true);
+    setError("");
+    try {
+      const test = await request<TestSignin>("test_signin");
+      controller.current?.abort();
+      ++epoch.current;
+      setTestSignin(test);
+      setData(null);
+      setDialog(null);
+      setNotice("");
+      setStatus("signedout");
+    } catch (cause) {
+      setError(
+        cause instanceof Error
+          ? cause.message
+          : "Test sign-in could not be opened.",
+      );
     } finally {
       setBusy(false);
     }
@@ -609,7 +614,9 @@ export function MemberApp() {
   if (status === "signedout")
     return (
       <Login
+        testSignin={testSignin}
         onSignedIn={() => {
+          setTestSignin(null);
           setStatus("checking");
           void load();
         }}
@@ -1127,78 +1134,85 @@ export function MemberApp() {
           )}
           {section === "membership" && (
             <>
-            <div>
-              <section className="memberPanel memberDetails">
-                <span
-                  className={`memberBadge ${membershipActive ? "memberGood" : ""}`}
-                >
-                  {membershipActive
-                    ? "Active"
-                    : grant?.status === "paused"
-                      ? "Paused"
-                      : grant
-                        ? "Outside access dates"
-                        : "Access not assigned"}
-                </span>
-                <h2>{grant?.label ?? "Connect your membership"}</h2>
-                {grant ? (
-                  <>
-                    <p className="memberMuted">{grant.weekly_limit ? `${grant.weekly_limit} classes each week` : "Unlimited included classes"}{grant.ends_at ? ` · until ${shortDate(grant.ends_at)}` : ""}</p>
-                    <details className="memberAccessDetails">
-                    <summary>View your access details</summary>
-                    <dl>
-                      <div>
-                        <dt>Included training</dt>
-                        <dd>
-                          {grant.weekly_limit
-                            ? `${grant.weekly_limit} classes each week`
-                            : "Unlimited included classes"}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>Access starts</dt>
-                        <dd>{shortDate(grant.starts_at)}</dd>
-                      </div>
-                      <div>
-                        <dt>Access expires</dt>
-                        <dd>
-                          {grant.ends_at
-                            ? shortDate(grant.ends_at)
-                            : "No expiry set"}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>Weekly allowance</dt>
-                        <dd>Monday–Sunday · Europe/Dublin</dd>
-                      </div>
-                    </dl>
-                    <h3>Your included classes</h3>
-                    <ul className="memberIncluded">
-                      {data.classes
-                        .filter((c) => grant.service_ids.includes(c.id))
-                        .map((c) => (
-                          <li key={c.id}>
-                            <span>✓</span>
-                            {c.name}
-                          </li>
-                        ))}
-                    </ul>
-                    </details>
+              <div>
+                <section className="memberPanel memberDetails">
+                  <span
+                    className={`memberBadge ${membershipActive ? "memberGood" : ""}`}
+                  >
+                    {membershipActive
+                      ? "Active"
+                      : grant?.status === "paused"
+                        ? "Paused"
+                        : grant
+                          ? "Outside access dates"
+                          : "Access not assigned"}
+                  </span>
+                  <h2>{grant?.label ?? "Connect your membership"}</h2>
+                  {grant ? (
+                    <>
+                      <p className="memberMuted">
+                        {grant.weekly_limit
+                          ? `${grant.weekly_limit} classes each week`
+                          : "Unlimited included classes"}
+                        {grant.ends_at
+                          ? ` · until ${shortDate(grant.ends_at)}`
+                          : ""}
+                      </p>
+                      <details className="memberAccessDetails">
+                        <summary>View your access details</summary>
+                        <dl>
+                          <div>
+                            <dt>Included training</dt>
+                            <dd>
+                              {grant.weekly_limit
+                                ? `${grant.weekly_limit} classes each week`
+                                : "Unlimited included classes"}
+                            </dd>
+                          </div>
+                          <div>
+                            <dt>Access starts</dt>
+                            <dd>{shortDate(grant.starts_at)}</dd>
+                          </div>
+                          <div>
+                            <dt>Access expires</dt>
+                            <dd>
+                              {grant.ends_at
+                                ? shortDate(grant.ends_at)
+                                : "No expiry set"}
+                            </dd>
+                          </div>
+                          <div>
+                            <dt>Weekly allowance</dt>
+                            <dd>Monday–Sunday · Europe/Dublin</dd>
+                          </div>
+                        </dl>
+                        <h3>Your included classes</h3>
+                        <ul className="memberIncluded">
+                          {data.classes
+                            .filter((c) => grant.service_ids.includes(c.id))
+                            .map((c) => (
+                              <li key={c.id}>
+                                <span>✓</span>
+                                {c.name}
+                              </li>
+                            ))}
+                        </ul>
+                      </details>
+                      <p className="memberMuted">
+                        Access is checked for the date of each class. Cancelling
+                        within the allowed window restores your place in that
+                        week’s allowance.
+                      </p>
+                    </>
+                  ) : (
                     <p className="memberMuted">
-                      Access is checked for the date of each class. Cancelling
-                      within the allowed window restores your place in that
-                      week’s allowance.
+                      Your sign-in is ready. Contact the academy to assign the
+                      right class access to your account.
                     </p>
-                  </>
-                ) : (
-                  <p className="memberMuted">
-                    Your sign-in is ready. Contact the academy to assign the
-                    right class access to your account.
-                  </p>
-                )}
-              </section>
-            </div>
-            <MembershipOptions />
+                  )}
+                </section>
+              </div>
+              <MembershipOptions onAccessChanged={load} />
             </>
           )}
           {section === "account" && (
@@ -1240,6 +1254,24 @@ export function MemberApp() {
                   </p>
                   <Install />
                 </section>
+                {data.member.email.toLowerCase() ===
+                  "kyle@ingeniumconsulting.net" && (
+                  <section className="memberPanel memberDetails">
+                    <h2>Test sign-in</h2>
+                    <p className="memberMuted">
+                      Open a test sign-in and enter 00000000. Your current
+                      authenticated session authorises this browser for two
+                      hours. Signing out normally removes the shortcut.
+                    </p>
+                    <button
+                      className="memberButton memberQuiet"
+                      disabled={busy || offline}
+                      onClick={() => void openTestSignin()}
+                    >
+                      Open test sign-in
+                    </button>
+                  </section>
+                )}
                 <div className="memberHelp">
                   <strong>Your account stays private</strong>
                   <p>
