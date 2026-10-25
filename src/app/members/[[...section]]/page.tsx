@@ -9,7 +9,7 @@ export default async function MembersPage({
   const page = section[0] ?? "timetable";
   if (
     section.length > 1 ||
-    !["timetable", "bookings", "membership", "account"].includes(page)
+    !["timetable", "bookings", "membership", "account", "family"].includes(page)
   )
     notFound();
   // The shared layout owns the app and its session across section changes.

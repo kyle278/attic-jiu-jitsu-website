@@ -14,7 +14,7 @@ import {
   type ReactNode,
 } from "react";
 
-type Section = "timetable" | "bookings" | "membership" | "account";
+type Section = "timetable" | "bookings" | "membership" | "account" | "family";
 type Class = {
   id: string;
   name: string;
@@ -44,6 +44,8 @@ type Booking = {
   location: string;
   cancel_before: string;
   self_service: boolean;
+  participant_id?: string;
+  participant_name?: string;
 };
 type Grant = {
   label: string;
@@ -57,6 +59,16 @@ export type MemberData = {
   site_name: string;
   member: { name: string; email: string };
   membership: Grant | null;
+  participant_id?: string;
+  people?: {
+    contact_id: string;
+    name: string;
+    role: string;
+    is_self: boolean;
+    household_id: string | null;
+    household_name: string | null;
+    membership: Grant | null;
+  }[];
   booking_window_hours: number;
   classes: Class[];
   sessions: Session[];
@@ -98,6 +110,7 @@ const nav: { key: Section; label: string; icon: string }[] = [
   { key: "timetable", label: "Timetable", icon: "calendar" },
   { key: "bookings", label: "My bookings", icon: "check" },
   { key: "membership", label: "Membership", icon: "card" },
+  { key: "family", label: "Family", icon: "person" },
   { key: "account", label: "Account", icon: "person" },
 ];
 function Icon({ name }: { name: string }) {
@@ -363,7 +376,13 @@ function Login({
         </div>
         <section className="memberLoginCard" aria-label="Member sign-in">
           <span className="memberEyebrow">Attic members</span>
-          <h2>{challenge ? testing ? "Test sign-in" : "Check your inbox" : "Welcome back"}</h2>
+          <h2>
+            {challenge
+              ? testing
+                ? "Test sign-in"
+                : "Check your inbox"
+              : "Welcome back"}
+          </h2>
           <p className="memberMuted">
             {challenge
               ? testing
@@ -465,6 +484,7 @@ export function MemberApp() {
     bookings: "Getting your bookings ready",
     membership: "Getting your membership ready",
     account: "Getting your account ready",
+    family: "Getting your family ready",
   };
   const [data, setData] = useState<MemberData | null>(null),
     [testSignin, setTestSignin] = useState<TestSignin | null>(null),
@@ -478,6 +498,8 @@ export function MemberApp() {
     [day, setDay] = useState(""),
     [filter, setFilter] = useState(""),
     [history, setHistory] = useState("upcoming"),
+    [participant, setParticipant] = useState(""),
+    [allPeople, setAllPeople] = useState(false),
     [dialog, setDialog] = useState<{
       session?: Session;
       booking?: Booking;
@@ -494,6 +516,11 @@ export function MemberApp() {
       const next = await request<MemberData>("data", {}, undefined, c.signal);
       if (version !== epoch.current) return;
       setData(next);
+      setParticipant((value) =>
+        next.people?.some((p) => p.contact_id === value)
+          ? value
+          : (next.participant_id ?? ""),
+      );
       setStatus("ready");
       setError("");
       setDay(
@@ -645,8 +672,16 @@ export function MemberApp() {
       </div>
     );
   const now = Date.now(),
-    grant = data.membership,
-    activeBookings = data.bookings
+    people = data.people ?? [],
+    selectedPerson = people.find((p) => p.contact_id === participant),
+    grant = selectedPerson ? selectedPerson.membership : data.membership,
+    personName = selectedPerson?.name ?? data.member.name,
+    scopedBookings = data.bookings.filter(
+      (b) => !b.participant_id || b.participant_id === participant,
+    ),
+    visibleBookings =
+      section === "bookings" && allPeople ? data.bookings : scopedBookings,
+    activeBookings = visibleBookings
       .filter(
         (b) =>
           b.status === "confirmed" &&
@@ -708,6 +743,10 @@ export function MemberApp() {
       title: "Your membership",
       copy: "Manage your current access and explore every membership option.",
     },
+    family: {
+      title: "Your family",
+      copy: "Manage training together. Each person keeps their own places and weekly allowance.",
+    },
     account: {
       title: "Your account",
       copy: "Your sign-in details and member app settings.",
@@ -721,11 +760,12 @@ export function MemberApp() {
       </div>
       {activeBookings.length ? (
         activeBookings.slice(0, 3).map((b) => (
-          <div className="memberMiniBooking" key={b.id}>
+          <div className="memberMiniBooking" key={`${b.id}:${b.participant_id??"self"}`}>
             <span>
               {shortDate(b.starts_at)} · {time(b.starts_at)}
             </span>
             <strong>{b.name}</strong>
+            {b.participant_name && <small>For {b.participant_name}</small>}
             <small>{b.location}</small>
           </div>
         ))
@@ -806,6 +846,43 @@ export function MemberApp() {
               {error}
             </p>
           )}
+          {people.length > 1 &&
+            ["timetable", "bookings", "membership"].includes(section) && (
+              <div className="memberParticipantBar">
+                <label className="memberFilter">
+                  {section === "bookings" ? "Bookings for" : "Training for"}
+                  <select
+                    aria-label="Training participant"
+                    value={
+                      section === "bookings" && allPeople ? "all" : participant
+                    }
+                    disabled={busy}
+                    onChange={(e) => {
+                      setDialog(null);
+                      setError("");
+                      setNotice("");
+                      if (e.target.value === "all") {
+                        setAllPeople(true);
+                      } else {
+                        setAllPeople(false);
+                        setParticipant(e.target.value);
+                      }
+                    }}
+                  >
+                    {section === "bookings" && (
+                      <option value="all">Everyone I manage</option>
+                    )}
+                    {people.map((p) => (
+                      <option key={p.contact_id} value={p.contact_id}>
+                        {p.name}
+                        {p.is_self ? " (you)" : ""}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <p>Each booking reserves one place for the selected person.</p>
+              </div>
+            )}
           {section === "timetable" && (
             <div className="memberColumns">
               <section>
@@ -1029,7 +1106,7 @@ export function MemberApp() {
                 </label>
               </div>
               <div className="memberPanel">
-                {data.bookings
+                {visibleBookings
                   .filter((b) =>
                     history === "upcoming"
                       ? b.status === "confirmed" &&
@@ -1047,7 +1124,7 @@ export function MemberApp() {
                       : b.starts_at.localeCompare(a.starts_at),
                   )
                   .map((b) => (
-                    <article className="memberBookingRow" key={b.id}>
+                    <article className="memberBookingRow" key={`${b.id}:${b.participant_id??"self"}`}>
                       <div className="memberBookingDate">
                         <strong>
                           {new Date(b.starts_at).toLocaleDateString("en-IE", {
@@ -1064,6 +1141,11 @@ export function MemberApp() {
                       </div>
                       <div className="memberClassInfo">
                         <h2>{b.name}</h2>
+                        {b.participant_name && (
+                          <p className="memberParticipantName">
+                            For {b.participant_name}
+                          </p>
+                        )}
                         <p>
                           {dateLabel(b.starts_at)} · {time(b.starts_at)}–
                           {time(b.ends_at)}
@@ -1108,7 +1190,7 @@ export function MemberApp() {
                   ))}
                 {!(history === "upcoming"
                   ? activeBookings.length
-                  : data.bookings.length - activeBookings.length) && (
+                  : visibleBookings.length - activeBookings.length) && (
                   <div className="memberEmpty">
                     <Icon name="check" />
                     <h2>
@@ -1214,6 +1296,80 @@ export function MemberApp() {
               </div>
               <MembershipOptions onAccessChanged={load} />
             </>
+          )}
+          {section === "family" && (
+            <section className="memberPanel memberDetails">
+              <h2>
+                {people.find((p) => p.household_name)?.household_name ??
+                  "Family training"}
+              </h2>
+              <p className="memberMuted">
+                Approved managers can book and cancel for the people shown here.
+                Contact the academy to add a child, approve another parent or
+                change family membership coverage.
+              </p>
+              {people.filter((p) => p.household_id || !p.is_self).length ? (
+                <div className="memberFamilyList">
+                  {people
+                    .filter((p) => p.household_id || !p.is_self)
+                    .map((p) => (
+                      <article
+                        className="memberFamilyPerson"
+                        key={p.contact_id}
+                      >
+                        <div className="memberPersonAvatar" aria-hidden="true">
+                          {p.name.slice(0, 1)}
+                        </div>
+                        <div>
+                          <h3>
+                            {p.name}
+                            {p.is_self ? " (you)" : ""}
+                          </h3>
+                          <p className="memberMuted">
+                            {p.role === "child" ? "Child / dependent" : "Adult"}{" "}
+                            · {p.household_name}
+                          </p>
+                          <strong>
+                            {p.membership?.label ?? "Class access not assigned"}
+                          </strong>
+                          <p className="memberMuted">
+                            {p.membership
+                              ? `${p.membership.status === "paused" ? "Paused · " : ""}${p.membership.weekly_limit ? `${p.membership.weekly_limit} ${p.membership.weekly_limit === 1 ? "class" : "classes"} per week` : "Unlimited included classes"}${p.membership.ends_at ? ` · until ${shortDate(p.membership.ends_at)}` : ""}`
+                              : "The academy can confirm the right membership for this person."}
+                          </p>
+                        </div>
+                        <Link
+                          className="memberButton memberQuiet"
+                          href="/members/timetable"
+                          onClick={() => {
+                            setParticipant(p.contact_id);
+                            setAllPeople(false);
+                            setDialog(null);
+                            setError("");
+                          }}
+                        >
+                          View classes for {p.name}
+                        </Link>
+                      </article>
+                    ))}
+                </div>
+              ) : (
+                <div className="memberEmpty">
+                  <h3>Training is better together</h3>
+                  <p>
+                    The academy can link children and other approved family
+                    members to your sign-in. Each person keeps their own class
+                    access and attendance.
+                  </p>
+                  <a
+                    className="memberButton memberQuiet"
+                    href="tel:+353858447393"
+                  >
+                    Contact the academy
+                  </a>
+                </div>
+              )}
+            </section>
           )}
           {section === "account" && (
             <div className="memberColumns">
@@ -1323,7 +1479,11 @@ export function MemberApp() {
               </p>
               <p className="memberMuted">{selected.location}</p>
               <div className="memberDialogSummary">
-                <span>Your place</span>
+                <span>Attending</span>
+                <strong>{personName}</strong>
+              </div>
+              <div className="memberDialogSummary">
+                <span>Class access</span>
                 <strong>
                   {selectedClass?.requires_membership
                     ? "Included with your membership"
@@ -1337,7 +1497,12 @@ export function MemberApp() {
               <button
                 className="memberButton memberPrimary"
                 disabled={busy || offline}
-                onClick={() => void mutate("book", { session_id: selected.id })}
+                onClick={() =>
+                  void mutate("book", {
+                    session_id: selected.id,
+                    ...(participant ? { participant_id: participant } : {}),
+                  })
+                }
               >
                 {busy ? "Booking your place…" : "Confirm booking"}
               </button>
@@ -1346,6 +1511,9 @@ export function MemberApp() {
           {cancelling && (
             <>
               <h3>{cancelling.name}</h3>
+              {cancelling.participant_name && (
+                <p>For {cancelling.participant_name}</p>
+              )}
               <p>
                 {dateLabel(cancelling.starts_at)} · {time(cancelling.starts_at)}
               </p>
