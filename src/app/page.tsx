@@ -2,19 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ContactForm } from "@/components/contact-form";
+import { getGymCatalogue } from "@/lib/server/gym-catalogue";
+import { getMembershipCards } from "@/lib/gym-data";
 import {
   audiencePaths,
-  classHighlights,
   coaches,
   faqs,
   galleryImages,
   heroPoints,
-  pricingGroups,
   proofPoints,
   site,
 } from "@/lib/site-data";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+export default async function Home() {
+  const catalogue = await getGymCatalogue();
+  const plans = getMembershipCards(catalogue.plans);
+  const classHighlights = catalogue.classes.map(item => item.name);
+  const pricingGroups = Array.from(new Set(["Adults", "Beginners", ...plans.map(plan => plan.audience)]))
+    .map(title => ({ title, plans: plans.filter(plan => plan.audience === title) }))
+    .filter(group => group.plans.length);
   return (
     <>
       <section className="relative overflow-hidden">

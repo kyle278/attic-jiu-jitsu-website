@@ -213,9 +213,9 @@ export function getClassCards(classes = gymClasses, sessions = gymSessions) {
 export function getMembershipCards(plans = gymPlans) {
   return [...plans].sort((left, right) => left.name.localeCompare(right.name)).map((plan) => ({
     ...plan,
-    price: plan.price_label ?? getPlanPriceDetails(plan.slug)?.price ?? "Talk to the team",
-    detail: plan.description ?? getPlanPriceDetails(plan.slug)?.detail ?? "Membership details are confirmed inside the academy.",
-    audience: plan.audience ?? getPlanPriceDetails(plan.slug)?.audience ?? "Membership",
+    price: plan.price_label ?? (typeof plan.price_minor === "number" ? new Intl.NumberFormat("en-IE", { style: "currency", currency: plan.currency || "EUR" }).format(plan.price_minor / 100) : "Talk to the team"),
+    detail: plan.description ?? "Membership details are confirmed inside the academy.",
+    audience: plan.audience ?? "Membership",
   }));
 }
 
