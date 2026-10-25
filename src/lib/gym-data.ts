@@ -18,6 +18,10 @@ type GymAccessRule = {
 };
 
 export type GymSyncMembershipPlan = {
+  price_minor?: number | null;
+  currency?: string | null;
+  price_label?: string | null;
+  audience?: string | null;
   id: string;
   slug: string;
   name: string;
@@ -29,6 +33,7 @@ export type GymSyncMembershipPlan = {
 };
 
 export type GymSyncClassTemplate = {
+  duration_label?: string | null;
   id: string;
   slug: string;
   name: string;
@@ -72,7 +77,10 @@ export type GymSiteConfig = {
   display_options?: Record<string, unknown>;
 };
 
-type GymManifest = {
+export type GymManifest = {
+  plans: GymSyncMembershipPlan[];
+  classes: GymSyncClassTemplate[];
+  sessions: GymSyncClassSession[];
   contract_version: string;
   generated_at: string;
   site: {
@@ -185,28 +193,28 @@ export function getPlanPriceDetails(slug: string) {
   return localPriceLookup.get(slug);
 }
 
-export function getClassCards() {
+export function getClassCards(classes = gymClasses, sessions = gymSessions) {
   const sessionCounts = new Map<string, number>();
 
-  for (const session of gymSessions) {
+  for (const session of sessions) {
     sessionCounts.set(
       session.class_template_id,
       (sessionCounts.get(session.class_template_id) ?? 0) + 1,
     );
   }
 
-  return [...gymClasses].sort((left, right) => left.name.localeCompare(right.name)).map((item) => ({
+  return [...classes].sort((left, right) => left.name.localeCompare(right.name)).map((item) => ({
     ...item,
     upcoming_sessions: sessionCounts.get(item.id) ?? 0,
   }));
 }
 
-export function getMembershipCards() {
-  return [...gymPlans].sort((left, right) => left.name.localeCompare(right.name)).map((plan) => ({
+export function getMembershipCards(plans = gymPlans) {
+  return [...plans].sort((left, right) => left.name.localeCompare(right.name)).map((plan) => ({
     ...plan,
-    price: getPlanPriceDetails(plan.slug)?.price ?? "Talk to the team",
-    detail: getPlanPriceDetails(plan.slug)?.detail ?? plan.description ?? "Membership details are confirmed inside the academy.",
-    audience: getPlanPriceDetails(plan.slug)?.audience ?? "Membership",
+    price: plan.price_label ?? getPlanPriceDetails(plan.slug)?.price ?? "Talk to the team",
+    detail: plan.description ?? getPlanPriceDetails(plan.slug)?.detail ?? "Membership details are confirmed inside the academy.",
+    audience: plan.audience ?? getPlanPriceDetails(plan.slug)?.audience ?? "Membership",
   }));
 }
 

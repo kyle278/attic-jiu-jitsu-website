@@ -18,7 +18,7 @@ export const portalConnect = {
 export const portalGymBaseUrls = Array.from(
   new Set(
     [
-      parsedPortalConnect.localPortalBaseUrl,
+      ...(process.env.NODE_ENV === "development" ? [parsedPortalConnect.localPortalBaseUrl] : []),
       parsedPortalConnect.productionPortalBaseUrl,
     ]
       .map((value) => value.trim())

@@ -1,155 +1,22 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { getMembershipCards } from "@/lib/gym-data";
+import { getGymCatalogue } from "@/lib/server/gym-catalogue";
 
-import { GymMemberPortal } from "@/components/gym-member-portal";
-import { getMembershipCards, gymConfig, gymSessions } from "@/lib/gym-data";
-
-export const metadata: Metadata = {
-  title: "Memberships",
-  description:
-    "See membership options, beginner packs, and the Attic member area inside the site instead of leaving for an external pricing page.",
-};
-
-export default function MembershipsPage() {
-  const membershipCards = getMembershipCards();
-
-  return (
-    <>
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-5">
-            <p className="eyebrow">Memberships</p>
-            <h1 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)]">
-              Pricing and member access now live inside the Attic site.
-            </h1>
-            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              This page keeps the academy’s brand tone, but it now works like a practical member surface. You can review plan options here, then use the member area below to unlock current access and booking history.
-            </p>
-          </div>
-
-          <div className="panel-dark overflow-hidden">
-            <div className="image-frame relative h-60">
-              <Image
-                src="/images/gallery-6.jpg"
-                alt="Students building technique at Attic Jiu Jitsu Carlow"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="p-6 sm:p-8">
-              <p className="eyebrow">What Is Synced</p>
-              <p className="text-lg leading-8 text-[color:var(--fog)]">
-                Plan names and utility behaviour are now aligned with the portal integration. The current Attic rate cards are still shown here so members and prospects do not lose pricing clarity while the portal plan surface matures.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href="/#trial-form"
-                  className="button-primary"
-                  data-ingenium-event="pricing_cta_click"
-                  data-ingenium-label="Ask About The Best Option"
-                  data-ingenium-location="memberships_intro"
-                >
-                  Ask About The Best Option
-                </Link>
-                <a
-                  href="#member-area"
-                  className="button-secondary"
-                  data-ingenium-event="pricing_cta_click"
-                  data-ingenium-label="Open Member Area"
-                  data-ingenium-location="memberships_intro"
-                >
-                  Open Member Area
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-light" id="live-plans">
-        <div className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div className="space-y-3">
-              <p className="eyebrow">Live Plans</p>
-              <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">
-                {gymConfig.plans_heading ?? "Membership options"}
-              </h2>
-            </div>
-            <Link
-              href="/classes#live-schedule"
-              className="button-secondary"
-              data-ingenium-event="pricing_cta_click"
-              data-ingenium-label="View Timetable From Memberships"
-              data-ingenium-location="memberships_live_plans"
-            >
-              View Timetable
-            </Link>
-          </div>
-
-          <div className="grid gap-6 xl:grid-cols-3">
-            {membershipCards.map((plan) => (
-              <article key={plan.id} className="panel-light p-6">
-                <p className="eyebrow">{plan.audience}</p>
-                <div className="mt-3 flex items-start justify-between gap-4">
-                  <h2 className="font-heading text-3xl uppercase tracking-[0.12em]">{plan.name}</h2>
-                  <div className="text-right">
-                    <div className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">
-                      {plan.price}
-                    </div>
-                    <div className="mt-1 text-xs uppercase tracking-[0.16em] text-[color:var(--fog)]">
-                      {plan.usage_limit_kind === "capped"
-                        ? `${plan.usage_limit_count ?? "Set"} / ${plan.usage_period_unit ?? "period"}`
-                        : "Flexible access"}
-                    </div>
-                  </div>
-                </div>
-                <p className="mt-4 text-[color:var(--fog)]">{plan.detail}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="panel-dark p-6 sm:p-8">
-            <p className="eyebrow">For First-Timers</p>
-            <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">
-              Start with a route that gives you enough time to settle in.
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-[color:var(--fog)]">
-              Beginner packs still do the same job they always did: reduce friction, give structure, and help people train consistently early.
-            </p>
-          </div>
-          <div className="panel-dark p-6 sm:p-8">
-            <p className="eyebrow">For Existing Members</p>
-            <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">
-              Use the member area to confirm active access before you book.
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-[color:var(--fog)]">
-              Once the portal routes are live, this page becomes the fastest way to check active plans, recent bookings, and on-site member access.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <GymMemberPortal
-          bookingPolicy={
-            gymConfig.booking_policy ??
-            "Bookings are handled from the class schedule once the portal timetable has been synced."
-          }
-          emptyScheduleMessage="Use the classes page for the live timetable after the first successful gym sync."
-          membershipCopy={
-            gymConfig.membership_copy ??
-            "Existing members will be able to use this area for access checks and booking history without leaving the Attic site."
-          }
-          scheduleHeading="Existing member utility"
-          sessions={gymSessions}
-          showSchedule={false}
-        />
-      </section>
-    </>
-  );
+export const metadata: Metadata = { title: "Memberships", description: "Explore Attic Jiu Jitsu memberships, beginner packs, student rates and family plans in Carlow." };
+export const dynamic = "force-dynamic";
+export default async function MembershipsPage() {
+  const catalogue = await getGymCatalogue();
+  const plans = getMembershipCards(catalogue.plans);
+  const groups = ["Adults", "Beginners", "Kids", "Teens", "Family"];
+  return <>
+    <section className="w-full px-5 py-18 sm:px-8 lg:px-12">
+      <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"><div><p className="eyebrow">Memberships</p><h1 className="mt-5 font-heading text-5xl uppercase leading-none tracking-[0.06em] sm:text-6xl">Make training<br />part of your week.</h1><p className="mt-6 max-w-xl text-lg leading-8 text-[color:var(--fog)]">Start with a beginner pack, train whenever you can, or bring the family. Find the option that fits your life.</p></div><div className="space-y-5 border-l border-white/15 pl-6"><p className="text-lg leading-8 text-[color:var(--fog)]">Not sure where to start? Tell us who will be training and we’ll help you choose.</p><div className="flex flex-wrap gap-3"><Link href="/#trial-form" className="button-primary">Talk to the team</Link><Link href="/classes#live-schedule" className="button-secondary">View timetable</Link></div></div></div>
+    </section>
+    <section id="live-plans" className="section-light scroll-mt-24"><div className="w-full space-y-14 px-5 py-16 sm:px-8 lg:px-12">
+      {groups.map(group => <section key={group} aria-label={`${group} memberships`}><h2 className="mb-5 font-heading text-3xl uppercase tracking-[0.08em]">{group}</h2><div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{plans.filter(plan => plan.audience === group).map(plan => <article key={plan.id} className="panel-light flex flex-col p-6"><h3 className="font-heading text-3xl uppercase tracking-[0.04em]">{plan.name}</h3><p className="mt-5 font-heading text-3xl tracking-[0.03em]">{plan.price}</p><p className="mb-7 mt-4 leading-7 text-[color:var(--fog)]">{plan.detail}</p><Link href="/#trial-form" className="button-secondary mt-auto self-start" aria-label={`Ask about ${plan.name}`}>Ask about this plan</Link></article>)}</div></section>)}
+      <p className="border-t border-white/15 pt-6 text-sm leading-6 text-[color:var(--fog)]">Memberships and payments are arranged with the academy. Contact us to confirm eligibility, family coverage and your start date.</p>
+    </div></section>
+    <section id="member-area" className="w-full px-5 py-16 sm:px-8 lg:px-12"><div className="flex flex-wrap items-center justify-between gap-6 border-t border-white/15 pt-8"><div><h2 className="font-heading text-3xl uppercase tracking-[0.08em]">Already training with us?</h2><p className="mt-3 text-[color:var(--fog)]">Contact the team for help with your membership or your next class.</p></div><a href="tel:+353858447393" className="button-primary">Call 085 844 7393</a></div></section>
+  </>;
 }
