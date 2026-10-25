@@ -12,7 +12,8 @@
     "duration_minutes": 80,
     "default_capacity": 40,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "Duration varies",
@@ -27,7 +28,8 @@
     "duration_minutes": 80,
     "default_capacity": 40,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "Duration varies",
@@ -42,10 +44,11 @@
     "duration_minutes": 60,
     "default_capacity": 30,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
-    "duration_label": "Duration varies",
+    "duration_label": "To be confirmed",
     "id": "000f5c4a-d088-4246-86cb-37bc4e0339e5",
     "slug": "grading-day",
     "name": "Grading Day",
@@ -57,14 +60,15 @@
     "duration_minutes": 60,
     "default_capacity": 50,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "50 min",
     "id": "9b70080f-6b9a-4bac-b8af-531c95a94333",
     "slug": "kids-age-6yrs-11yrs",
     "name": "Kids - Age 6yrs - 11yrs",
-    "description": "Childrens seself defense & jiu jitsu program",
+    "description": "Children's self-defence and jiu-jitsu programme.",
     "category_slug": "gi",
     "category_label": "Gi",
     "coach_name": "Brian connolly",
@@ -72,7 +76,8 @@
     "duration_minutes": 50,
     "default_capacity": 26,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "80 min",
@@ -87,7 +92,8 @@
     "duration_minutes": 80,
     "default_capacity": 40,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "80 min",
@@ -102,7 +108,8 @@
     "duration_minutes": 80,
     "default_capacity": 40,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "60 min",
@@ -117,7 +124,8 @@
     "duration_minutes": 60,
     "default_capacity": 24,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "40 min",
@@ -132,14 +140,15 @@
     "duration_minutes": 40,
     "default_capacity": 30,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   },
   {
     "duration_label": "55 min",
     "id": "a1c1d79b-a1de-48b9-933f-922bde17ead7",
     "slug": "teens-age-12yrs-15yrs",
     "name": "Teens - Age 12yrs - 15yrs",
-    "description": "Childrens seself defense & jiu jitsu program",
+    "description": "Children's self-defence and jiu-jitsu programme.",
     "category_slug": "gi",
     "category_label": "Gi",
     "coach_name": "Brian connolly",
@@ -147,6 +156,7 @@
     "duration_minutes": 55,
     "default_capacity": 26,
     "booking_window_hours": 168,
-    "cancellation_window_hours": 24
+    "cancellation_window_hours": 24,
+    "booking_workspace_managed": true
   }
 ]

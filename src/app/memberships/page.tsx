@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export default async function MembershipsPage() {
   const catalogue = await getGymCatalogue();
   const plans = getMembershipCards(catalogue.plans);
-  const groups = ["Adults", "Beginners", "Kids", "Teens", "Family"];
+  const groups = Array.from(new Set(["Adults", "Beginners", "Kids", "Teens", "Family", ...plans.map(plan => plan.audience)]));
   return <>
     <section className="w-full px-5 py-18 sm:px-8 lg:px-12">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"><div><p className="eyebrow">Memberships</p><h1 className="mt-5 font-heading text-5xl uppercase leading-none tracking-[0.06em] sm:text-6xl">Make training<br />part of your week.</h1><p className="mt-6 max-w-xl text-lg leading-8 text-[color:var(--fog)]">Start with a beginner pack, train whenever you can, or bring the family. Find the option that fits your life.</p></div><div className="space-y-5 border-l border-white/15 pl-6"><p className="text-lg leading-8 text-[color:var(--fog)]">Not sure where to start? Tell us who will be training and we’ll help you choose.</p><div className="flex flex-wrap gap-3"><Link href="/#trial-form" className="button-primary">Talk to the team</Link><Link href="/classes#live-schedule" className="button-secondary">View timetable</Link></div></div></div>
