@@ -30,6 +30,9 @@ export async function forwardMemberRequest(
   const cookieName = config.production
     ? "__Host-attic-member"
     : "attic-member-dev";
+  const testCookieName = config.production
+    ? "__Host-attic-member-test"
+    : "attic-member-test-dev";
   const origin = req.headers.get("origin");
   if (
     origin !== new URL(req.url).origin ||
@@ -67,6 +70,12 @@ export async function forwardMemberRequest(
       "book",
       "cancel",
       "logout",
+      "plans",
+      "checkout",
+      "checkout_status",
+      "cancel_checkout",
+      "billing_portal",
+      "test_signin",
     ].includes(body?.action)
   )
     return Response.json(
@@ -91,6 +100,7 @@ export async function forwardMemberRequest(
           "Content-Type": "application/json",
           Authorization: `Bearer ${key}`,
           "x-member-session": store.get(cookieName)?.value ?? "",
+          "x-member-test-session": store.get(testCookieName)?.value ?? "",
           "x-member-client-ip":
             req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
             "unknown",
@@ -106,6 +116,35 @@ export async function forwardMemberRequest(
     const payload = await upstream
       .json()
       .catch(() => ({ error: "Member service is temporarily unavailable." }));
+    if (
+      body.action === "test_signin" &&
+      upstream.ok &&
+      typeof payload.test_token === "string"
+    ) {
+      store.set(testCookieName, payload.test_token, {
+        httpOnly: true,
+        secure: config.production,
+        sameSite: "lax",
+        path: "/",
+        expires: new Date(payload.test_expires_at),
+      });
+      store.set(cookieName, "", {
+        httpOnly: true,
+        secure: config.production,
+        sameSite: "lax",
+        path: "/",
+        maxAge: 0,
+      });
+      return Response.json(
+        {
+          challenge: payload.challenge,
+          email: payload.email,
+          testing: true,
+          expires_at: payload.test_expires_at,
+        },
+        { headers },
+      );
+    }
     if (
       body.action === "verify_code" &&
       upstream.ok &&
@@ -131,7 +170,18 @@ export async function forwardMemberRequest(
         path: "/",
         maxAge: 0,
       });
-    return Response.json(payload, { status: upstream.status, headers });
+    if (body.action === "logout" && upstream.ok)
+      store.set(testCookieName, "", {
+        httpOnly: true,
+        secure: config.production,
+        sameSite: "lax",
+        path: "/",
+        maxAge: 0,
+      });
+    const safePayload = { ...payload };
+    delete safePayload.test_token;
+    delete safePayload.session_token;
+    return Response.json(safePayload, { status: upstream.status, headers });
   } catch {
     return Response.json(
       {
