@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { MemberApp } from "@/components/members/member-app";
 import "./members.css";
 export const metadata: Metadata = {
   title: { absolute: "Attic Members" },
@@ -24,5 +25,10 @@ export default function MembersLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="memberApp">{children}</div>;
+  return (
+    <div className="memberApp">
+      <MemberApp />
+      {children}
+    </div>
+  );
 }
