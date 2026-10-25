@@ -54,17 +54,15 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 xl:gap-3 lg:flex">
-          <a
-            href={site.bookingUrl}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href={site.schedulePath}
             className="button-secondary px-4 xl:px-5"
             data-ingenium-event="booking_cta_click"
             data-ingenium-label="View Timetable"
             data-ingenium-location="header"
           >
             View Timetable
-          </a>
+          </Link>
           <Link
             href="/#trial-form"
             className="button-primary px-4 xl:px-5"
@@ -101,17 +99,16 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href={site.schedulePath}
               className="button-secondary mt-2 text-center"
               data-ingenium-event="booking_cta_click"
               data-ingenium-label="View Timetable"
               data-ingenium-location="mobile_menu"
+              onClick={() => setOpen(false)}
             >
               View Timetable
-            </a>
+            </Link>
             <Link
               href="/#trial-form"
               className="button-primary text-center"

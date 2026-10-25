@@ -24,17 +24,15 @@ export function SiteFooter() {
             >
               Book a Free Trial
             </Link>
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href={site.schedulePath}
               className="button-secondary"
               data-ingenium-event="booking_cta_click"
               data-ingenium-label="View Timetable"
               data-ingenium-location="footer"
             >
               View Timetable
-            </a>
+            </Link>
           </div>
         </div>
 

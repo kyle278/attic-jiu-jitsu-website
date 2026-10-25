@@ -1,118 +1,40 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { getClassCards } from "@/lib/gym-data";
+import { getGymCatalogue, getTimetable } from "@/lib/server/gym-catalogue";
 
-import { classPrograms, site } from "@/lib/site-data";
+export const metadata: Metadata = { title: "Classes & timetable", description: "Explore adult, kids and teens jiu jitsu at Attic in Carlow. See gi and no-gi classes, class times and training options." };
+export const dynamic = "force-dynamic";
+const dayFormat = new Intl.DateTimeFormat("en-IE", { weekday: "long", day: "numeric", month: "short", timeZone: "Europe/Dublin" });
+const timeFormat = new Intl.DateTimeFormat("en-IE", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Europe/Dublin" });
 
-export const metadata: Metadata = {
-  title: "Classes",
-  description: "Explore adult, kids, teens, gi, and no-gi classes at Attic Jiu Jitsu Carlow.",
-};
-
-export default function ClassesPage() {
-  return (
-    <>
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-5">
-            <p className="eyebrow">Classes</p>
-            <h1 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)]">
-              Find the right class for your level and your goals.
-            </h1>
-            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              Whether you want a complete beginner start, more live rounds, youth coaching, or a stronger no-gi routine, there is a class path that fits.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/#trial-form"
-                className="button-primary"
-                data-ingenium-event="contact_cta_click"
-                data-ingenium-label="Book a Free Trial"
-                data-ingenium-location="classes_hero"
-              >
-                Book a Free Trial
-              </Link>
-              <a
-                href={site.bookingUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="button-secondary"
-                data-ingenium-event="booking_cta_click"
-                data-ingenium-label="Open Booking Calendar"
-                data-ingenium-location="classes_hero"
-              >
-                Open Booking Calendar
-              </a>
-            </div>
-          </div>
-
-          <div className="panel-dark overflow-hidden">
-            <div className="image-frame relative h-64">
-              <Image src="/images/gallery-1.jpg" alt="Brazilian Jiu Jitsu class training in Carlow" fill className="object-cover" />
-            </div>
-            <div className="p-6 sm:p-8">
-              <p className="eyebrow">What To Expect</p>
-              <ul className="mt-4 grid gap-4 text-lg text-[color:var(--fog)]">
-                <li>Start with the class that matches your current experience level.</li>
-                <li>Train in gi, no-gi, youth, or sparring sessions as your confidence grows.</li>
-                <li>Use the live booking calendar for the latest session times and availability.</li>
-                <li>Ask for guidance if you are not sure where to begin.</li>
-              </ul>
-            </div>
-          </div>
+export default async function ClassesPage() {
+  const catalogue = await getGymCatalogue();
+  const classes = getClassCards(catalogue.classes, catalogue.sessions);
+  const timetable = getTimetable(catalogue);
+  const days = Array.from(new Set(timetable.map(item => item.starts_at.slice(0, 10))));
+  return <>
+    <section className="w-full px-5 py-18 sm:px-8 lg:px-12">
+      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="space-y-6">
+          <p className="eyebrow">Attic Jiu Jitsu · Carlow</p>
+          <h1 className="font-heading text-5xl uppercase leading-none tracking-[0.06em] sm:text-6xl">Find your place<br />on the mats.</h1>
+          <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">Your first class or your next challenge. Train gi and no-gi with a welcoming team, with dedicated classes for adults, kids and teens.</p>
+          <div className="flex flex-wrap gap-3"><Link href="/#trial-form" className="button-primary">Book a free trial</Link><a href="#live-schedule" className="button-secondary">View timetable</a></div>
         </div>
-      </section>
-
-      <section className="section-light">
-        <div className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {classPrograms.map((program) => (
-              <article key={program.title} className="panel-light p-6">
-                <p className="eyebrow">Program</p>
-                <h2 className="mt-2 font-heading text-3xl uppercase tracking-[0.12em]">{program.title}</h2>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--fog)]">{program.duration}</p>
-                <p className="mt-4 text-[color:var(--fog)]">{program.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="panel-dark grid gap-8 overflow-hidden p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-4">
-            <p className="eyebrow">Timetable</p>
-            <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">Use the live schedule for the latest class times.</h2>
-            <p className="text-lg leading-8 text-[color:var(--fog)]">
-              The booking calendar is the best place to see current class times, availability, and session updates.
-            </p>
-            <div className="image-frame relative h-72">
-              <Image src="/images/gallery-7.jpg" alt="Live training atmosphere on the mats at Attic Jiu Jitsu" fill className="object-cover" />
-            </div>
-          </div>
-          <div className="grid gap-4">
-            <div className="rounded-[20px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-5">
-              <h3 className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">Best for complete beginners</h3>
-              <p className="mt-2 text-[color:var(--fog)]">Adults Beginners or No-Gi Beginners are the easiest first step into the academy.</p>
-            </div>
-            <div className="rounded-[20px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-5">
-              <h3 className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">Best for parents</h3>
-              <p className="mt-2 text-[color:var(--fog)]">Kids and teens classes focus on discipline, confidence, movement, and a positive team environment.</p>
-            </div>
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="button-primary w-fit"
-              data-ingenium-event="booking_cta_click"
-              data-ingenium-label="View The Live Timetable"
-              data-ingenium-location="classes_timetable"
-            >
-              View The Live Timetable
-            </a>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+        <div className="image-frame relative min-h-72 overflow-hidden sm:min-h-96"><Image src="/images/gallery-1.jpg" alt="Training partners on the mats at Attic Jiu Jitsu" fill priority className="object-cover" sizes="(max-width: 1023px) 100vw, 50vw" /></div>
+      </div>
+    </section>
+    <section id="live-schedule" className="section-light scroll-mt-24">
+      <div className="w-full px-5 py-16 sm:px-8 lg:px-12">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-5"><div><h2 className="font-heading text-4xl uppercase tracking-[0.08em]">Upcoming classes</h2><p className="mt-3 text-[color:var(--fog)]">All times are local to Carlow. Contact the team to reserve a place.</p></div><Link href="/#trial-form" className="button-primary">Ask about a class</Link></div>
+        {days.length ? <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">{days.map(day => <div key={day} className="border-t border-white/15 pt-5"><h3 className="font-heading text-2xl uppercase tracking-[0.08em]">{dayFormat.format(new Date(`${day}T12:00:00Z`))}</h3><ul className="mt-4 divide-y divide-white/10">{timetable.filter(item => item.starts_at.startsWith(day)).map(item => <li key={`${item.service.id}-${item.starts_at}`} className="flex items-start gap-5 py-4"><time className="min-w-14 font-heading text-2xl tabular-nums" dateTime={item.starts_at}>{timeFormat.format(new Date(item.starts_at))}</time><div><p className="font-medium text-[color:var(--chalk)]">{item.service.name}</p><p className="mt-1 text-sm text-[color:var(--fog)]">{item.service.duration_label || `${item.service.duration_minutes} min`}</p></div></li>)}</ul></div>)}</div> : <p className="border-t border-white/15 py-8 text-lg">Contact the team for the next class times and help choosing your first session.</p>}
+      </div>
+    </section>
+    <section className="w-full px-5 py-16 sm:px-8 lg:px-12">
+      <div className="mb-8 flex flex-wrap items-end justify-between gap-4"><h2 className="font-heading text-4xl uppercase tracking-[0.08em]">Choose your training</h2><Link href="/memberships" className="button-secondary">See memberships</Link></div>
+      <div className="grid gap-x-10 md:grid-cols-2 xl:grid-cols-3">{classes.map(item => <article key={item.id} className="border-t border-white/15 py-7"><div className="flex items-start justify-between gap-4"><h3 className="font-heading text-3xl uppercase tracking-[0.05em]">{item.name}</h3><span className="shrink-0 pt-1 text-sm text-[color:var(--fog)]">{item.duration_label || `${item.duration_minutes} min`}</span></div><p className="mt-3 leading-7 text-[color:var(--fog)]">{item.description?.replace("Childrens seself defense & jiu jitsu program", "Self-defence and jiu jitsu for children.") || (item.slug === "grading-day" ? "A chance to celebrate progress with the team. Contact the academy for the next grading date." : "Build your skills with the team. Contact us to find the right class for your experience.")}</p></article>)}</div>
+    </section>
+  </>;
 }

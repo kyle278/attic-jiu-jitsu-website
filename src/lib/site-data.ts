@@ -11,8 +11,11 @@ export const site = {
   city: "Carlow",
   country: "Ireland",
   currentWebsite: "https://www.atticbjj.net",
-  bookingUrl: "https://www.atticbjj.net/book-online",
-  membershipUrl: "https://www.atticbjj.net/plans-pricing",
+  schedulePath: "/classes#live-schedule",
+  membershipsPath: "/memberships#live-plans",
+  memberAreaPath: "/memberships#member-area",
+  legacyBookingUrl: "https://www.atticbjj.net/book-online",
+  legacyMembershipUrl: "https://www.atticbjj.net/plans-pricing",
   facebookUrl: "https://facebook.com/atticbjj",
   instagramUrl: "https://instagram.com/atticjiujitsu/",
 };

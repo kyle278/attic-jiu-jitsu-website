@@ -1,0 +1,67 @@
+{
+  "contract_version": "2026-05-07.v1",
+  "gym_name": "Attic Jiu Jitsu Carlow",
+  "plans_heading": "Find your training rhythm",
+  "booking_policy": "Contact the team to reserve a place. Please give at least one hour’s notice if you cannot attend.",
+  "display_options": {
+    "timetable": [
+      {
+        "starts_at": "2026-10-27T18:25:00Z",
+        "class_slug": "teens-age-12yrs-15yrs"
+      },
+      {
+        "starts_at": "2026-10-29T18:25:00Z",
+        "class_slug": "teens-age-12yrs-15yrs"
+      },
+      {
+        "starts_at": "2026-10-27T19:40:00Z",
+        "class_slug": "gi-beginner"
+      },
+      {
+        "starts_at": "2026-10-27T17:30:00Z",
+        "class_slug": "kids-age-6yrs-11yrs"
+      },
+      {
+        "starts_at": "2026-10-29T17:30:00Z",
+        "class_slug": "kids-age-6yrs-11yrs"
+      },
+      {
+        "starts_at": "2026-10-26T20:20:00Z",
+        "class_slug": "gi-sparring"
+      },
+      {
+        "starts_at": "2026-10-30T18:30:00Z",
+        "class_slug": "gi-sparring"
+      },
+      {
+        "starts_at": "2026-10-26T19:00:00Z",
+        "class_slug": "gi-mixed-levels"
+      },
+      {
+        "starts_at": "2026-10-30T18:00:00Z",
+        "class_slug": "gi-mixed-levels"
+      },
+      {
+        "starts_at": "2026-10-29T19:40:00Z",
+        "class_slug": "nogi-beginner"
+      },
+      {
+        "starts_at": "2026-10-28T20:20:00Z",
+        "class_slug": "nogi-sparring"
+      },
+      {
+        "starts_at": "2026-10-31T11:00:00Z",
+        "class_slug": "nogi-open-mat"
+      },
+      {
+        "starts_at": "2026-10-28T19:00:00Z",
+        "class_slug": "nogi-mixed-levels"
+      }
+    ],
+    "timetable_timezone": "Europe/Dublin",
+    "timetable_verified_at": "2026-10-25T12:57:38.619Z",
+    "online_booking_enabled": false
+  },
+  "membership_copy": "Talk to the team about your membership and class access.",
+  "schedule_heading": "Class timetable"
+}
