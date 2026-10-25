@@ -20,12 +20,18 @@ export const getGymCatalogue = cache(async (): Promise<GymManifest> => {
 
 export function getTimetable(manifest: GymManifest) {
   const entries = manifest.config.display_options?.timetable;
-  if (!Array.isArray(entries)) return [];
-  return entries.flatMap((entry: unknown) => {
+  const live = manifest.sessions.flatMap(session => {
+    const service = manifest.classes.find(item => item.id === session.class_template_id);
+    return service && Date.parse(session.starts_at) > Date.now() ? [{ starts_at: session.starts_at, ends_at: session.ends_at, duration_minutes: session.duration_minutes, service }] : [];
+  });
+  if (!Array.isArray(entries)) return live.sort((a,b) => a.starts_at.localeCompare(b.starts_at));
+  const legacy = entries.flatMap((entry: unknown) => {
     if (!entry || typeof entry !== "object") return [];
     const value = entry as Record<string, unknown>;
     if (typeof value.starts_at !== "string" || typeof value.class_slug !== "string" || !Number.isFinite(Date.parse(value.starts_at)) || Date.parse(value.starts_at) <= Date.now()) return [];
     const service = manifest.classes.find(item => item.slug === value.class_slug);
-    return service ? [{ starts_at: value.starts_at, service }] : [];
-  }).sort((a, b) => a.starts_at.localeCompare(b.starts_at));
+    return service && !service.booking_workspace_managed ? [{ starts_at: value.starts_at, ends_at: null, duration_minutes: service.duration_minutes, service }] : [];
+  });
+  const merged = new Map([...legacy, ...live].map(entry => [`${entry.service.id}:${entry.starts_at}`,entry]));
+  return [...merged.values()].sort((a,b) => a.starts_at.localeCompare(b.starts_at));
 }

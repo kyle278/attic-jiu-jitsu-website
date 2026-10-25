@@ -33,6 +33,7 @@ export type GymSyncMembershipPlan = {
 };
 
 export type GymSyncClassTemplate = {
+  booking_workspace_managed?: boolean;
   duration_label?: string | null;
   id: string;
   slug: string;

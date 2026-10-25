@@ -60,6 +60,7 @@
     ],
     "timetable_timezone": "Europe/Dublin",
     "timetable_verified_at": "2026-10-25T12:57:38.619Z",
+    "canonical_booking_feed": true,
     "online_booking_enabled": false
   },
   "membership_copy": "Talk to the team about your membership and class access.",
