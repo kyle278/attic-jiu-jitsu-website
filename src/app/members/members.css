@@ -1,4 +1,8 @@
 .memberApp {
+  --member-plan-gap: 20px;
+  --member-plan-padding: 24px;
+  --member-plan-min: 260px;
+  --member-plan-price-size: 26px;
   --member-accent: var(--bronze);
   --member-accent-dark: #982239;
   --member-canvas: #f5f6f8;
@@ -1110,4 +1114,87 @@
     animation: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+.memberPlanCatalogue {
+  display: grid;
+  gap: var(--member-plan-gap);
+  margin-top: calc(var(--member-space) * 1.5);
+  padding-top: var(--member-space);
+  border-top: 1px solid var(--member-line);
+}
+.memberPlanCatalogueHeading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--member-plan-gap);
+}
+.memberPlanCatalogueHeading > div {
+  display: grid;
+  gap: calc(var(--member-plan-gap) / 2);
+}
+.memberPlanCatalogueHeading .memberPlanCatalogueActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: calc(var(--member-plan-gap) / 2);
+}
+.memberPlanGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--member-plan-min)), 1fr));
+  gap: var(--member-plan-gap);
+}
+.memberPlanCard {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: calc(var(--member-plan-gap) * .75);
+  padding: var(--member-plan-padding);
+  border: 1px solid var(--member-line);
+  border-radius: var(--member-radius);
+  background: var(--member-surface);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.memberPlanPrice {
+  color: var(--member-ink);
+  font-size: var(--member-plan-price-size);
+  font-weight: 700;
+  letter-spacing: -.5px;
+}
+.memberPlanBenefits {
+  flex: 1;
+}
+.memberPlanCard .memberButton {
+  width: 100%;
+  justify-content: space-between;
+}
+.memberPlanPaymentNotice {
+  display: grid;
+  gap: calc(var(--member-plan-gap) / 4);
+  border: 1px solid var(--member-line);
+  border-radius: var(--member-radius);
+  padding: var(--member-plan-padding);
+  background: var(--member-surface);
+}
+.memberPlanPaymentNotice p {
+  color: var(--member-muted);
+}
+.memberPlanPaymentNotice a {
+  color: var(--member-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.memberAccessDetails {
+  border-top: 1px solid var(--member-line);
+  padding-top: var(--member-plan-gap);
+}
+.memberAccessDetails summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--member-accent);
+}
+.memberAccessDetails[open] summary {
+  margin-bottom: var(--member-plan-gap);
 }

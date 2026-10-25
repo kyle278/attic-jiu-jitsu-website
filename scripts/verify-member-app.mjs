@@ -18,6 +18,10 @@ const base = process.env.MEMBER_REVIEW_URL || "http://localhost:3314";
 if (!["localhost", "127.0.0.1"].includes(new URL(base).hostname))
   throw Error("Only isolated local acceptance is supported.");
 const output = path.join(process.env.TEMP || "/tmp", "attic-member-app-review");
+const publishedPlans = JSON.parse(await fs.readFile(new URL("../src/generated/gym/manifest.json", import.meta.url), "utf8")).plans.map((plan) => ({
+  id: plan.id, name: plan.name, description: plan.description,
+  audience: plan.audience, price: plan.price_label,
+}));
 await fs.mkdir(output, { recursive: true });
 const browser = await chromium.launch({
   headless: true,
@@ -41,7 +45,8 @@ try {
       bookingKey = null,
       created = 0,
       ambiguous = true,
-      dataRequests = 0;
+      dataRequests = 0,
+      planFailure = false;
     const starts = new Date(Date.now() + 86400000);
     starts.setUTCHours(18, 0, 0, 0);
     const ends = new Date(starts.getTime() + 3600000),
@@ -100,6 +105,11 @@ try {
     await page.route("**/*", async (route) => {
       const url = new URL(route.request().url());
       if (url.origin !== base) return route.abort();
+      if (url.pathname === "/members/plans") return route.fulfill({
+        status: planFailure ? 503 : 200,
+        contentType: "application/json",
+        body: JSON.stringify(planFailure ? { error: "Membership catalogue unavailable" } : { plans: publishedPlans, purchasing_enabled: false }),
+      });
       if (url.pathname === "/members/api") {
         const body = route.request().postDataJSON();
         let status = 200,
@@ -203,6 +213,28 @@ try {
         `${section} has no page overflow`,
       );
       assert.equal(await page.getByRole("tab").count(), 0);
+      if (section === "membership") {
+        await page.getByText(`${publishedPlans.length} memberships available`, { exact: true }).waitFor();
+        assert.equal(await page.locator(".memberPlanCard").count(), publishedPlans.length);
+        await page.getByLabel("Memberships for", { exact: true }).selectOption("Family");
+        assert.equal(await page.locator(".memberPlanCard").count(), publishedPlans.filter((p) => p.audience === "Family").length);
+        await page.getByRole("button", { name: "View Family Plan", exact: true }).click();
+        await page.getByRole("dialog").getByRole("heading", { name: "Family Plan", exact: true }).waitFor();
+        assert.equal(await page.getByRole("dialog").getByRole("button", { name: "Purchase membership · coming soon", exact: true }).isDisabled(), true);
+        await page.screenshot({ path: path.join(output, `membership-plan-${width}.png`), fullPage: true });
+        await page.getByRole("button", { name: "Close membership details", exact: true }).click();
+        await page.getByLabel("Memberships for", { exact: true }).selectOption("");
+        planFailure = true;
+        await page.getByRole("button", { name: "Refresh plans", exact: true }).click();
+        await page.getByRole("alert").filter({ hasText: "Membership catalogue unavailable" }).waitFor();
+        assert.equal(await shell.evaluate((node) => node.isConnected), true);
+        planFailure = false;
+        await page.getByRole("button", { name: "Try again", exact: true }).click();
+        await page.getByText(`${publishedPlans.length} memberships available`, { exact: true }).waitFor();
+        await page.locator(".memberPlanCatalogue").scrollIntoViewIfNeeded();
+        checks.push(`all published membership options, filter and payment gate at ${width}`);
+        checks.push(`membership catalogue failure and recovery preserve shell at ${width}`);
+      }
       await page.screenshot({
         path: path.join(output, `${section}-${width}.png`),
         fullPage: true,

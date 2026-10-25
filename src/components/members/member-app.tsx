@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MembershipOptions } from "./membership-options";
 import {
   useCallback,
   useEffect,
@@ -698,7 +699,7 @@ export function MemberApp() {
     },
     membership: {
       title: "Your membership",
-      copy: "See what’s included and when your access is valid.",
+      copy: "Manage your current access and explore every membership option.",
     },
     account: {
       title: "Your account",
@@ -1125,7 +1126,8 @@ export function MemberApp() {
             </>
           )}
           {section === "membership" && (
-            <div className="memberColumns">
+            <>
+            <div>
               <section className="memberPanel memberDetails">
                 <span
                   className={`memberBadge ${membershipActive ? "memberGood" : ""}`}
@@ -1141,6 +1143,9 @@ export function MemberApp() {
                 <h2>{grant?.label ?? "Connect your membership"}</h2>
                 {grant ? (
                   <>
+                    <p className="memberMuted">{grant.weekly_limit ? `${grant.weekly_limit} classes each week` : "Unlimited included classes"}{grant.ends_at ? ` · until ${shortDate(grant.ends_at)}` : ""}</p>
+                    <details className="memberAccessDetails">
+                    <summary>View your access details</summary>
                     <dl>
                       <div>
                         <dt>Included training</dt>
@@ -1178,6 +1183,7 @@ export function MemberApp() {
                           </li>
                         ))}
                     </ul>
+                    </details>
                     <p className="memberMuted">
                       Access is checked for the date of each class. Cancelling
                       within the allowed window restores your place in that
@@ -1191,27 +1197,9 @@ export function MemberApp() {
                   </p>
                 )}
               </section>
-              <aside className="memberContext">
-                <div className="memberHelp">
-                  <h2>Need to make a change?</h2>
-                  <p>
-                    Speak with the academy about renewals, family cover,
-                    payments or changes to your membership.
-                  </p>
-                  <a
-                    className="memberButton memberPrimary"
-                    href="tel:+353858447393"
-                  >
-                    Contact the academy
-                  </a>
-                  <p className="memberFootnote">
-                    Payments are arranged with the academy. This app shows your
-                    assigned class access.
-                  </p>
-                </div>
-                {upcomingCard}
-              </aside>
             </div>
+            <MembershipOptions />
+            </>
           )}
           {section === "account" && (
             <div className="memberColumns">
