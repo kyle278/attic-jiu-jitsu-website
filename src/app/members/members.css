@@ -1015,7 +1015,7 @@
     left: 0;
     right: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     padding: 8px 6px max(8px, env(safe-area-inset-bottom));
     background: var(--member-surface);
     border-top: 1px solid var(--member-line);
@@ -1142,14 +1142,17 @@
 }
 .memberPlanGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--member-plan-min)), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--member-plan-min)), 1fr)
+  );
   gap: var(--member-plan-gap);
 }
 .memberPlanCard {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: calc(var(--member-plan-gap) * .75);
+  gap: calc(var(--member-plan-gap) * 0.75);
   padding: var(--member-plan-padding);
   border: 1px solid var(--member-line);
   border-radius: var(--member-radius);
@@ -1161,7 +1164,7 @@
   color: var(--member-ink);
   font-size: var(--member-plan-price-size);
   font-weight: 700;
-  letter-spacing: -.5px;
+  letter-spacing: -0.5px;
 }
 .memberPlanBenefits {
   flex: 1;
@@ -1197,4 +1200,71 @@
 }
 .memberAccessDetails[open] summary {
   margin-bottom: var(--member-plan-gap);
+}
+
+.memberParticipantBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--member-space-4, 1rem);
+  padding: var(--member-space-4, 1rem) 0;
+  margin-bottom: var(--member-space-4, 1rem);
+  border-bottom: 1px solid var(--member-line);
+}
+.memberParticipantBar p {
+  color: var(--member-muted);
+  font-size: var(--member-text-sm, 0.875rem);
+}
+.memberParticipantName {
+  font-weight: 600;
+}
+.memberFamilyList {
+  display: grid;
+  gap: var(--member-space-5, 1.25rem);
+  margin-top: var(--member-space-5, 1.25rem);
+}
+.memberFamilyPerson {
+  display: flex;
+  align-items: center;
+  gap: var(--member-space-4, 1rem);
+  padding: var(--member-space-5, 1.25rem) 0;
+  border-top: 1px solid var(--member-line);
+}
+.memberFamilyPerson > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.memberFamilyPerson h3 {
+  margin: 0;
+}
+.memberPersonAvatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: var(--member-avatar-size, 2.5rem);
+  height: var(--member-avatar-size, 2.5rem);
+  border-radius: 50%;
+  background: var(--member-tint);
+  color: var(--member-accent);
+  font-weight: 700;
+}
+.memberFamilyCoverage {
+  margin-block: var(--member-space-4, 1rem);
+}
+@media (max-width: 600px) {
+  .memberParticipantBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .memberFamilyPerson {
+    flex-wrap: wrap;
+  }
+  .memberFamilyPerson > .memberButton {
+    width: 100%;
+  }
+  .memberMobileNav a {
+    min-width: 0;
+    font-size: var(--member-text-xs, 0.75rem);
+  }
 }

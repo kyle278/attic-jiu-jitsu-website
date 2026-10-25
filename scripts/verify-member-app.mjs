@@ -52,6 +52,8 @@ try {
       checkoutKeys = [],
       loseCheckoutResponse = true,
       useKyle = false,
+      familyMode = false,
+      familyBookings = [],
       testingGranted = false,
       emailCodeRequests = 0;
     const starts = new Date(Date.now() + 86400000);
@@ -59,6 +61,8 @@ try {
     const ends = new Date(starts.getTime() + 3600000),
       id = "00000000-0000-4000-8000-000000000001";
     const data = () => ({
+      participant_id: familyMode ? "parent" : undefined,
+      people: familyMode ? [{contact_id:"parent",name:"Alex Member",is_self:true,role:"adult",household_id:null,household_name:null,membership:null},...(["Mia","Noah"].map((name,i)=>({contact_id:`child-${i}`,name,role:"child",is_self:false,household_id:"family",household_name:"Murphy family",membership:{label:"Kids family membership",service_ids:["class"],weekly_limit:i+1,starts_at:new Date(Date.now()-86400000).toISOString(),ends_at:null,status:"active"}})))] : undefined,
       site_name: "Attic",
       member: { name: "Alex Member", email: useKyle ? "kyle@ingeniumconsulting.net" : "alex@example.invalid" },
       membership: {
@@ -92,7 +96,7 @@ try {
           price_required: false,
         },
       ],
-      bookings: booked
+      bookings: familyMode ? familyBookings : booked
         ? [
             {
               id: "reservation",
@@ -130,12 +134,13 @@ try {
         if (body.action === "plans") {
           status = planFailure ? 503 : 200;
           payload = planFailure ? { error: "Membership catalogue unavailable" } : {
-            plans: publishedPlans.map((p) => ({ ...p, checkout: { enabled: paymentsEnabled && !["paid", "past_due"].includes(purchaseState) && p.name === "Membership", reason: "Online purchasing is being set up", terms: "Monthly membership. Renews automatically until cancelled.", billing_label: "Renews every month" } })), purchasing_enabled: paymentsEnabled,
+            plans: publishedPlans.map((p) => ({ ...p, checkout: { enabled: paymentsEnabled && !["paid", "past_due"].includes(purchaseState) && (familyMode?p.name==="Family Plan":p.name === "Membership"), ...(familyMode?{enrollment:{household_id:"family",revision:2},coverage:[{name:"Mia",weekly_limit:1},{name:"Noah",weekly_limit:2}]}:{}), reason: "Online purchasing is being set up", terms: "Monthly membership. Renews automatically until cancelled.", billing_label: "Renews every month" } })), purchasing_enabled: paymentsEnabled,
             purchase: purchaseState ? { id, plan_id: publishedPlans.find((p) => p.name === "Membership").id, name: "Membership", status: purchaseState, recurring: true, can_manage: purchaseState !== "pending", paid_until: null } : null,
           };
         }
         if (body.action === "checkout") {
           const key = route.request().headers()["idempotency-key"];
+          if(familyMode)assert.deepEqual(body.input.enrollment,{household_id:"family",revision:2});
           checkoutKeys.push(key); purchaseState = "pending";
           if (loseCheckoutResponse) { loseCheckoutResponse = false; return route.abort("failed"); }
           payload = { purchase_id: id, url: "https://checkout.stripe.com/c/pay/synthetic" };
@@ -155,7 +160,11 @@ try {
             payload = { error: "The code is invalid or expired." };
           }
         }
-        if (body.action === "book") {
+        if (body.action === "book" && familyMode) {
+          assert.ok(["child-0","child-1"].includes(body.input.participant_id));
+          if(!familyBookings.some(b=>b.participant_id===body.input.participant_id))familyBookings.push({id:`family-${body.input.participant_id}`,participant_id:body.input.participant_id,participant_name:body.input.participant_id==="child-0"?"Mia":"Noah",session_id:id,status:"confirmed",session_status:"scheduled",name:"Gi · Mixed levels",starts_at:starts.toISOString(),ends_at:ends.toISOString(),location:"Attic",cancel_before:new Date(starts.getTime()-3600000).toISOString(),self_service:true});
+        }
+        if (body.action === "book" && !familyMode) {
           const key = route.request().headers()["idempotency-key"];
           if (bookingKey)
             assert.equal(
@@ -173,7 +182,8 @@ try {
             return route.abort("failed");
           }
         }
-        if (body.action === "cancel") cancelled = true;
+        if (body.action === "cancel" && familyMode) familyBookings=familyBookings.map(b=>b.id===body.input.reservation_id?{...b,status:"cancelled"}:b);
+        if (body.action === "cancel" && !familyMode) cancelled = true;
         if (body.action === "logout") { signedIn = false; testingGranted = false; }
         return route.fulfill({
           status,
@@ -328,6 +338,47 @@ try {
     await page.getByRole("button", { name: "Manage billing", exact: true }).click(); await billingHandoff;
     await page.getByRole("heading", { name: "Synthetic payment provider" }).waitFor();
     checks.push(`checkout retry, verified return and billing handoff at ${width}`);
+    familyMode=true;
+    await page.goto(base+"/members/family");
+    await page.getByRole("heading",{name:"Murphy family",exact:true}).waitFor();
+    await page.screenshot({path:path.join(output,`family-${width}.png`),fullPage:true});
+    await page.locator(".memberSidebar").evaluate(el=>{el.dataset.familyShell="persistent";return true;});
+    await page.getByRole("link",{name:"View classes for Mia",exact:true}).click();
+    await page.getByLabel("Training participant").selectOption("child-0");
+    assert.equal(await page.locator(".memberSidebar").getAttribute("data-family-shell"),"persistent");
+    await page.getByRole("button",{name:"Book class",exact:true}).click();
+    await page.getByRole("dialog").getByText("Mia",{exact:true}).waitFor();
+    await page.getByRole("button",{name:"Confirm booking",exact:true}).click();
+    await page.getByRole("dialog").waitFor({state:"hidden"});
+    await page.getByLabel("Training participant").selectOption("child-1");
+    await page.getByRole("button",{name:"Book class",exact:true}).click();
+    await page.getByRole("dialog").getByText("Noah",{exact:true}).waitFor();
+    await page.getByRole("button",{name:"Confirm booking",exact:true}).click();
+    await page.getByRole("dialog").waitFor({state:"hidden"});
+    assert.equal(familyBookings.length,2);
+    await page.screenshot({path:path.join(output,`family-timetable-${width}.png`),fullPage:true});
+    await page.getByRole("link",{name:"My bookings",exact:true}).first().click();
+    await page.getByLabel("Training participant").selectOption("all");
+    assert.equal(await page.getByRole("button",{name:"Cancel booking",exact:true}).count(),2);
+    await page.getByRole("button",{name:"Cancel booking",exact:true}).first().click();
+    await page.getByRole("dialog").getByText("For Mia",{exact:true}).waitFor();
+    await page.getByRole("button",{name:"Confirm cancellation",exact:true}).click();
+    await page.getByRole("dialog").waitFor({state:"hidden"});
+    assert.equal(familyBookings.find(b=>b.participant_id==="child-1").status,"confirmed");
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+    await page.screenshot({path:path.join(output,`family-bookings-${width}.png`),fullPage:true});
+    checks.push(`family selection, named confirmations, two sibling places and individual cancellation at ${width}`);
+    purchaseState=null;
+    await page.goto(base+"/members/membership");
+    await page.getByRole("button",{name:"View Family Plan",exact:true}).click();
+    await page.getByRole("dialog").getByText("Covered family members",{exact:true}).waitFor();
+    await page.getByRole("dialog").getByText(/Mia · 1 class(?:es)? per week/).waitFor();
+    await page.screenshot({path:path.join(output,`family-checkout-${width}.png`),fullPage:true});
+    const familyPaymentHandoff=page.waitForRequest("https://checkout.stripe.com/c/pay/synthetic");
+    await page.getByRole("button",{name:"Continue to secure checkout",exact:true}).click();
+    await familyPaymentHandoff;
+    checks.push(`named family checkout and confirmed allocation revision at ${width}`);
+    familyMode=false;
     useKyle = true;
     await page.goto(base + "/members/account");
     await page.getByRole("button", { name: "Open test sign-in", exact: true }).click();

@@ -131,12 +131,13 @@ export function MembershipOptions({
     if (busy || !plan.checkout?.enabled) return;
     setBusy(true);
     setError("");
-    if (pending.current?.plan !== plan.id)
-      pending.current = { plan: plan.id, key: crypto.randomUUID() };
+    const signature=JSON.stringify({plan:plan.id,enrollment:plan.checkout?.enrollment});
+    if (pending.current?.plan !== signature)
+      pending.current = { plan: signature, key: crypto.randomUUID() };
     try {
       const result = await request<{ url: string }>(
         "checkout",
-        { plan_id: plan.id },
+        { plan_id: plan.id, ...(plan.checkout?.enrollment ? {enrollment:plan.checkout.enrollment} : {}) },
         pending.current.key,
       );
       goToStripe(result.url, "https://checkout.stripe.com");
@@ -385,11 +386,32 @@ export function MembershipOptions({
                 : "Contact the academy to arrange this membership and confirm who it covers, its start date and payment terms."}
             </p>
           </div>
+          {selected.checkout?.coverage?.length ? (
+            <div className="memberFamilyCoverage">
+              <strong>Covered family members</strong>
+              <ul>
+                {selected.checkout.coverage.map((p, i) => (
+                  <li key={i}>
+                    {p.name}
+                    {p.weekly_limit
+                      ? ` · ${p.weekly_limit} ${p.weekly_limit===1?"class":"classes"} per week`
+                      : ""}
+                  </li>
+                ))}
+              </ul>
+              <p>
+                The academy has assigned separate class access for each person.
+              </p>
+            </div>
+          ) : null}
           {selected.checkout?.enabled && (
             <p className="memberMuted">
-              This covers your own training. Paid access replaces your current
-              assigned access after payment is confirmed. Any recurring charges
-              are shown at Stripe Checkout.
+              {selected.checkout.coverage?.length
+                ? "This covers the family members listed above, with separate class access for each person."
+                : "This covers your own training."}{" "}
+              Paid access replaces the covered person’s assigned access after
+              payment is confirmed. Any recurring charges are shown at Stripe
+              Checkout.
             </p>
           )}
           <button
