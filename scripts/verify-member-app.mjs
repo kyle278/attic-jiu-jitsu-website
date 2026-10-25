@@ -40,7 +40,8 @@ try {
       cancelled = false,
       bookingKey = null,
       created = 0,
-      ambiguous = true;
+      ambiguous = true,
+      dataRequests = 0;
     const starts = new Date(Date.now() + 86400000);
     starts.setUTCHours(18, 0, 0, 0);
     const ends = new Date(starts.getTime() + 3600000),
@@ -104,6 +105,7 @@ try {
         let status = 200,
           payload = { ok: true };
         if (body.action === "data") {
+          dataRequests++;
           status = signedIn ? 200 : 401;
           payload = signedIn ? data() : { error: "Sign in to continue." };
         }
@@ -172,9 +174,25 @@ try {
     await page.getByRole("button", { name: "Sign in", exact: true }).click();
     await page.getByRole("heading", { name: "Find your next class" }).waitFor();
     checks.push(`private email code login at ${width}`);
+    const navigation = page.getByRole("navigation", {
+      name: width < 600 ? "Mobile member navigation" : "Member navigation",
+      exact: true,
+    });
+    const shell = await page.locator(".memberShell").elementHandle();
+    const header = await page.locator(".memberTopbar").elementHandle();
+    const navElement = await navigation.elementHandle();
+    const initialRequests = dataRequests;
+    const titles = {
+      timetable: "Find your next class", bookings: "My bookings",
+      membership: "Your membership", account: "Your account",
+    };
     for (const section of ["timetable", "bookings", "membership", "account"]) {
-      await page.goto(base + "/members/" + section);
-      await page.getByRole("heading", { level: 1 }).waitFor();
+      await navigation.locator(`a[href="/members/${section}"]`).click();
+      await page.getByRole("heading", { level: 1, name: titles[section], exact: true }).waitFor();
+      for (const element of [shell, header, navElement])
+        assert.equal(await element.evaluate((node) => node.isConnected), true,
+          "Section navigation preserves the mounted app shell, header and navigation");
+      assert.equal(dataRequests, initialRequests, "Navigation does not restart the session check");
       await page
         .getByText("Checking your secure session…")
         .waitFor({ state: "hidden" });
@@ -191,6 +209,13 @@ try {
       });
       checks.push(`${section} layout at ${width}`);
     }
+    await page.goBack();
+    await page.getByRole("heading", { level: 1, name: titles.membership, exact: true }).waitFor();
+    assert.equal(await shell.evaluate((node) => node.isConnected), true);
+    await page.goForward();
+    await page.getByRole("heading", { level: 1, name: titles.account, exact: true }).waitFor();
+    assert.equal(await shell.evaluate((node) => node.isConnected), true);
+    checks.push(`persistent shell and browser history at ${width}`);
     await page.goto(base + "/members/timetable");
     await page.getByRole("button", { name: "Book class", exact: true }).click();
     await page

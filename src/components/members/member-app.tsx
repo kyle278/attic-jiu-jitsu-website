@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -475,7 +476,15 @@ function Login({ onSignedIn }: { onSignedIn: () => void }) {
     </div>
   );
 }
-export function MemberApp({ section }: { section: Section }) {
+export function MemberApp() {
+  const pathname = usePathname();
+  const section = (pathname.split("/")[2] || "timetable") as Section;
+  const loadingMessage: Record<Section, string> = {
+    timetable: "Getting your timetable ready",
+    bookings: "Getting your bookings ready",
+    membership: "Getting your membership ready",
+    account: "Getting your account ready",
+  };
   const [data, setData] = useState<MemberData | null>(null),
     [status, setStatus] = useState<
       "checking" | "signedout" | "ready" | "error"
@@ -590,6 +599,12 @@ export function MemberApp({ section }: { section: Section }) {
       setBusy(false);
     }
   }
+  // Leave invalid URLs to the route's not-found boundary.
+  if (
+    !nav.some((item) => item.key === section) ||
+    pathname.split("/").filter(Boolean).length > 2
+  )
+    return null;
   if (status === "signedout")
     return (
       <Login
@@ -606,7 +621,7 @@ export function MemberApp({ section }: { section: Section }) {
         <h1>
           {status === "error"
             ? "We couldn’t load your member app"
-            : "Getting your training ready"}
+            : loadingMessage[section]}
         </h1>
         {error && <p role="alert">{error}</p>}
         {status === "error" ? (

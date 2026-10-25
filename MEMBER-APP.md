@@ -6,6 +6,8 @@ Portal staff provision existing customer contacts under Websites â†’ Bookings â†
 
 The app follows Portal's functional light UI with Attic branding tokens. The four destinations are Timetable, My bookings, Membership and Account. Desktop uses a sidebar; mobile uses bottom navigation. Members can see availability, book, cancel within the saved deadline and inspect their access details.
 
+The shared member layout owns the app shell, session and in-memory data. Section links and browser back/forward preserve the header, navigation and timetable filters without repeating the session check. Initial entry uses a loading message specific to the requested section. Data still refreshes on focus, reconnect, explicit refresh and booking/cancellation; nothing private is persisted to browser storage.
+
 The server-only `BOOKING_MEMBER_PROXY_KEY` environment variable connects this site to its fixed Portal site. Set it through the hosting environment, never NEXT_PUBLIC_* or source control. The `/members/api` proxy verifies same-origin JSON requests, forwards only the configured site and its private session cookie, and strips the backend session token before replying to the browser. The cookie is Secure, HttpOnly, SameSite=Lax and host-only in production. Authentication and all private replies are uncached.
 
 Marketing routes live in `src/app/(website)` at their original URLs. Member routes use a separate shell without marketing tracking, navigation, footer or structured business schema. Member URLs have noindex metadata/headers and are omitted from the sitemap.

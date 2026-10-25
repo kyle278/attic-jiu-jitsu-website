@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { MemberApp } from "@/components/members/member-app";
 export const dynamic = "force-dynamic";
 export default async function MembersPage({
   params,
@@ -13,9 +12,6 @@ export default async function MembersPage({
     !["timetable", "bookings", "membership", "account"].includes(page)
   )
     notFound();
-  return (
-    <MemberApp
-      section={page as "timetable" | "bookings" | "membership" | "account"}
-    />
-  );
+  // The shared layout owns the app and its session across section changes.
+  return null;
 }
