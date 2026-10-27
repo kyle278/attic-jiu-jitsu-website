@@ -1,9 +1,17 @@
-import { IngeniumTracker } from "@/components/ingenium-tracker";
+import { PortalRuntime } from "@/components/portal-runtime";
+import { EditorProvider } from "@/components/website-editor/EditorProvider";
+import { getEditorRelease } from "@/lib/website-editor/server";
+import { getSeoRevision, managedSchemas } from "@/portal/seo/runtime";
+import { seoJsonLd } from "@/portal/seo/seo-adapter";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { portalTrackingScriptSrc } from "@/lib/portal-connect";
+import { PublicAttribution } from "@/components/public-attribution";
 import { site } from "@/lib/site-data";
-export default function WebsiteLayout({
+import { WEBSITE_ORIGIN } from "@/portal/public";
+import { Suspense } from "react";
+import "./website.css";
+import "@/components/website-editor/website-editor.css";
+export default async function WebsiteLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -12,7 +20,9 @@ export default function WebsiteLayout({
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
     name: site.title,
-    image: `${site.currentWebsite}/images/hero.jpg`,
+    "@id": `${WEBSITE_ORIGIN}/#academy`,
+    url: WEBSITE_ORIGIN,
+    image: `${WEBSITE_ORIGIN}/images/hero.jpg`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "4 Charlotte St, Graigue",
@@ -24,19 +34,35 @@ export default function WebsiteLayout({
     email: site.email,
     sameAs: [site.facebookUrl, site.instagramUrl],
   };
+  const [editor, seo, schemas] = await Promise.all([
+    getEditorRelease(),
+    getSeoRevision(),
+    managedSchemas([schema]),
+  ]);
   return (
     <>
-      <script src={portalTrackingScriptSrc} defer />
-      <IngeniumTracker />
+      <meta name="ingenium-editor-release" content={editor.releaseId} />
+      {seo && <meta name="ingenium-seo-revision" content={seo.id} />}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: seoJsonLd(schemas) }}
       />
-      <div className="flex min-h-screen flex-col">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
-      </div>
+      <EditorProvider snapshot={editor.snapshot}>
+        <div className="website-shell">
+          <PortalRuntime />
+          <Suspense fallback={null}>
+            <PublicAttribution />
+          </Suspense>
+          <a className="skip-link" href="#main-content">
+            Skip to content
+          </a>
+          <SiteHeader />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
+      </EditorProvider>
     </>
   );
 }

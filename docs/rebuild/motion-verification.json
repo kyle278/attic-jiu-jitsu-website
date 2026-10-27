@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "results": [
+    "Autoplay changes the photograph with no user interaction",
+    "Scrolling changes the hero background transform independently of the carousel",
+    "Pause freezes both photo zoom and slide selection"
+  ]
+}

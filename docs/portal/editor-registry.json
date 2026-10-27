@@ -1,0 +1,6118 @@
+{
+  "registry": "ingenium-v1",
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "name": "Home",
+      "status": "editable",
+      "elements": [
+        {
+          "id": "r3de2e2ca7d-fs-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-k2-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": ""
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-n9-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-nk-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-ayl8e",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "The academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-16v-1rpub4",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-17v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1f2-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1fg-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1q0-1dbeozy",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "",
+          "defaultValue": {
+            "text": "Menu "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-23l-rnb4yd",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/classes#live-schedule",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-25k-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "View timetable "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-26v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2au-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2b8-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "home.hero.photo-1ykl9py",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/gallery-9.jpg",
+            "alt": ""
+          }
+        },
+        {
+          "id": "home.hero.photo-e02k8o",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/gallery-10.jpg",
+            "alt": ""
+          }
+        },
+        {
+          "id": "home.hero.photo-1rrcgv7",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/gallery-6.jpg",
+            "alt": ""
+          }
+        },
+        {
+          "id": "reddf82f326-1sm-172h043",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Brazilian jiu jitsu · Carlow "
+          }
+        },
+        {
+          "id": "reddf82f326-1ur-1pqtmcn",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Serious "
+          }
+        },
+        {
+          "id": "reddf82f326-1vp-1qa7fey",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "jiu jitsu."
+          }
+        },
+        {
+          "id": "reddf82f326-1yb-9jfc5r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "A place for everyone. "
+          }
+        },
+        {
+          "id": "reddf82f326-216-neuds6",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Good coaching. A welcoming team. Gi and no-gi training for adults, kids and teens, from your first class onwards. "
+          }
+        },
+        {
+          "id": "reddf82f326-26v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "reddf82f326-2e6-1m82bl9",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training "
+          }
+        },
+        {
+          "id": "reddf82f326-2hd-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "View timetable "
+          }
+        },
+        {
+          "id": "reddf82f326-2kn-5zr5mw",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Complete beginner? You’re welcome here. "
+          }
+        },
+        {
+          "id": "reddf82f326-2q0-ssa279",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Black belt coaching"
+          }
+        },
+        {
+          "id": "reddf82f326-2r1-111znm",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Adults, kids & teens"
+          }
+        },
+        {
+          "id": "reddf82f326-2s3-bd312l",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Gi & no-gi training"
+          }
+        },
+        {
+          "id": "reddf82f326-2t4-ufka5s",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Beginners welcome"
+          }
+        },
+        {
+          "id": "reddf82f326-2uo",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {}
+        },
+        {
+          "id": "reddf82f326-30l-8juhel",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Find your class"
+          }
+        },
+        {
+          "id": "reddf82f326-320-2bv9sy",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Your first class. "
+          }
+        },
+        {
+          "id": "reddf82f326-33h-xiuatg",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Your next challenge. "
+          }
+        },
+        {
+          "id": "reddf82f326-35e-6b7l0y",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "New to the mats or already at home on them. Start where you are. "
+          }
+        },
+        {
+          "id": "reddf82f326-39p-pwn66y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "href": "/classes#beginners",
+            "newTab": false
+          }
+        },
+        {
+          "id": "reddf82f326-3ch-6x0y3t",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "New to jiu jitsu"
+          }
+        },
+        {
+          "id": "reddf82f326-3dm-5kvdsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Learn the fundamentals with a clear beginner route."
+          }
+        },
+        {
+          "id": "reddf82f326-3gn-1y6gr36",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "href": "/classes#adults",
+            "newTab": false
+          }
+        },
+        {
+          "id": "reddf82f326-3jc-1wjsolj",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Already training"
+          }
+        },
+        {
+          "id": "reddf82f326-3l0-v6h98z",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Keep developing through gi, no-gi and mixed-level classes. "
+          }
+        },
+        {
+          "id": "reddf82f326-3op-ig36wq",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "href": "/classes#youth",
+            "newTab": false
+          }
+        },
+        {
+          "id": "reddf82f326-3rd-19wtst7",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Kids & teens"
+          }
+        },
+        {
+          "id": "reddf82f326-3se-wh193l",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-2uo",
+          "defaultValue": {
+            "text": "Age-appropriate coaching for the next generation."
+          }
+        },
+        {
+          "id": "reddf82f326-3wk",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {}
+        },
+        {
+          "id": "reddf82f326-41d-1rrcgv7",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {
+            "src": "/images/gallery-6.jpg",
+            "alt": "Training partners practising a ground technique at Attic"
+          }
+        },
+        {
+          "id": "reddf82f326-4a1-1rev1a2",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {
+            "text": "A clear way to begin"
+          }
+        },
+        {
+          "id": "reddf82f326-4bl-aw1ztk",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {
+            "text": "A starting point. "
+          }
+        },
+        {
+          "id": "reddf82f326-4d2-g1v7yn",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {
+            "text": "Something to build on. "
+          }
+        },
+        {
+          "id": "reddf82f326-4uf-u72gca",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {
+            "text": "Ask about the programme "
+          }
+        },
+        {
+          "id": "reddf82f326-58w-vpaevm",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {
+            "text": "Explore all memberships "
+          }
+        },
+        {
+          "id": "reddf82f326-5bl-1qubwuj",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-3wk",
+          "defaultValue": {
+            "text": "An enquiry starts the conversation. Your place and start date are confirmed with the academy. "
+          }
+        },
+        {
+          "id": "reddf82f326-5gl",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {}
+        },
+        {
+          "id": "reddf82f326-5mi-m04q3q",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "The people in your corner"
+          }
+        },
+        {
+          "id": "reddf82f326-5ob-26n15m",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Experience on the mats. "
+          }
+        },
+        {
+          "id": "reddf82f326-5q2-10ou95s",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Care in the coaching. "
+          }
+        },
+        {
+          "id": "reddf82f326-5s3-8850hi",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "href": "/about-us",
+            "newTab": false
+          }
+        },
+        {
+          "id": "reddf82f326-5tr-cz2byl",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Meet the coaches "
+          }
+        },
+        {
+          "id": "r67554b31dc-1ua-byvye9",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "src": "/images/coach-darren.jpg",
+            "alt": "Darren Curtis coaching on the mats at Attic"
+          }
+        },
+        {
+          "id": "r67554b31dc-22b-lwrmh0",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Head coach · Black belt"
+          }
+        },
+        {
+          "id": "r67554b31dc-238-8ux901",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Darren Curtis"
+          }
+        },
+        {
+          "id": "r67554b31dc-245-q4096x",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Training since 2009, Darren brings black belt experience and years on the competition mats to his coaching."
+          }
+        },
+        {
+          "id": "r67554b31dc-1ua-3pv1e5",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "src": "/images/coach-brian.jpg",
+            "alt": "Brian Connolly coaching on the mats at Attic"
+          }
+        },
+        {
+          "id": "r67554b31dc-22b-6acd74",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Coach · Black belt"
+          }
+        },
+        {
+          "id": "r67554b31dc-238-18jizp3",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Brian Connolly"
+          }
+        },
+        {
+          "id": "r67554b31dc-245-2l8oyl",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-5gl",
+          "defaultValue": {
+            "text": "Brian began training in 2009 and received his black belt in 2022. He brings years of experience coaching kids and teens."
+          }
+        },
+        {
+          "id": "reddf82f326-5x3",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {}
+        },
+        {
+          "id": "reddf82f326-648-e02k8o",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "src": "/images/gallery-10.jpg",
+            "alt": "Two training partners work through the details of a jiu jitsu technique"
+          }
+        },
+        {
+          "id": "reddf82f326-6gy-10frx9z",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "text": "Life at Attic"
+          }
+        },
+        {
+          "id": "reddf82f326-6ib-1wte36h",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "text": "Learn the detail. "
+          }
+        },
+        {
+          "id": "reddf82f326-6js-16d69uy",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "text": "Put it into practice. "
+          }
+        },
+        {
+          "id": "reddf82f326-6lq-zzn5fx",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "text": "Technique, training partners and time on the mats. Take a look inside the academy. "
+          }
+        },
+        {
+          "id": "reddf82f326-6p8-1hlqq34",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "href": "/gallery",
+            "newTab": false
+          }
+        },
+        {
+          "id": "reddf82f326-6qv-922q8y",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "text": "Inside Attic "
+          }
+        },
+        {
+          "id": "reddf82f326-6td-1w7xyl0",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "reddf82f326-5x3",
+          "defaultValue": {
+            "src": "/images/gallery-7.jpg",
+            "alt": "A close view of a training partner between rounds"
+          }
+        },
+        {
+          "id": "reddf82f326-71e",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "reddf82f326-71e",
+          "defaultValue": {}
+        },
+        {
+          "id": "reddf82f326-76k-hccfe3",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Before your first class"
+          }
+        },
+        {
+          "id": "reddf82f326-787-1j3mmd1",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "A few things "
+          }
+        },
+        {
+          "id": "reddf82f326-79j-1lvbahk",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "you might be "
+          }
+        },
+        {
+          "id": "reddf82f326-7av-1p2wzdk",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "wondering. "
+          }
+        },
+        {
+          "id": "reddf82f326-7c3-5mp7qk",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Nothing is too basic to ask. That’s what starting is for."
+          }
+        },
+        {
+          "id": "reddf82f326-7fv-1asdduc",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Talk to the team "
+          }
+        },
+        {
+          "id": "reddf82f326-7m3-5m4ct8",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Can I start with no experience?"
+          }
+        },
+        {
+          "id": "reddf82f326-7pj-18tcdxt",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Yes. There are dedicated beginner classes, and the team can help you choose your first session. You don’t need to know the moves before you arrive."
+          }
+        },
+        {
+          "id": "reddf82f326-7m3-6titbv",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Do I need to be fit first?"
+          }
+        },
+        {
+          "id": "reddf82f326-7pj-1e1lt2i",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "You can build your fitness as you learn. Tell the team about your experience and any questions before your first class so they can help you find a suitable starting point."
+          }
+        },
+        {
+          "id": "reddf82f326-7m3-1srl9un",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "What’s the difference between gi and no-gi?"
+          }
+        },
+        {
+          "id": "reddf82f326-7pj-1f5wn6x",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Gi classes use the traditional training jacket and trousers. No-gi training is without the gi. Attic offers both; ask us which class and clothing suit your first visit."
+          }
+        },
+        {
+          "id": "reddf82f326-7m3-827v2i",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "What should I bring?"
+          }
+        },
+        {
+          "id": "reddf82f326-7pj-qmia2b",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Comfortable training clothes and water are a good start. Confirm the clothing and equipment for your chosen class with the academy. Selected beginner packs include a kimono, belt and bag."
+          }
+        },
+        {
+          "id": "reddf82f326-7m3-1bgqnxi",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Are there classes for kids and teens?"
+          }
+        },
+        {
+          "id": "reddf82f326-7pj-17ych0v",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Yes. Attic has dedicated kids and teens classes with age-appropriate coaching. Get in touch as a parent or guardian and we’ll help you choose a suitable class and membership."
+          }
+        },
+        {
+          "id": "reddf82f326-7m3-dc5tvc",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "Does an enquiry book my class?"
+          }
+        },
+        {
+          "id": "reddf82f326-7pj-vwlnto",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-71e",
+          "defaultValue": {
+            "text": "The form sends an enquiry to the academy. The team will help you choose a class and confirm the arrangements. It does not reserve a place. Existing members can book through Members."
+          }
+        },
+        {
+          "id": "reddf82f326-7sk",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {}
+        },
+        {
+          "id": "reddf82f326-7ze-kg48y5",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "Come train with us "
+          }
+        },
+        {
+          "id": "reddf82f326-819-nar359",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "It starts with "
+          }
+        },
+        {
+          "id": "reddf82f326-828-2w17b9",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "a conversation. "
+          }
+        },
+        {
+          "id": "reddf82f326-840-nvzykr",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "Tell us who will be training and what you’d like to know. We’ll help you choose a class or membership and plan your first visit. "
+          }
+        },
+        {
+          "id": "reddf82f326-8a8-7a4z2n",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "Find us in Carlow"
+          }
+        },
+        {
+          "id": "reddf82f326-8da-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "085 844 7393"
+          }
+        },
+        {
+          "id": "reddf82f326-8eu-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          }
+        },
+        {
+          "id": "reddf82f326-8mk-1y01u35",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "Get directions "
+          }
+        },
+        {
+          "id": "reddf82f326-8pi-ee1w7w",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "Already training with us?"
+          }
+        },
+        {
+          "id": "reddf82f326-8q7-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": " "
+          }
+        },
+        {
+          "id": "reddf82f326-8rd-1sk74um",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "reddf82f326-7sk",
+          "defaultValue": {
+            "text": "Open Members"
+          }
+        },
+        {
+          "id": "r1cd012a34f-95-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-af-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": "Attic Jiu Jitsu home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-g6-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-gh-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ju-57fd6s",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Serious jiu jitsu. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-kv-9jfc5r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "A place for everyone. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ns-kgz7jr",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find the academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ql-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "085 844 7393"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-s1-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-w3-1i6a9k1",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Instagram "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-z9-1326tb7",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Facebook "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-137-19ugqo2",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find your way"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-18t-1ttovjk",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bv-1xj74x8",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "© "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bx-hsvxxv",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "2026"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1co-uz11ll",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic Jiu Jitsu Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1dq-5w79qj",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/privacy-policy",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1ej-fhaxvj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Privacy policy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1gd-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1i0-kg48y5",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Come train with us "
+          },
+          "global": true
+        }
+      ],
+      "containers": {
+        "home.content": [
+          "reddf82f326-2uo",
+          "reddf82f326-3wk",
+          "reddf82f326-5gl",
+          "reddf82f326-5x3",
+          "reddf82f326-71e",
+          "reddf82f326-7sk"
+        ]
+      }
+    },
+    {
+      "id": "about-us",
+      "path": "/about-us",
+      "name": "about-us",
+      "status": "editable",
+      "elements": [
+        {
+          "id": "r3de2e2ca7d-fs-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-k2-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": ""
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-n9-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-nk-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-ayl8e",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "The academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-16v-1rpub4",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-17v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1f2-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1fg-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1q0-1dbeozy",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "",
+          "defaultValue": {
+            "text": "Menu "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-23l-rnb4yd",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/classes#live-schedule",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-25k-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "View timetable "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-26v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2au-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2b8-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r67554b31dc-m1",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-qg-a80khv",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "The academy · Attic Jiu Jitsu"
+          }
+        },
+        {
+          "id": "r67554b31dc-rd-jewopj",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h1",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Good coaching. A welcoming room."
+          }
+        },
+        {
+          "id": "r48dcb79ea2-kq-12qe3q6",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "A place to learn Brazilian jiu jitsu, find training partners and keep coming back. Right here in Carlow. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-q2-1ykl9py",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/gallery-9.jpg",
+            "alt": "Training partners on the mats beneath the Attic Jiu Jitsu badge"
+          }
+        },
+        {
+          "id": "r48dcb79ea2-vy",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {}
+        },
+        {
+          "id": "r48dcb79ea2-11a-p3njco",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {
+            "text": "A team to learn with"
+          }
+        },
+        {
+          "id": "r48dcb79ea2-12u-1g0sn6x",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {
+            "text": "Serious about the training. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-14l-1gdiupt",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {
+            "text": "Welcoming from the start. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-18a-14cyhvb",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {
+            "text": "Attic brings adults, kids and teens together to learn Brazilian jiu jitsu. Whether you’re trying something new, returning to training or working towards competition, there’s a route into the academy. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-1gb-xqigf9",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {
+            "text": "Good instruction and time practising with others are at the heart of it. Learn a technique, work through the details and put it into practice with your training partners. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-1mn-5ql4ja",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {
+            "href": "/classes",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r48dcb79ea2-1oa-1wj4vnp",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r48dcb79ea2-vy",
+          "defaultValue": {
+            "text": "Explore the classes "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-1qx",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {}
+        },
+        {
+          "id": "r48dcb79ea2-1w0-11z5uyf",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Black belt experience"
+          }
+        },
+        {
+          "id": "r48dcb79ea2-1x8-1daegsv",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Meet your coaches."
+          }
+        },
+        {
+          "id": "r48dcb79ea2-1yu-nyw7zc",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Both began their jiu jitsu training in 2009."
+          }
+        },
+        {
+          "id": "r67554b31dc-1ua-byvye9",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "src": "/images/coach-darren.jpg",
+            "alt": "Darren Curtis coaching on the mats at Attic"
+          }
+        },
+        {
+          "id": "r67554b31dc-22b-lwrmh0",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Head coach · Black belt"
+          }
+        },
+        {
+          "id": "r67554b31dc-238-8ux901",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Darren Curtis"
+          }
+        },
+        {
+          "id": "r67554b31dc-245-1m36kae",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Darren started training in 2009 and has competed at national events throughout his jiu jitsu career. He continues to train and compete, bringing that experience back to the academy and the people he coaches."
+          }
+        },
+        {
+          "id": "r67554b31dc-1ua-3pv1e5",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "src": "/images/coach-brian.jpg",
+            "alt": "Brian Connolly coaching on the mats at Attic"
+          }
+        },
+        {
+          "id": "r67554b31dc-22b-6acd74",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Coach · Black belt"
+          }
+        },
+        {
+          "id": "r67554b31dc-238-18jizp3",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Brian Connolly"
+          }
+        },
+        {
+          "id": "r67554b31dc-245-1j3h8sl",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-1qx",
+          "defaultValue": {
+            "text": "Brian began training in 2009 and received his black belt in 2022. He started coaching kids and teens in 2016 at Gracie Barra Dublin, and restarted Attic’s kids and teens programme in late 2022. That experience shapes his structured, patient approach to teaching."
+          }
+        },
+        {
+          "id": "r48dcb79ea2-22n",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {}
+        },
+        {
+          "id": "r48dcb79ea2-26s-2bv9sy",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "Your first class. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-289-rm3dab",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "Or the next chapter. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2a6-rmax9r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "Dedicated beginner, mixed-level and youth classes make space for different stages of training. Ask the team where to start. "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2et-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2gk-3a1w04",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "Plan your first visit "
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2kh-ayl8e",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "The academy"
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2ld-vonzjs",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h3",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "In the heart of Carlow."
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2oh-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "085 844 7393"
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2pa-1hlqq34",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "href": "/gallery",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r48dcb79ea2-2qx-o017c1",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r48dcb79ea2-22n",
+          "defaultValue": {
+            "text": "See inside Attic "
+          }
+        },
+        {
+          "id": "r67554b31dc-30",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-30",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-6x-1t8fiab",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Your next step"
+          }
+        },
+        {
+          "id": "r67554b31dc-7u-1vigy56",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "There’s a place for you on the mats."
+          }
+        },
+        {
+          "id": "r67554b31dc-9n-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r67554b31dc-g5-1m82bl9",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Start training "
+          }
+        },
+        {
+          "id": "r1cd012a34f-95-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-af-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": "Attic Jiu Jitsu home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-g6-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-gh-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ju-57fd6s",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Serious jiu jitsu. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-kv-9jfc5r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "A place for everyone. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ns-kgz7jr",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find the academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ql-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "085 844 7393"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-s1-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-w3-1i6a9k1",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Instagram "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-z9-1326tb7",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Facebook "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-137-19ugqo2",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find your way"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-18t-1ttovjk",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bv-1xj74x8",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "© "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bx-hsvxxv",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "2026"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1co-uz11ll",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic Jiu Jitsu Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1dq-5w79qj",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/privacy-policy",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1ej-fhaxvj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Privacy policy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1gd-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1i0-kg48y5",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Come train with us "
+          },
+          "global": true
+        }
+      ],
+      "containers": {
+        "about-us.content": [
+          "r67554b31dc-m1",
+          "r48dcb79ea2-vy",
+          "r48dcb79ea2-1qx",
+          "r48dcb79ea2-22n",
+          "r67554b31dc-30"
+        ]
+      }
+    },
+    {
+      "id": "classes",
+      "path": "/classes",
+      "name": "classes",
+      "status": "editable",
+      "elements": [
+        {
+          "id": "r3de2e2ca7d-fs-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-k2-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": ""
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-n9-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-nk-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-ayl8e",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "The academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-16v-1rpub4",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-17v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1f2-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1fg-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1q0-1dbeozy",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "",
+          "defaultValue": {
+            "text": "Menu "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-23l-rnb4yd",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/classes#live-schedule",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-25k-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "View timetable "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-26v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2au-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2b8-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r67554b31dc-m1",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-qg-1uog5b2",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Classes · Carlow"
+          }
+        },
+        {
+          "id": "r67554b31dc-rd-13bw4sz",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h1",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Find your place on the mats."
+          }
+        },
+        {
+          "id": "r0d79884db0-1zj-jv1bab",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Beginner or experienced. Gi or no-gi. Explore training for adults, kids and teens, and find a session that fits. "
+          }
+        },
+        {
+          "id": "r0d79884db0-23p-1sa1msu",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "href": "#live-schedule",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r0d79884db0-25i-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "View timetable "
+          }
+        },
+        {
+          "id": "r0d79884db0-27g",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-2el-19h1u1f",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {
+            "text": "Make time for the mats"
+          }
+        },
+        {
+          "id": "r0d79884db0-2fu-1fxiy87",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {
+            "text": "Upcoming classes."
+          }
+        },
+        {
+          "id": "r0d79884db0-2gy-9jazca",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {
+            "text": "All times are local to Carlow (Europe/Dublin)."
+          }
+        },
+        {
+          "id": "r0d79884db0-2kv-1tas5d8",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {
+            "text": "Members: book a class "
+          }
+        },
+        {
+          "id": "r0d79884db0-147-1lubsn4",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-1lubsn4",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-1hn-o5no0c",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "r0d79884db0-147-1ex1ze",
+          "defaultValue": {
+            "text": "to "
+          }
+        },
+        {
+          "id": "r0d79884db0-147-1m4bec3",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-1m4bec3",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-q7qgo1",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-q7qgo1",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-pxquz2",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-pxquz2",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-w7v8z9",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-w7v8z9",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-vxvnaa",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-vxvnaa",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-2uo-au7dyn",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {
+            "text": "View later class dates"
+          }
+        },
+        {
+          "id": "r0d79884db0-2wo-1djgzwb",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {
+            "text": "more days"
+          }
+        },
+        {
+          "id": "r0d79884db0-147-ujxmtf",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-ujxmtf",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-u9y14g",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-u9y14g",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-v3wu7d",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-v3wu7d",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-utx8ie",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-utx8ie",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-xlt9g4",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-xlt9g4",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-tzv9xi",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-tzv9xi",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-u9uvmh",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-u9uvmh",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-tfw2jk",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-tfw2jk",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-tpvo8j",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-tpvo8j",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-v3tope",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-v3tope",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-ujuhbg",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-ujuhbg",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-utu30f",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-utu30f",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-w7s3ha",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-w7s3ha",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-whrp69",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-whrp69",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-1ownod",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-1ownod",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-147-1ex1ze",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-147-1ex1ze",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-3gr-8ler02",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r0d79884db0-27g",
+          "defaultValue": {
+            "text": "New here? Ask the team to confirm a suitable first class. An enquiry does not reserve a place. "
+          }
+        },
+        {
+          "id": "r0d79884db0-3l7",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-3ql-nl676k",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "New to the mats"
+          }
+        },
+        {
+          "id": "r0d79884db0-3ro-11z8iuo",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Start with the fundamentals."
+          }
+        },
+        {
+          "id": "r0d79884db0-3tg-1fnd0u1",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Dedicated beginner classes introduce you to the movement, positions and techniques of Brazilian jiu jitsu. You can learn before you know the terminology. "
+          }
+        },
+        {
+          "id": "r0d79884db0-3zb-3g4btm",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "href": "/#beginner-programme",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r0d79884db0-41a-3mt367",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Explore the beginner programme "
+          }
+        },
+        {
+          "id": "r0d79884db0-45w-1ufd7tb",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Keep developing"
+          }
+        },
+        {
+          "id": "r0d79884db0-46z-xu5ybl",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Gi. No-gi. More time training."
+          }
+        },
+        {
+          "id": "r0d79884db0-48t-1mye4f",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Gi classes use the traditional training jacket and trousers. No-gi classes train without the gi. Explore mixed-level training, sparring and open mat as you progress. "
+          }
+        },
+        {
+          "id": "r0d79884db0-4h2-1ydix4j",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "See adult memberships "
+          }
+        },
+        {
+          "id": "r0d79884db0-4le-19wtst7",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Kids & teens"
+          }
+        },
+        {
+          "id": "r0d79884db0-4me-1begea4",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "A place to learn and grow."
+          }
+        },
+        {
+          "id": "r0d79884db0-4o4-51hq7w",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Dedicated classes give younger students age-appropriate coaching. Parents and guardians can ask the team about the right group, equipment and membership. "
+          }
+        },
+        {
+          "id": "r0d79884db0-4tz-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r0d79884db0-4vq-d376l8",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r0d79884db0-3l7",
+          "defaultValue": {
+            "text": "Ask about youth classes "
+          }
+        },
+        {
+          "id": "r0d79884db0-4yh",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r0d79884db0-4yh",
+          "defaultValue": {}
+        },
+        {
+          "id": "r0d79884db0-52q-rwuy1w",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r0d79884db0-4yh",
+          "defaultValue": {
+            "text": "The training, in detail."
+          }
+        },
+        {
+          "id": "r0d79884db0-53z-x06udf",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r0d79884db0-4yh",
+          "defaultValue": {
+            "text": "Explore the academy’s published classes."
+          }
+        },
+        {
+          "id": "r67554b31dc-30",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-30",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-6x-1t8fiab",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Your next step"
+          }
+        },
+        {
+          "id": "r67554b31dc-7u-1vigy56",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "There’s a place for you on the mats."
+          }
+        },
+        {
+          "id": "r67554b31dc-9n-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r67554b31dc-g5-1m82bl9",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Start training "
+          }
+        },
+        {
+          "id": "r1cd012a34f-95-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-af-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": "Attic Jiu Jitsu home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-g6-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-gh-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ju-57fd6s",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Serious jiu jitsu. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-kv-9jfc5r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "A place for everyone. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ns-kgz7jr",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find the academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ql-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "085 844 7393"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-s1-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-w3-1i6a9k1",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Instagram "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-z9-1326tb7",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Facebook "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-137-19ugqo2",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find your way"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-18t-1ttovjk",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bv-1xj74x8",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "© "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bx-hsvxxv",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "2026"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1co-uz11ll",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic Jiu Jitsu Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1dq-5w79qj",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/privacy-policy",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1ej-fhaxvj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Privacy policy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1gd-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1i0-kg48y5",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Come train with us "
+          },
+          "global": true
+        }
+      ],
+      "containers": {
+        "classes.content": [
+          "r67554b31dc-m1",
+          "r0d79884db0-27g",
+          "r0d79884db0-3l7",
+          "r0d79884db0-4yh",
+          "r67554b31dc-30"
+        ]
+      }
+    },
+    {
+      "id": "memberships",
+      "path": "/memberships",
+      "name": "memberships",
+      "status": "editable",
+      "elements": [
+        {
+          "id": "r3de2e2ca7d-fs-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-k2-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": ""
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-n9-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-nk-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-ayl8e",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "The academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-16v-1rpub4",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-17v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1f2-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1fg-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1q0-1dbeozy",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "",
+          "defaultValue": {
+            "text": "Menu "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-23l-rnb4yd",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/classes#live-schedule",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-25k-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "View timetable "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-26v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2au-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2b8-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r67554b31dc-m1",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-qg-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Memberships"
+          }
+        },
+        {
+          "id": "r67554b31dc-rd-1b81ddu",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h1",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Make training part of your week."
+          }
+        },
+        {
+          "id": "rceb2960de8-wz-ij6b4v",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Beginner programmes, monthly training and options for the family. See what’s included, then talk to the team about getting started. "
+          }
+        },
+        {
+          "id": "rceb2960de8-11o-11y7h8h",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "href": "#live-plans",
+            "newTab": false
+          }
+        },
+        {
+          "id": "rceb2960de8-13e-9x7ms9",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Find your membership "
+          }
+        },
+        {
+          "id": "rceb2960de8-15i",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "rceb2960de8-15i",
+          "defaultValue": {}
+        },
+        {
+          "id": "rceb2960de8-1h6-8h8530",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "rceb2960de8-1h6-8h8530",
+          "defaultValue": {}
+        },
+        {
+          "id": "rceb2960de8-2mq-9bbw64",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "rceb2960de8-1h6-1ii54cp",
+          "defaultValue": {
+            "text": "Ask about this plan "
+          }
+        },
+        {
+          "id": "rceb2960de8-1h6-1j64swk",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "rceb2960de8-1h6-1j64swk",
+          "defaultValue": {}
+        },
+        {
+          "id": "rceb2960de8-1h6-epk4nw",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "rceb2960de8-1h6-epk4nw",
+          "defaultValue": {}
+        },
+        {
+          "id": "rceb2960de8-1h6-o2c42e",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "rceb2960de8-1h6-o2c42e",
+          "defaultValue": {}
+        },
+        {
+          "id": "rceb2960de8-1h6-1ii54cp",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "rceb2960de8-1h6-1ii54cp",
+          "defaultValue": {}
+        },
+        {
+          "id": "rceb2960de8-33g-x6doqf",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "rceb2960de8-15i",
+          "defaultValue": {
+            "text": "Memberships and payments are arranged with the academy. Contact us to confirm eligibility, family coverage and your start date. "
+          }
+        },
+        {
+          "id": "rceb2960de8-38t",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "rceb2960de8-38t",
+          "defaultValue": {}
+        },
+        {
+          "id": "rceb2960de8-3dg-11unyzv",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "rceb2960de8-38t",
+          "defaultValue": {
+            "text": "Already part of Attic?"
+          }
+        },
+        {
+          "id": "rceb2960de8-3en-1j38aq4",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "rceb2960de8-38t",
+          "defaultValue": {
+            "text": "Your training. Your member area."
+          }
+        },
+        {
+          "id": "rceb2960de8-3g4-j8z5gg",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "rceb2960de8-38t",
+          "defaultValue": {
+            "text": "View your membership and manage your class bookings."
+          }
+        },
+        {
+          "id": "rceb2960de8-3k6-1fbetre",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "rceb2960de8-38t",
+          "defaultValue": {
+            "text": "Open Members "
+          }
+        },
+        {
+          "id": "r67554b31dc-30",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-30",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-6x-1t8fiab",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Your next step"
+          }
+        },
+        {
+          "id": "r67554b31dc-7u-1vigy56",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "There’s a place for you on the mats."
+          }
+        },
+        {
+          "id": "r67554b31dc-9n-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r67554b31dc-g5-1m82bl9",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Start training "
+          }
+        },
+        {
+          "id": "r1cd012a34f-95-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-af-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": "Attic Jiu Jitsu home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-g6-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-gh-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ju-57fd6s",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Serious jiu jitsu. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-kv-9jfc5r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "A place for everyone. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ns-kgz7jr",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find the academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ql-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "085 844 7393"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-s1-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-w3-1i6a9k1",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Instagram "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-z9-1326tb7",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Facebook "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-137-19ugqo2",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find your way"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-18t-1ttovjk",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bv-1xj74x8",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "© "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bx-hsvxxv",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "2026"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1co-uz11ll",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic Jiu Jitsu Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1dq-5w79qj",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/privacy-policy",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1ej-fhaxvj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Privacy policy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1gd-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1i0-kg48y5",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Come train with us "
+          },
+          "global": true
+        }
+      ],
+      "containers": {
+        "memberships.content": [
+          "r67554b31dc-m1",
+          "rceb2960de8-15i",
+          "rceb2960de8-38t",
+          "r67554b31dc-30"
+        ]
+      }
+    },
+    {
+      "id": "gallery",
+      "path": "/gallery",
+      "name": "gallery",
+      "status": "editable",
+      "elements": [
+        {
+          "id": "r3de2e2ca7d-fs-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-k2-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": ""
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-n9-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-nk-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-ayl8e",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "The academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-16v-1rpub4",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-17v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1f2-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1fg-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1q0-1dbeozy",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "",
+          "defaultValue": {
+            "text": "Menu "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-23l-rnb4yd",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/classes#live-schedule",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-25k-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "View timetable "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-26v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2au-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2b8-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r67554b31dc-m1",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-qg-187bjw6",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Inside Attic"
+          }
+        },
+        {
+          "id": "r67554b31dc-rd-wjhhog",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h1",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Life on the mats."
+          }
+        },
+        {
+          "id": "r671c14947c-1sa-1f5ao84",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Training partners. Technical details. The people who make the academy. Take a look around. "
+          }
+        },
+        {
+          "id": "r671c14947c-1w5",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r671c14947c-1w5",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-30",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-30",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-6x-1t8fiab",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Your next step"
+          }
+        },
+        {
+          "id": "r67554b31dc-7u-1vigy56",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "There’s a place for you on the mats."
+          }
+        },
+        {
+          "id": "r67554b31dc-9n-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r67554b31dc-g5-1m82bl9",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r67554b31dc-30",
+          "defaultValue": {
+            "text": "Start training "
+          }
+        },
+        {
+          "id": "r1cd012a34f-95-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-af-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": "Attic Jiu Jitsu home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-g6-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-gh-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ju-57fd6s",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Serious jiu jitsu. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-kv-9jfc5r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "A place for everyone. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ns-kgz7jr",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find the academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ql-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "085 844 7393"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-s1-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-w3-1i6a9k1",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Instagram "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-z9-1326tb7",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Facebook "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-137-19ugqo2",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find your way"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-18t-1ttovjk",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bv-1xj74x8",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "© "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bx-hsvxxv",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "2026"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1co-uz11ll",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic Jiu Jitsu Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1dq-5w79qj",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/privacy-policy",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1ej-fhaxvj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Privacy policy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1gd-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1i0-kg48y5",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Come train with us "
+          },
+          "global": true
+        }
+      ],
+      "containers": {
+        "gallery.content": [
+          "r67554b31dc-m1",
+          "r671c14947c-1w5",
+          "r67554b31dc-30"
+        ]
+      }
+    },
+    {
+      "id": "privacy-policy",
+      "path": "/privacy-policy",
+      "name": "privacy-policy",
+      "status": "editable",
+      "elements": [
+        {
+          "id": "r3de2e2ca7d-fs-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-k2-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": ""
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-n9-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-nk-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-ayl8e",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "The academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-10v-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-16v-1rpub4",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-17v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1f2-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1fg-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-1q0-1dbeozy",
+          "type": "text",
+          "label": "Text",
+          "tag": "summary",
+          "section": "",
+          "defaultValue": {
+            "text": "Menu "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-21u-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-23l-rnb4yd",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/classes#live-schedule",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-25k-2ujmkh",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "View timetable "
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-26v-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2au-1mm8rof",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Start training"
+          },
+          "global": true
+        },
+        {
+          "id": "r3de2e2ca7d-2b8-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": " "
+          },
+          "global": true
+        },
+        {
+          "id": "r67554b31dc-m1",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {}
+        },
+        {
+          "id": "r67554b31dc-qg-fhaxvj",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Privacy policy"
+          }
+        },
+        {
+          "id": "r67554b31dc-rd-19hfg69",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h1",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "Your information. Handled with care."
+          }
+        },
+        {
+          "id": "r00d24edb7a-hv-13zcvfs",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r67554b31dc-m1",
+          "defaultValue": {
+            "text": "This policy explains the public website and its enquiry form. Updated 27 October 2026. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-lm",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {}
+        },
+        {
+          "id": "r00d24edb7a-qc-knpusj",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "href": "#privacy-contact",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r00d24edb7a-r3-ye2o0o",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "text": "Who to contact"
+          }
+        },
+        {
+          "id": "r00d24edb7a-ry-1yy7gl1",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "href": "#privacy-information",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r00d24edb7a-st-mx0bk1",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "text": "Information we collect"
+          }
+        },
+        {
+          "id": "r00d24edb7a-tw-p37cx",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "href": "#privacy-purpose",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r00d24edb7a-un-vhbv95",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "text": "How we use it"
+          }
+        },
+        {
+          "id": "r00d24edb7a-vh-1qp5rrx",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "href": "#privacy-providers",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r00d24edb7a-wa-etg0bi",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "text": "Service providers"
+          }
+        },
+        {
+          "id": "r00d24edb7a-x8-1vv5itt",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "href": "#privacy-retention",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r00d24edb7a-y1-19u0na9",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "text": "Keeping your information"
+          }
+        },
+        {
+          "id": "r00d24edb7a-z6-lqryg2",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "href": "#privacy-rights",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r00d24edb7a-zw-o0myxu",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-lm",
+          "defaultValue": {
+            "text": "Your choices and rights"
+          }
+        },
+        {
+          "id": "r00d24edb7a-12l",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r00d24edb7a-12l",
+          "defaultValue": {}
+        },
+        {
+          "id": "r00d24edb7a-13y-ye2o0o",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r00d24edb7a-12l",
+          "defaultValue": {
+            "text": "Who to contact"
+          }
+        },
+        {
+          "id": "r00d24edb7a-15g-1jd1osw",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-12l",
+          "defaultValue": {
+            "text": "Attic Jiu Jitsu Carlow is responsible for the personal information you provide through this website’s enquiry form. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-1cy-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-12l",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          }
+        },
+        {
+          "id": "r00d24edb7a-1f7-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-12l",
+          "defaultValue": {
+            "text": "085 844 7393"
+          }
+        },
+        {
+          "id": "r00d24edb7a-1hb-1xruzvt",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-12l",
+          "defaultValue": {
+            "text": "Use these contact details for questions about this policy, your information or your communication preferences. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-1mc",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r00d24edb7a-1mc",
+          "defaultValue": {}
+        },
+        {
+          "id": "r00d24edb7a-1nt-mx0bk1",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r00d24edb7a-1mc",
+          "defaultValue": {
+            "text": "Information we collect"
+          }
+        },
+        {
+          "id": "r00d24edb7a-1pj-19t6k5x",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-1mc",
+          "defaultValue": {
+            "text": "When you enquire, we collect your first and last names, email address, the training interest you select and anything you choose to write in your message. A telephone number is optional. We also receive your privacy and contact confirmations and your separate marketing choice. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-20h-1ykyscf",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-1mc",
+          "defaultValue": {
+            "text": "Please use an adult’s contact details for an enquiry about kids or teens. The form does not need a child’s name, date of birth, medical information or other sensitive details. Please do not include these in a general enquiry. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-29k-1247iib",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-1mc",
+          "defaultValue": {
+            "text": "If you allow optional analytics, the website can retain campaign parameters in session storage for the current browser tab. These help identify which link or campaign brought an enquiry to us. Contact details and message drafts are not saved in this browser storage. The submission also includes the page address from which you send it. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-2m7",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r00d24edb7a-2m7",
+          "defaultValue": {}
+        },
+        {
+          "id": "r00d24edb7a-2nk-vhbv95",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r00d24edb7a-2m7",
+          "defaultValue": {
+            "text": "How we use it"
+          }
+        },
+        {
+          "id": "r00d24edb7a-2p1-vg6scr",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-2m7",
+          "defaultValue": {
+            "text": "We use enquiry information to answer your questions, discuss a suitable class or membership and arrange the next steps you request. The form asks for your consent to this response. Providing contact details is voluntary, but we need an email address to answer an email enquiry. You can call the academy instead. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-31e-1ko3yri",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-2m7",
+          "defaultValue": {
+            "text": "Only if you separately opt in, we may email occasional updates about classes, memberships and academy news. This optional marketing consent is separate from your enquiry. Leaving it unchecked does not affect your ability to enquire. You can withdraw either consent by contacting us; withdrawal does not change the lawfulness of earlier processing. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-3er-twmbua",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-2m7",
+          "defaultValue": {
+            "text": "The public enquiry form does not automatically decide whether you can attend a class or obtain a membership. An enquiry does not reserve a class place or take a payment. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-3lu-o5i7z",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-2m7",
+          "defaultValue": {
+            "text": "The website includes Ingenium website analytics to help understand page visits and interactions, such as timetable and enquiry clicks. Technical information may include page addresses, referral or campaign information, browser details and visitor or session identifiers. Analytics and any associated consent controls are separate from the optional email-marketing checkbox. Analytics start only after you choose Allow analytics. You can decline or withdraw using Cookie preferences in the footer. Withdrawal stops optional events and clears analytics identifiers and stored campaign attribution. Enquiries and member bookings continue to work without optional analytics. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-4af",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r00d24edb7a-4af",
+          "defaultValue": {}
+        },
+        {
+          "id": "r00d24edb7a-4bu-kdayhv",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r00d24edb7a-4af",
+          "defaultValue": {
+            "text": "Service providers and external links"
+          }
+        },
+        {
+          "id": "r00d24edb7a-4dy-fvxixc",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-4af",
+          "defaultValue": {
+            "text": "Website enquiries are sent through Ingenium Portal so the academy can receive and manage them. Hosting, website and communication providers may process information as needed to operate these services. Contact the academy for the providers, processing locations and any international-transfer safeguards that apply to your information. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-4qy-qs68jj",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-4af",
+          "defaultValue": {
+            "text": "Instagram, Facebook, map links and other external websites have their own privacy practices. Opening an external link takes you to that provider. The public-site form and policy do not change the separate member-area booking or payment workflows. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-50n",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r00d24edb7a-50n",
+          "defaultValue": {}
+        },
+        {
+          "id": "r00d24edb7a-522-19u0na9",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r00d24edb7a-50n",
+          "defaultValue": {
+            "text": "Keeping your information"
+          }
+        },
+        {
+          "id": "r00d24edb7a-53u-9emren",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-50n",
+          "defaultValue": {
+            "text": "Enquiry information should be kept only for as long as needed to answer the enquiry, manage the follow-up you request and meet applicable record-keeping obligations. The relevant criteria are whether a conversation is ongoing, whether an ongoing relationship requires the information and whether a legal obligation requires a record. Contact the academy to ask about the information held for your enquiry. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-5j9-1co5i7t",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-50n",
+          "defaultValue": {
+            "text": "Marketing contact information is used until you withdraw consent or it is no longer needed for that purpose. A limited record of your communication preference may be needed to respect a request not to contact you. Campaign session storage ends when the browser tab’s session ends. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-5uc",
+          "type": "section",
+          "label": "Section",
+          "tag": "section",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {}
+        },
+        {
+          "id": "r00d24edb7a-5vo-o0myxu",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": "Your choices and rights"
+          }
+        },
+        {
+          "id": "r00d24edb7a-5xf-1jeeog3",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": "Depending on the circumstances, you can ask to access, correct or erase your personal information, restrict its use, object to processing, or receive portable information. You can also withdraw consent. Contact the academy using the details above so we can identify and respond to your request. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-68v-1ah11xo",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": "You can raise a concern with Ireland’s"
+          }
+        },
+        {
+          "id": "r00d24edb7a-69x-aa2mbj",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": " "
+          }
+        },
+        {
+          "id": "r00d24edb7a-6aj-v3rr93",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "href": "https://www.dataprotection.ie/en/individuals/know-your-rights",
+            "newTab": true
+          }
+        },
+        {
+          "id": "r00d24edb7a-6fy-wipv0z",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": "Data Protection Commission "
+          }
+        },
+        {
+          "id": "r00d24edb7a-6hq-1ir5qft",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": ". Its guidance explains your rights and how to make a complaint. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-6l0-1nk81m5",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": "We may update this notice when the public website’s handling of information changes. The date at the top identifies this version. "
+          }
+        },
+        {
+          "id": "r00d24edb7a-6qf-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          }
+        },
+        {
+          "id": "r00d24edb7a-6s8-1q2tmra",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "r00d24edb7a-5uc",
+          "defaultValue": {
+            "text": "Return to your enquiry "
+          }
+        },
+        {
+          "id": "r1cd012a34f-95-bo0mse",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-af-h401sz",
+          "type": "image",
+          "label": "Image",
+          "tag": "img",
+          "section": "",
+          "defaultValue": {
+            "src": "/images/logo.png",
+            "alt": "Attic Jiu Jitsu home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-g6-1641qi4",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-gh-9s8ulj",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Jiu Jitsu · Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ju-57fd6s",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "Serious jiu jitsu. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-kv-9jfc5r",
+          "type": "text",
+          "label": "Text",
+          "tag": "p",
+          "section": "",
+          "defaultValue": {
+            "text": "A place for everyone. "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ns-kgz7jr",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find the academy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-ql-1vjitqe",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "085 844 7393"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-s1-g2stsr",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "bconnolly85@hotmail.com"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-w3-1i6a9k1",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Instagram "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-z9-1326tb7",
+          "type": "text",
+          "label": "Text",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "text": "Facebook "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-137-19ugqo2",
+          "type": "text",
+          "label": "Heading",
+          "tag": "h2",
+          "section": "",
+          "defaultValue": {
+            "text": "Find your way"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-n0mxf2",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Home"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-uhamga",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "About Us"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-19bdow7",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Classes"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1rzo0u6",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Memberships"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-16m-1nund99",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Gallery"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-18t-1ttovjk",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Members"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bv-1xj74x8",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "© "
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1bx-hsvxxv",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "2026"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1co-uz11ll",
+          "type": "text",
+          "label": "Text",
+          "tag": "span",
+          "section": "",
+          "defaultValue": {
+            "text": "Attic Jiu Jitsu Carlow"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1dq-5w79qj",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/privacy-policy",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1ej-fhaxvj",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Privacy policy"
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1gd-1vsnn7y",
+          "type": "link",
+          "label": "Button / link",
+          "tag": "a",
+          "section": "",
+          "defaultValue": {
+            "href": "/#trial-form",
+            "newTab": false
+          },
+          "global": true
+        },
+        {
+          "id": "r1cd012a34f-1i0-kg48y5",
+          "type": "text",
+          "label": "Text",
+          "tag": "Link",
+          "section": "",
+          "defaultValue": {
+            "text": "Come train with us "
+          },
+          "global": true
+        }
+      ],
+      "containers": {
+        "privacy-policy.content": [
+          "r67554b31dc-m1",
+          "r00d24edb7a-lm"
+        ],
+        "r00d24edb7a-11f": [
+          "r00d24edb7a-12l",
+          "r00d24edb7a-1mc",
+          "r00d24edb7a-2m7",
+          "r00d24edb7a-4af",
+          "r00d24edb7a-50n",
+          "r00d24edb7a-5uc"
+        ]
+      }
+    },
+    {
+      "id": "members",
+      "path": "/members",
+      "name": "Member booking application",
+      "status": "private",
+      "elements": [],
+      "containers": {}
+    }
+  ],
+  "media": [
+    {
+      "id": "f19654b9-c44f-4179-a2f0-222a4f00b65f",
+      "name": "logo.png",
+      "src": "https://attic-jiu-jitsu-website.vercel.app/images/logo.png",
+      "width": 1200,
+      "height": 800,
+      "at": "2026-10-27T22:24:49.271Z"
+    },
+    {
+      "id": "aba84955-4a05-400f-a6eb-53e24a1317de",
+      "name": "gallery-9.jpg",
+      "src": "https://attic-jiu-jitsu-website.vercel.app/images/gallery-9.jpg",
+      "width": 1200,
+      "height": 800,
+      "at": "2026-10-27T22:24:41.469Z"
+    },
+    {
+      "id": "141944a0-8eeb-45f9-b19f-cc855c94158f",
+      "name": "gallery-10.jpg",
+      "src": "https://attic-jiu-jitsu-website.vercel.app/images/gallery-10.jpg",
+      "width": 1200,
+      "height": 800,
+      "at": "2026-10-27T22:24:40.255Z"
+    },
+    {
+      "id": "f45adb62-0b97-41d7-a806-e6188a0c9d39",
+      "name": "gallery-6.jpg",
+      "src": "https://attic-jiu-jitsu-website.vercel.app/images/gallery-6.jpg",
+      "width": 1200,
+      "height": 800,
+      "at": "2026-10-27T22:24:40.255Z"
+    },
+    {
+      "id": "2d3e4ce5-a190-4006-b943-9977592aae87",
+      "name": "coach-darren.jpg",
+      "src": "https://attic-jiu-jitsu-website.vercel.app/images/coach-darren.jpg",
+      "width": 1200,
+      "height": 800,
+      "at": "2026-10-27T22:24:41.469Z"
+    },
+    {
+      "id": "60ae415a-ae43-4af3-9c7f-e6440a1b822d",
+      "name": "coach-brian.jpg",
+      "src": "https://attic-jiu-jitsu-website.vercel.app/images/coach-brian.jpg",
+      "width": 1200,
+      "height": 800,
+      "at": "2026-10-27T22:24:41.469Z"
+    },
+    {
+      "id": "07e1c978-e523-4f15-a8f0-20c71a60f99a",
+      "name": "gallery-7.jpg",
+      "src": "https://attic-jiu-jitsu-website.vercel.app/images/gallery-7.jpg",
+      "width": 1200,
+      "height": 800,
+      "at": "2026-10-27T22:24:40.255Z"
+    }
+  ]
+}

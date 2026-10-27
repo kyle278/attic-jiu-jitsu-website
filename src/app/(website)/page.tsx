@@ -1,293 +1,657 @@
-import Image from "next/image";
-import Link from "next/link";
+import { EditorFlow } from "@/components/website-editor/Editable";
 
+import {
+  EditorImage,
+  EditorLink,
+  EditorSection,
+  EditorText,
+} from "@/components/website-editor/Editable";
+import { managedMetadata } from "@/portal/seo/runtime";
+import Link from "next/link";
+import { HeroCarousel } from "@/components/hero-carousel";
 import { ContactForm } from "@/components/contact-form";
+import { CoachProfiles } from "@/components/public-site";
+import { planEnquiryHref } from "@/components/public-timetable";
 import { getGymCatalogue } from "@/lib/server/gym-catalogue";
 import { getMembershipCards } from "@/lib/gym-data";
-import {
-  audiencePaths,
-  coaches,
-  faqs,
-  galleryImages,
-  heroPoints,
-  proofPoints,
-  site,
-} from "@/lib/site-data";
+import { site } from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
+const questions = [
+  [
+    "Can I start with no experience?",
+    "Yes. There are dedicated beginner classes, and the team can help you choose your first session. You don’t need to know the moves before you arrive.",
+  ],
+  [
+    "Do I need to be fit first?",
+    "You can build your fitness as you learn. Tell the team about your experience and any questions before your first class so they can help you find a suitable starting point.",
+  ],
+  [
+    "What’s the difference between gi and no-gi?",
+    "Gi classes use the traditional training jacket and trousers. No-gi training is without the gi. Attic offers both; ask us which class and clothing suit your first visit.",
+  ],
+  [
+    "What should I bring?",
+    "Comfortable training clothes and water are a good start. Confirm the clothing and equipment for your chosen class with the academy. Selected beginner packs include a kimono, belt and bag.",
+  ],
+  [
+    "Are there classes for kids and teens?",
+    "Yes. Attic has dedicated kids and teens classes with age-appropriate coaching. Get in touch as a parent or guardian and we’ll help you choose a suitable class and membership.",
+  ],
+  [
+    "Does an enquiry book my class?",
+    "The form sends an enquiry to the academy. The team will help you choose a class and confirm the arrangements. It does not reserve a place. Existing members can book through Members.",
+  ],
+];
 export default async function Home() {
   const catalogue = await getGymCatalogue();
-  const plans = getMembershipCards(catalogue.plans);
-  const classHighlights = catalogue.classes.map(item => item.name);
-  const pricingGroups = Array.from(new Set(["Adults", "Beginners", ...plans.map(plan => plan.audience)]))
-    .map(title => ({ title, plans: plans.filter(plan => plan.audience === title) }))
-    .filter(group => group.plans.length);
+  const beginner = getMembershipCards(catalogue.plans).find(
+    (plan) => plan.slug === "adults-beginners-program",
+  );
   return (
-    <>
-      <section className="relative overflow-hidden">
-        <Image
-          src="/images/hero-live.jpeg"
-          alt="Attic Jiu Jitsu training on the mats in Carlow"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <div className="hero-overlay relative">
-          <div className="mx-auto grid min-h-[78vh] max-w-6xl items-end gap-10 px-5 py-18 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
-            <div className="fade-up max-w-3xl space-y-7">
-              <p className="eyebrow">Brazilian Jiu Jitsu In Carlow</p>
-              <h1 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)] sm:text-6xl lg:text-7xl">
-                Train with a team that welcomes beginners and builds real skill.
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-[color:var(--fog)] sm:text-xl">
-                Friendly classes for adults, teens, and kids with experienced coaching, gi and no-gi training, and a clear path from your first class to long-term progress.
-              </p>
-              <div className="flex flex-wrap gap-3">
+    <EditorFlow containerId="home.content" style={{ display: "contents" }}>
+      <HeroCarousel>
+        <div className="hero-copy">
+          <p className="location-label" data-enter>
+            <span aria-hidden="true" />
+            <EditorText
+              editorId="reddf82f326-1sm"
+              tag="p"
+              value={"Brazilian jiu jitsu · Carlow "}
+            />
+          </p>
+          <h1>
+            <span>
+              <EditorText
+                editorId="reddf82f326-1ur"
+                tag="span"
+                value={"Serious "}
+              />
+            </span>
+            <span>
+              <EditorText
+                editorId="reddf82f326-1vp"
+                tag="span"
+                value={"jiu jitsu."}
+              />
+            </span>
+          </h1>
+          <p className="hero-strap" data-enter>
+            <EditorText
+              editorId="reddf82f326-1yb"
+              tag="p"
+              value={"A place for everyone. "}
+            />
+          </p>
+          <p className="hero-description" data-enter>
+            <EditorText
+              editorId="reddf82f326-216"
+              tag="p"
+              value={
+                "Good coaching. A welcoming team. Gi and no-gi training for adults, kids and teens, from your first class onwards. "
+              }
+            />
+          </p>
+          <div className="hero-actions" data-enter>
+            <EditorLink
+              editorId="reddf82f326-26v"
+              href="/#trial-form"
+              className="button-primary"
+              data-ingenium-event="contact_cta_click"
+              data-ingenium-label="Start training"
+              data-ingenium-location="home_hero"
+            >
+              <EditorText
+                editorId="reddf82f326-2e6"
+                tag="Link"
+                value={"Start training "}
+              />
+            </EditorLink>
+            <Link href={site.schedulePath} className="text-link">
+              <EditorText
+                editorId="reddf82f326-2hd"
+                tag="Link"
+                value={"View timetable "}
+              />
+            </Link>
+          </div>
+          <p className="hero-reassurance" data-enter>
+            <EditorText
+              editorId="reddf82f326-2kn"
+              tag="p"
+              value={"Complete beginner? You’re welcome here. "}
+            />
+          </p>
+        </div>
+      </HeroCarousel>
+      <div className="proof-strip">
+        <div className="site-container proof-grid">
+          <p>
+            <EditorText
+              editorId="reddf82f326-2q0"
+              tag="p"
+              value={"Black belt coaching"}
+            />
+          </p>
+          <p>
+            <EditorText
+              editorId="reddf82f326-2r1"
+              tag="p"
+              value={"Adults, kids & teens"}
+            />
+          </p>
+          <p>
+            <EditorText
+              editorId="reddf82f326-2s3"
+              tag="p"
+              value={"Gi & no-gi training"}
+            />
+          </p>
+          <p>
+            <EditorText
+              editorId="reddf82f326-2t4"
+              tag="p"
+              value={"Beginners welcome"}
+            />
+          </p>
+        </div>
+      </div>
+      <EditorSection
+        editorId="reddf82f326-2uo"
+        id="find-your-class"
+        className="section-chalk section-space"
+      >
+        <div className="site-container programme-layout">
+          <div className="section-heading">
+            <p className="section-note">
+              <EditorText
+                editorId="reddf82f326-30l"
+                tag="p"
+                value={"Find your class"}
+              />
+            </p>
+            <h2>
+              <EditorText
+                editorId="reddf82f326-320"
+                tag="h2"
+                value={"Your first class. "}
+              />
+              <br />
+              <EditorText
+                editorId="reddf82f326-33h"
+                tag="h2"
+                value={"Your next challenge. "}
+              />
+            </h2>
+            <p>
+              <EditorText
+                editorId="reddf82f326-35e"
+                tag="p"
+                value={
+                  "New to the mats or already at home on them. Start where you are. "
+                }
+              />
+            </p>
+          </div>
+          <div className="programme-links">
+            <EditorLink
+              editorId="reddf82f326-39p"
+              href="/classes#beginners"
+              className="programme-link"
+            >
+              <div>
+                <h3>
+                  <EditorText
+                    editorId="reddf82f326-3ch"
+                    tag="h3"
+                    value={"New to jiu jitsu"}
+                  />
+                </h3>
+                <p>
+                  <EditorText
+                    editorId="reddf82f326-3dm"
+                    tag="p"
+                    value={
+                      "Learn the fundamentals with a clear beginner route."
+                    }
+                  />
+                </p>
+              </div>
+            </EditorLink>
+            <EditorLink
+              editorId="reddf82f326-3gn"
+              href="/classes#adults"
+              className="programme-link"
+            >
+              <div>
+                <h3>
+                  <EditorText
+                    editorId="reddf82f326-3jc"
+                    tag="h3"
+                    value={"Already training"}
+                  />
+                </h3>
+                <p>
+                  <EditorText
+                    editorId="reddf82f326-3l0"
+                    tag="p"
+                    value={
+                      "Keep developing through gi, no-gi and mixed-level classes. "
+                    }
+                  />
+                </p>
+              </div>
+            </EditorLink>
+            <EditorLink
+              editorId="reddf82f326-3op"
+              href="/classes#youth"
+              className="programme-link"
+            >
+              <div>
+                <h3>
+                  <EditorText
+                    editorId="reddf82f326-3rd"
+                    tag="h3"
+                    value={"Kids & teens"}
+                  />
+                </h3>
+                <p>
+                  <EditorText
+                    editorId="reddf82f326-3se"
+                    tag="p"
+                    value={"Age-appropriate coaching for the next generation."}
+                  />
+                </p>
+              </div>
+            </EditorLink>
+          </div>
+        </div>
+      </EditorSection>
+      <EditorSection
+        editorId="reddf82f326-3wk"
+        id="beginner-programme"
+        className="beginner-section"
+      >
+        <div className="site-container beginner-grid">
+          <div className="beginner-image">
+            <EditorImage
+              editorId="reddf82f326-41d"
+              src="/images/gallery-6.jpg"
+              alt="Training partners practising a ground technique at Attic"
+              fill
+              sizes="(max-width: 767px) 100vw, 45vw"
+            />
+          </div>
+          <div className="beginner-copy">
+            <p className="section-note">
+              <EditorText
+                editorId="reddf82f326-4a1"
+                tag="p"
+                value={"A clear way to begin"}
+              />
+            </p>
+            <h2>
+              <EditorText
+                editorId="reddf82f326-4bl"
+                tag="h2"
+                value={"A starting point. "}
+              />
+              <br />
+              <EditorText
+                editorId="reddf82f326-4d2"
+                tag="h2"
+                value={"Something to build on. "}
+              />
+            </h2>
+            {beginner ? (
+              <>
+                <h3 className="offer-name">{beginner.name}</h3>
+                <p className="offer-price">{beginner.price}</p>
+                <p className="offer-detail">{beginner.detail}</p>
                 <Link
-                  href="/#trial-form"
+                  href={planEnquiryHref(beginner.name)}
                   className="button-primary"
                   data-ingenium-event="contact_cta_click"
-                  data-ingenium-label="Book a Free Trial"
-                  data-ingenium-location="home_hero"
+                  data-ingenium-label="Ask about the beginner programme"
+                  data-ingenium-location="home_beginner"
                 >
-                  Book a Free Trial
+                  <EditorText
+                    editorId="reddf82f326-4uf"
+                    tag="Link"
+                    value={"Ask about the programme "}
+                  />
                 </Link>
-                <Link
-                  href={site.schedulePath}
-                  className="button-secondary"
-                  data-ingenium-event="booking_cta_click"
-                  data-ingenium-label="View Timetable"
-                  data-ingenium-location="home_hero"
-                >
-                  View Timetable
-                </Link>
-              </div>
-            </div>
-
-            <div className="panel-dark fade-up grid gap-4 p-6 sm:p-8">
-              <p className="eyebrow">Why People Start Here</p>
-              <div className="grid gap-3">
-                {heroPoints.map((point) => (
-                  <div key={point} className="flex items-center gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--bronze)]" />
-                    <span className="text-base text-[color:var(--chalk)]">{point}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="grid gap-4 rounded-[20px] border border-white/10 bg-[rgba(67,25,34,0.42)] p-5">
-                <p className="font-heading text-2xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">
-                  {site.address}
+              </>
+            ) : (
+              <>
+                <p>
+                  <EditorText
+                    editorId="reddf82f326-4ya"
+                    tag="p"
+                    value={
+                      "Ask the team about the current beginner programmes, equipment and your first session. "
+                    }
+                  />
                 </p>
-                <a href={site.phoneHref} className="text-lg text-[color:var(--fog)]">
-                  {site.phone}
-                </a>
-              </div>
-            </div>
+                <EditorLink
+                  editorId="reddf82f326-527"
+                  href="/#trial-form"
+                  className="button-primary"
+                >
+                  <EditorText
+                    editorId="reddf82f326-547"
+                    tag="Link"
+                    value={"Ask about getting started "}
+                  />
+                </EditorLink>
+              </>
+            )}
+            <Link href="/memberships#live-plans" className="text-link">
+              <EditorText
+                editorId="reddf82f326-58w"
+                tag="Link"
+                value={"Explore all memberships "}
+              />
+            </Link>
+            <p className="small-copy">
+              <EditorText
+                editorId="reddf82f326-5bl"
+                tag="p"
+                value={
+                  "An enquiry starts the conversation. Your place and start date are confirmed with the academy. "
+                }
+              />
+            </p>
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
-          {audiencePaths.map((path) => (
-            <Link
-              key={path.title}
-              href={path.href}
-              className="panel-dark block p-6"
-              data-ingenium-event="service_card_click"
-              data-ingenium-label={path.title}
-              data-ingenium-location="home_paths"
-            >
-              <p className="eyebrow">{path.eyebrow}</p>
-              <h2 className="mt-3 font-heading text-3xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">{path.title}</h2>
-              <p className="mt-4 text-base leading-7 text-[color:var(--fog)]">{path.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-light">
-        <div className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="space-y-5">
-              <p className="eyebrow">Train With Confidence</p>
-              <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em]">
-                A local academy with serious coaching and a supportive atmosphere.
-              </h2>
-              <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-                Whether you want fitness, self-belief, a new challenge, or a competitive edge, Attic gives you a place to train consistently and improve the right way.
+      </EditorSection>
+      <EditorSection
+        editorId="reddf82f326-5gl"
+        className="section-chalk section-space coaches-section"
+      >
+        <div className="site-container">
+          <div className="section-title-row">
+            <div>
+              <p className="section-note">
+                <EditorText
+                  editorId="reddf82f326-5mi"
+                  tag="p"
+                  value={"The people in your corner"}
+                />
               </p>
-              <div className="image-frame relative h-72 overflow-hidden border-white/10">
-                <Image src="/images/gallery-2.jpg" alt="Live grappling exchange during class at Attic Jiu Jitsu" fill className="object-cover" />
-              </div>
+              <h2>
+                <EditorText
+                  editorId="reddf82f326-5ob"
+                  tag="h2"
+                  value={"Experience on the mats. "}
+                />
+                <br />
+                <EditorText
+                  editorId="reddf82f326-5q2"
+                  tag="h2"
+                  value={"Care in the coaching. "}
+                />
+              </h2>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {proofPoints.map((point) => (
-                <div key={point} className="panel-light p-6">
-                  <p className="font-heading text-2xl uppercase tracking-[0.12em]">{point}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-          <div className="space-y-5">
-            <p className="eyebrow">Programs</p>
-            <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)]">
-              Classes for adults, kids, teens, and competitors.
-            </h2>
-            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              Start with the class that matches your level, then grow into the full timetable as your confidence and training volume build.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {classHighlights.map((highlight) => (
-                <span key={highlight} className="rounded-full border border-white/12 px-4 py-2 text-sm text-[color:var(--fog)]">
-                  {highlight}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {coaches.map((coach) => (
-              <article key={coach.name} className="panel-dark overflow-hidden">
-                <div className="image-frame relative h-56">
-                  <Image src={coach.image} alt={coach.name} fill className="object-cover" />
-                </div>
-                <div className="p-6">
-                  <p className="eyebrow">{coach.role}</p>
-                  <h3 className="mt-2 font-heading text-3xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">{coach.name}</h3>
-                  <p className="mt-4 text-base leading-7 text-[color:var(--fog)]">{coach.bio}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-light">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-18 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
-          <div className="space-y-5">
-            <p className="eyebrow">Memberships</p>
-            <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em]">
-              Simple memberships for the way you want to train.
-            </h2>
-            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              Beginner packs, monthly memberships, student rates, and family options make it easy to start well and stay consistent.
-            </p>
-            <Link
-              href="/memberships"
-              className="button-primary"
-              data-ingenium-event="pricing_cta_click"
-              data-ingenium-label="See Membership Options"
-              data-ingenium-location="home_memberships"
+            <EditorLink
+              editorId="reddf82f326-5s3"
+              href="/about-us"
+              className="text-link"
             >
-              See Membership Options
-            </Link>
-            <div className="image-frame relative h-72 overflow-hidden border-white/10">
-              <Image src="/images/gallery-3.jpg" alt="Training partners drilling in the academy in Carlow" fill className="object-cover" />
-            </div>
+              <EditorText
+                editorId="reddf82f326-5tr"
+                tag="Link"
+                value={"Meet the coaches "}
+              />
+            </EditorLink>
           </div>
-
-          <div className="grid gap-4">
-            {pricingGroups.slice(0, 2).map((group) => (
-              <div key={group.title} className="panel-light p-6">
-                <p className="eyebrow">{group.title}</p>
-                <div className="mt-4 grid gap-4">
-                  {group.plans.slice(0, 2).map((plan) => (
-                    <div key={plan.name} className="rounded-[18px] border border-white/10 bg-[rgba(63,24,32,0.38)] p-4">
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <h3 className="font-heading text-2xl uppercase tracking-[0.12em]">{plan.name}</h3>
-                        <span className="text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--fog)]">{plan.price}</span>
-                      </div>
-                      <p className="mt-2 text-[color:var(--fog)]">{plan.detail}</p>
-                    </div>
-                  ))}
-                </div>
+          <CoachProfiles />
+        </div>
+      </EditorSection>
+      <EditorSection
+        editorId="reddf82f326-5x3"
+        className="photo-story section-space"
+      >
+        <div className="site-container story-grid">
+          <figure className="story-main">
+            <div className="story-photo-frame">
+              <div className="story-photo-moving">
+                <EditorImage
+                  editorId="reddf82f326-648"
+                  src="/images/gallery-10.jpg"
+                  alt="Two training partners work through the details of a jiu jitsu technique"
+                  fill
+                  sizes="(max-width: 767px) 100vw, 58vw"
+                />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryImages.slice(4, 8).map((image) => (
-            <div key={image.src} className="image-frame relative h-72">
-              <Image src={image.src} alt={image.alt} fill className="object-cover" />
             </div>
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="eyebrow">Inside The Academy</p>
-            <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">See the atmosphere before you step on the mats.</h2>
-          </div>
-          <Link
-            href="/gallery"
-            className="button-secondary"
-            data-ingenium-event="cta_click"
-            data-ingenium-label="View Gallery"
-            data-ingenium-location="home_gallery"
-          >
-            View Gallery
-          </Link>
-        </div>
-      </section>
-
-      <section className="section-light">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-18 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div className="space-y-5">
-            <p className="eyebrow">Frequently Asked Questions</p>
-            <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em]">
-              Everything you need to know before your first class.
+            <figcaption>The details make the difference.</figcaption>
+          </figure>
+          <div className="story-copy">
+            <p className="section-note">
+              <EditorText
+                editorId="reddf82f326-6gy"
+                tag="p"
+                value={"Life at Attic"}
+              />
+            </p>
+            <h2>
+              <EditorText
+                editorId="reddf82f326-6ib"
+                tag="h2"
+                value={"Learn the detail. "}
+              />
+              <br />
+              <EditorText
+                editorId="reddf82f326-6js"
+                tag="h2"
+                value={"Put it into practice. "}
+              />
             </h2>
+            <p>
+              <EditorText
+                editorId="reddf82f326-6lq"
+                tag="p"
+                value={
+                  "Technique, training partners and time on the mats. Take a look inside the academy. "
+                }
+              />
+            </p>
+            <EditorLink
+              editorId="reddf82f326-6p8"
+              href="/gallery"
+              className="text-link"
+            >
+              <EditorText
+                editorId="reddf82f326-6qv"
+                tag="Link"
+                value={"Inside Attic "}
+              />
+            </EditorLink>
+            <div className="story-detail">
+              <EditorImage
+                editorId="reddf82f326-6td"
+                src="/images/gallery-7.jpg"
+                alt="A close view of a training partner between rounds"
+                fill
+                sizes="(max-width: 767px) 80vw, 26vw"
+              />
+            </div>
           </div>
-          <div className="grid gap-4">
-            {faqs.map((faq) => (
-              <details
-                key={faq.question}
-                className="panel-light p-5"
-                data-ingenium-event="faq_expand"
-                data-ingenium-label={faq.question}
-                data-ingenium-location="home_faq"
-              >
-                <summary className="cursor-pointer list-none font-heading text-2xl uppercase tracking-[0.1em]">
-                  {faq.question}
+        </div>
+      </EditorSection>
+      <EditorSection
+        editorId="reddf82f326-71e"
+        className="section-chalk section-space"
+      >
+        <div className="site-container faq-layout">
+          <div className="section-heading">
+            <p className="section-note">
+              <EditorText
+                editorId="reddf82f326-76k"
+                tag="p"
+                value={"Before your first class"}
+              />
+            </p>
+            <h2>
+              <EditorText
+                editorId="reddf82f326-787"
+                tag="h2"
+                value={"A few things "}
+              />
+              <br />
+              <EditorText
+                editorId="reddf82f326-79j"
+                tag="h2"
+                value={"you might be "}
+              />
+              <br />
+              <EditorText
+                editorId="reddf82f326-7av"
+                tag="h2"
+                value={"wondering. "}
+              />
+            </h2>
+            <p>
+              <EditorText
+                editorId="reddf82f326-7c3"
+                tag="p"
+                value={
+                  "Nothing is too basic to ask. That’s what starting is for."
+                }
+              />
+            </p>
+            <a href={site.phoneHref} className="text-link">
+              <EditorText
+                editorId="reddf82f326-7fv"
+                tag="a"
+                value={"Talk to the team "}
+              />
+            </a>
+          </div>
+          <div className="faq-list">
+            {questions.map(([question, answer]) => (
+              <details key={question}>
+                <summary>
+                  <EditorText
+                    editorId="reddf82f326-7m3"
+                    tag="summary"
+                    value={question}
+                  />
+                  <span aria-hidden="true" className="faq-mark" />
                 </summary>
-                <p className="mt-3 text-[color:var(--fog)]">{faq.answer}</p>
+                <p>
+                  <EditorText
+                    editorId="reddf82f326-7pj"
+                    tag="p"
+                    value={answer}
+                  />
+                </p>
               </details>
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-5">
-            <p className="eyebrow">Take The First Step</p>
-            <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)]">
-              Ask a question, book a free trial, and find the right class for you.
-            </h2>
-            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              If you are not sure where to start, send an enquiry and the team can point you toward the best class, membership, or beginner route.
+      </EditorSection>
+      <EditorSection
+        editorId="reddf82f326-7sk"
+        className="enquiry-section section-space"
+      >
+        <div className="site-container enquiry-grid">
+          <div className="enquiry-copy">
+            <p className="location-label">
+              <span aria-hidden="true" />
+              <EditorText
+                editorId="reddf82f326-7ze"
+                tag="p"
+                value={"Come train with us "}
+              />
             </p>
-            <div className="grid gap-3 text-base text-[color:var(--fog)]">
+            <h2>
+              <EditorText
+                editorId="reddf82f326-819"
+                tag="h2"
+                value={"It starts with "}
+              />
+              <br />
+              <EditorText
+                editorId="reddf82f326-828"
+                tag="h2"
+                value={"a conversation. "}
+              />
+            </h2>
+            <p>
+              <EditorText
+                editorId="reddf82f326-840"
+                tag="p"
+                value={
+                  "Tell us who will be training and what you’d like to know. We’ll help you choose a class or membership and plan your first visit. "
+                }
+              />
+            </p>
+            <div className="contact-details">
+              <h3>
+                <EditorText
+                  editorId="reddf82f326-8a8"
+                  tag="h3"
+                  value={"Find us in Carlow"}
+                />
+              </h3>
+              <address>{site.address}</address>
               <a href={site.phoneHref}>
-                {site.phone}
+                <EditorText
+                  editorId="reddf82f326-8da"
+                  tag="a"
+                  value={site.phone}
+                />
               </a>
               <a href={site.emailHref}>
-                {site.email}
+                <EditorText
+                  editorId="reddf82f326-8eu"
+                  tag="a"
+                  value={site.email}
+                />
               </a>
-              <p>{site.address}</p>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address)}`}
+                className="text-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <EditorText
+                  editorId="reddf82f326-8mk"
+                  tag="a"
+                  value={"Get directions "}
+                />
+              </a>
             </div>
+            <p className="small-copy">
+              <EditorText
+                editorId="reddf82f326-8pi"
+                tag="p"
+                value={"Already training with us?"}
+              />
+              <EditorText editorId="reddf82f326-8q7" tag="p" value={" "} />
+              <Link href="/members">
+                <EditorText
+                  editorId="reddf82f326-8rd"
+                  tag="Link"
+                  value={"Open Members"}
+                />
+              </Link>
+            </p>
           </div>
-          <ContactForm />
+          <ContactForm planNames={catalogue.plans.map((plan) => plan.name)} />
         </div>
-      </section>
-    </>
+      </EditorSection>
+    </EditorFlow>
   );
+}
+
+export async function generateMetadata() {
+  return managedMetadata("/", {
+    title: {
+      absolute: "Attic Jiu Jitsu Carlow | Brazilian Jiu Jitsu In Carlow",
+    },
+    description: site.description,
+  });
 }

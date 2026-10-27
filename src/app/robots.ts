@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { WEBSITE_ORIGIN } from "@/portal/public";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/members/",
     },
-    sitemap: "https://www.atticbjj.net/sitemap.xml",
+    sitemap: `${WEBSITE_ORIGIN}/sitemap.xml`,
   };
 }

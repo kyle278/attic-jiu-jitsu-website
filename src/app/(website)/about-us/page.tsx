@@ -1,107 +1,219 @@
+import { EditorFlow } from "@/components/website-editor/Editable";
+
+import {
+  EditorImage,
+  EditorLink,
+  EditorSection,
+  EditorText,
+} from "@/components/website-editor/Editable";
+import { managedMetadata } from "@/portal/seo/runtime";
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-
-import { coaches, site } from "@/lib/site-data";
-
-export const metadata: Metadata = {
-  title: "About Us",
-  description: "Meet the coaches and learn what makes Attic Jiu Jitsu a welcoming place to train in Carlow.",
+import { CoachProfiles, PageIntro, StartBand } from "@/components/public-site";
+import { site } from "@/lib/site-data";
+const baselineMetadata: Metadata = {
+  title: "The academy & coaches",
+  description:
+    "Meet Darren Curtis and Brian Connolly. Experienced black belt coaching and a welcoming Brazilian jiu jitsu academy for adults, kids and teens in Carlow.",
 };
-
 export default function AboutPage() {
   return (
-    <>
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-5">
-            <p className="eyebrow">About Us</p>
-            <h1 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)]">
-              Experienced coaches. Welcoming culture. Serious Jiu Jitsu.
-            </h1>
-            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              Attic Jiu Jitsu is built around good coaching, steady progress, and a strong team environment for people who want to train well in Carlow.
+    <EditorFlow containerId="about-us.content" style={{ display: "contents" }}>
+      <PageIntro
+        label="The academy · Attic Jiu Jitsu"
+        title="Good coaching. A welcoming room."
+      >
+        <p className="intro-copy">
+          <EditorText
+            editorId="r48dcb79ea2-kq"
+            tag="p"
+            value={
+              "A place to learn Brazilian jiu jitsu, find training partners and keep coming back. Right here in Carlow. "
+            }
+          />
+        </p>
+      </PageIntro>
+      <div className="about-banner">
+        <EditorImage
+          editorId="r48dcb79ea2-q2"
+          src="/images/gallery-9.jpg"
+          alt="Training partners on the mats beneath the Attic Jiu Jitsu badge"
+          fill
+          preload
+          sizes="100vw"
+        />
+      </div>
+      <EditorSection
+        editorId="r48dcb79ea2-vy"
+        className="section-chalk section-space"
+      >
+        <div className="site-container programme-layout">
+          <div className="section-heading">
+            <p className="section-note">
+              <EditorText
+                editorId="r48dcb79ea2-11a"
+                tag="p"
+                value={"A team to learn with"}
+              />
             </p>
+            <h2>
+              <EditorText
+                editorId="r48dcb79ea2-12u"
+                tag="h2"
+                value={"Serious about the training. "}
+              />
+              <br />
+              <EditorText
+                editorId="r48dcb79ea2-14l"
+                tag="h2"
+                value={"Welcoming from the start. "}
+              />
+            </h2>
           </div>
-          <div className="image-frame relative min-h-80">
-            <Image src="/images/gallery-4.jpg" alt="Attic Jiu Jitsu team training together" fill className="object-cover" />
+          <div className="academy-story">
+            <p>
+              <EditorText
+                editorId="r48dcb79ea2-18a"
+                tag="p"
+                value={
+                  "Attic brings adults, kids and teens together to learn Brazilian jiu jitsu. Whether you’re trying something new, returning to training or working towards competition, there’s a route into the academy. "
+                }
+              />
+            </p>
+            <p>
+              <EditorText
+                editorId="r48dcb79ea2-1gb"
+                tag="p"
+                value={
+                  "Good instruction and time practising with others are at the heart of it. Learn a technique, work through the details and put it into practice with your training partners. "
+                }
+              />
+            </p>
+            <EditorLink
+              editorId="r48dcb79ea2-1mn"
+              href="/classes"
+              className="text-link"
+            >
+              <EditorText
+                editorId="r48dcb79ea2-1oa"
+                tag="Link"
+                value={"Explore the classes "}
+              />
+            </EditorLink>
           </div>
         </div>
-      </section>
-
-      <section className="section-light">
-        <div className="mx-auto grid max-w-6xl gap-6 px-5 py-18 sm:px-6 lg:grid-cols-3 lg:px-8">
-          <div className="panel-light p-6">
-            <p className="eyebrow">Culture</p>
-            <h2 className="font-heading text-3xl uppercase tracking-[0.12em]">Supportive on day one</h2>
-            <p className="mt-4 text-[color:var(--fog)]">
-              Beginners are coached clearly, welcomed into the room, and given a realistic path into training without pressure.
-            </p>
-          </div>
-          <div className="panel-light p-6">
-            <p className="eyebrow">Coaching</p>
-            <h2 className="font-heading text-3xl uppercase tracking-[0.12em]">Black belt experience</h2>
-            <p className="mt-4 text-[color:var(--fog)]">
-              Years of training, competition, and youth coaching experience shape the academy from the first fundamentals class to advanced rounds.
-            </p>
-          </div>
-          <div className="panel-light p-6">
-            <p className="eyebrow">Community</p>
-            <h2 className="font-heading text-3xl uppercase tracking-[0.12em]">Built for long-term progress</h2>
-            <p className="mt-4 text-[color:var(--fog)]">
-              Adults, kids, teens, hobbyists, and competitors all have space to learn, improve, and stay consistent.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-2">
-          {coaches.map((coach) => (
-            <article key={coach.name} className="panel-dark overflow-hidden">
-              <div className="image-frame relative h-72">
-                <Image src={coach.image} alt={coach.name} fill className="object-cover" />
-              </div>
-              <div className="p-6 sm:p-8">
-                <p className="eyebrow">{coach.role}</p>
-                <h2 className="mt-3 font-heading text-4xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">{coach.name}</h2>
-                <p className="mt-4 text-lg leading-8 text-[color:var(--fog)]">{coach.bio}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-light">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-18 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
-          <div className="space-y-5">
-            <p className="eyebrow">Train With Us</p>
-            <h2 className="font-heading text-5xl uppercase leading-none tracking-[0.08em]">A good fit for first-timers, parents, and committed students.</h2>
-            <p className="max-w-xl text-lg leading-8 text-[color:var(--fog)]">
-              Train for fitness, confidence, a new challenge, or competition. There is a route into the academy that meets you at your level.
-            </p>
-          </div>
-          <div className="panel-light p-6">
-            <p className="eyebrow">Find Us</p>
-            <p className="font-heading text-3xl uppercase tracking-[0.12em]">{site.address}</p>
-            <p className="mt-4 text-[color:var(--fog)]">Contact the team if you want help choosing the best class or membership.</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/#trial-form"
-                className="button-primary"
-                data-ingenium-event="contact_cta_click"
-                data-ingenium-label="Book a Free Trial"
-                data-ingenium-location="about_cta"
-              >
-                Book a Free Trial
-              </Link>
-              <a href={site.phoneHref} className="button-secondary">
-                Call The Academy
-              </a>
+      </EditorSection>
+      <EditorSection editorId="r48dcb79ea2-1qx" className="section-space">
+        <div className="site-container">
+          <div className="section-title-row">
+            <div>
+              <p className="section-note">
+                <EditorText
+                  editorId="r48dcb79ea2-1w0"
+                  tag="p"
+                  value={"Black belt experience"}
+                />
+              </p>
+              <h2>
+                <EditorText
+                  editorId="r48dcb79ea2-1x8"
+                  tag="h2"
+                  value={"Meet your coaches."}
+                />
+              </h2>
             </div>
+            <p>
+              <EditorText
+                editorId="r48dcb79ea2-1yu"
+                tag="p"
+                value={"Both began their jiu jitsu training in 2009."}
+              />
+            </p>
+          </div>
+          <CoachProfiles full />
+        </div>
+      </EditorSection>
+      <EditorSection
+        editorId="r48dcb79ea2-22n"
+        className="section-chalk section-space"
+      >
+        <div className="site-container visit-grid">
+          <div>
+            <h2>
+              <EditorText
+                editorId="r48dcb79ea2-26s"
+                tag="h2"
+                value={"Your first class. "}
+              />
+              <br />
+              <EditorText
+                editorId="r48dcb79ea2-289"
+                tag="h2"
+                value={"Or the next chapter. "}
+              />
+            </h2>
+            <p>
+              <EditorText
+                editorId="r48dcb79ea2-2a6"
+                tag="p"
+                value={
+                  "Dedicated beginner, mixed-level and youth classes make space for different stages of training. Ask the team where to start. "
+                }
+              />
+            </p>
+            <EditorLink
+              editorId="r48dcb79ea2-2et"
+              href="/#trial-form"
+              className="text-link"
+            >
+              <EditorText
+                editorId="r48dcb79ea2-2gk"
+                tag="Link"
+                value={"Plan your first visit "}
+              />
+            </EditorLink>
+          </div>
+          <div className="visit-address">
+            <p className="section-note">
+              <EditorText
+                editorId="r48dcb79ea2-2kh"
+                tag="p"
+                value={"The academy"}
+              />
+            </p>
+            <h3>
+              <EditorText
+                editorId="r48dcb79ea2-2ld"
+                tag="h3"
+                value={"In the heart of Carlow."}
+              />
+            </h3>
+            <address>{site.address}</address>
+            <a href={site.phoneHref}>
+              <EditorText
+                editorId="r48dcb79ea2-2oh"
+                tag="a"
+                value={site.phone}
+              />
+            </a>
+            <EditorLink
+              editorId="r48dcb79ea2-2pa"
+              href="/gallery"
+              className="text-link"
+            >
+              <EditorText
+                editorId="r48dcb79ea2-2qx"
+                tag="Link"
+                value={"See inside Attic "}
+              />
+            </EditorLink>
           </div>
         </div>
-      </section>
-    </>
+      </EditorSection>
+      <StartBand />
+    </EditorFlow>
   );
+}
+
+export async function generateMetadata() {
+  return managedMetadata("/about-us", baselineMetadata);
 }

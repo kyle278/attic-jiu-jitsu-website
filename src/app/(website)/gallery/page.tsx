@@ -1,54 +1,107 @@
+import { EditorFlow } from "@/components/website-editor/Editable";
+
+import {
+  EditorSection,
+  EditorText,
+} from "@/components/website-editor/Editable";
+import { managedMetadata } from "@/portal/seo/runtime";
 import type { Metadata } from "next";
-import Link from "next/link";
-
 import { InteractiveGallery } from "@/components/interactive-gallery";
-import { galleryImages } from "@/lib/site-data";
-
-export const metadata: Metadata = {
-  title: "Gallery",
-  description: "See the team, the training, and the atmosphere at Attic Jiu Jitsu Carlow.",
+import { PageIntro, StartBand } from "@/components/public-site";
+const baselineMetadata: Metadata = {
+  title: "Inside Attic",
+  description:
+    "A look inside Attic Jiu Jitsu Carlow. Real training partners, coaching and details on the mats.",
 };
-
+const images = [
+  {
+    src: "/images/gallery-10.jpg",
+    alt: "Two training partners discussing a technique on the red mats",
+    title: "Working through the details",
+  },
+  {
+    src: "/images/gallery-7.jpg",
+    alt: "Close view of a gi-clad training partner at Attic",
+    title: "Between rounds",
+  },
+  {
+    src: "/images/gallery-9.jpg",
+    alt: "Gi training on the mats below the academy badge",
+    title: "On the mats at Attic",
+  },
+  {
+    src: "/images/gallery-6.jpg",
+    alt: "Two training partners practising ground grappling",
+    title: "Technique in practice",
+  },
+  {
+    src: "/images/gallery-1.jpg",
+    alt: "Close view of a ground grappling exchange",
+    title: "Live problem solving",
+  },
+  {
+    src: "/images/gallery-3.jpg",
+    alt: "Two gi-clad partners practising a standing technique",
+    title: "Standing practice",
+  },
+  {
+    src: "/images/gallery-2.jpg",
+    alt: "Gi training partners working through a ground position",
+    title: "Position and control",
+  },
+  {
+    src: "/images/gallery-4.jpg",
+    alt: "Gi-clad training partners practising a technique",
+    title: "Repetition and detail",
+  },
+  {
+    src: "/images/gallery-5.jpg",
+    alt: "Training partners practising a standing grappling position",
+    title: "Learning through practice",
+  },
+  {
+    src: "/images/gallery-8.jpg",
+    alt: "A training partner working from a top position",
+    title: "Time on the mats",
+  },
+  {
+    src: "/images/gallery-11.jpg",
+    alt: "Training partners practising a ground grappling exchange",
+    title: "Training together",
+  },
+  {
+    src: "/images/gallery-12.jpg",
+    alt: "Two gi-clad training partners working through a leg position",
+    title: "One detail at a time",
+  },
+];
 export default function GalleryPage() {
   return (
-    <>
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-5">
-          <p className="eyebrow">Gallery</p>
-          <h1 className="font-heading text-5xl uppercase leading-none tracking-[0.08em] text-[color:var(--chalk)]">
-            See the training, the team, and the atmosphere.
-          </h1>
-          <p className="text-lg leading-8 text-[color:var(--fog)]">
-            Real classes, real people, and a real academy environment in Carlow. If you want to get a feel for the room before you visit, this is the best place to start.
-          </p>
+    <EditorFlow containerId="gallery.content" style={{ display: "contents" }}>
+      <PageIntro label="Inside Attic" title="Life on the mats.">
+        <p className="intro-copy">
+          <EditorText
+            editorId="r671c14947c-1sa"
+            tag="p"
+            value={
+              "Training partners. Technical details. The people who make the academy. Take a look around. "
+            }
+          />
+        </p>
+      </PageIntro>
+      <EditorSection
+        editorId="r671c14947c-1w5"
+        className="section-chalk gallery-section"
+      >
+        <div className="site-container">
+          <InteractiveGallery images={images} />
         </div>
-      </section>
-
-      <section className="section-light">
-        <div className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-          <InteractiveGallery images={galleryImages} />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-18 sm:px-6 lg:px-8">
-        <div className="panel-dark flex flex-col gap-5 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="space-y-3">
-            <p className="eyebrow">Come See It In Person</p>
-            <h2 className="font-heading text-4xl uppercase tracking-[0.1em] text-[color:var(--chalk)]">
-              The best way to judge the academy is to step onto the mats yourself.
-            </h2>
-          </div>
-          <Link
-            href="/#trial-form"
-            className="button-primary"
-            data-ingenium-event="contact_cta_click"
-            data-ingenium-label="Come Try A Class"
-            data-ingenium-location="gallery_cta"
-          >
-            Come Try A Class
-          </Link>
-        </div>
-      </section>
-    </>
+      </EditorSection>
+      <StartBand />
+    </EditorFlow>
   );
+}
+
+export async function generateMetadata() {
+  return managedMetadata("/gallery", baselineMetadata);
 }

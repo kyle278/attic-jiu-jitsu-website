@@ -1,127 +1,152 @@
 "use client";
+import {
+  EditorImage,
+  EditorLink,
+  EditorText,
+} from "@/components/website-editor/Editable";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-
-import { navigation, site } from "@/lib/site-data";
+import { useRef } from "react";
+import { navigation } from "@/lib/site-data";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
+  const menu = useRef<HTMLDetailsElement>(null);
+  const closeMenu = () => {
+    if (menu.current) menu.current.open = false;
+  };
+  const links = navigation.filter((item) => item.href !== "/");
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[color:var(--ink)]/92 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:px-6 lg:px-8">
-        <Link
+    <header className="site-header">
+      <div className="site-container header-row">
+        <EditorLink
+          editorId="r3de2e2ca7d-fs"
           href="/"
-          className="flex min-w-0 items-center gap-3"
-          data-ingenium-event="nav_click"
-          data-ingenium-label="Logo"
-          data-ingenium-location="header"
-          onClick={() => setOpen(false)}
+          className="brand"
+          aria-label="Attic Jiu Jitsu Carlow home"
+          onClick={closeMenu}
         >
-          <Image src="/images/logo.png" alt="Attic Jiu Jitsu logo" width={44} height={44} className="rounded-full" />
-          <div className="min-w-0">
-            <div className="font-heading text-base uppercase tracking-[0.18em] text-[color:var(--chalk)] sm:text-lg">
-              Attic
-            </div>
-            <div className="whitespace-nowrap text-[10px] uppercase tracking-[0.22em] text-[color:var(--fog)] sm:text-xs">
-              Jiu Jitsu Carlow
-            </div>
-          </div>
-        </Link>
-
-        <nav className="hidden items-center gap-4 xl:gap-5 lg:flex">
-          {navigation.map((item) => {
-            const active = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`whitespace-nowrap text-xs uppercase tracking-[0.16em] transition xl:text-sm ${
-                  active ? "text-[color:var(--bronze)]" : "text-[color:var(--fog)] hover:text-[color:var(--chalk)]"
-                }`}
-                data-ingenium-event="nav_click"
-                data-ingenium-label={item.label}
-                data-ingenium-location="header"
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          <EditorImage
+            editorId="r3de2e2ca7d-k2"
+            src="/images/logo.png"
+            alt=""
+            width={52}
+            height={52}
+          />
+          <span className="brand-name">
+            <EditorText editorId="r3de2e2ca7d-n9" tag="span" value={"Attic"} />
+            <span>
+              <EditorText
+                editorId="r3de2e2ca7d-nk"
+                tag="span"
+                value={"Jiu Jitsu · Carlow"}
+              />
+            </span>
+          </span>
+        </EditorLink>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {links.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={pathname === item.href ? "page" : undefined}
+              data-ingenium-event="nav_click"
+              data-ingenium-label={item.label}
+              data-ingenium-location="header"
+            >
+              <EditorText
+                editorId="r3de2e2ca7d-10v"
+                tag="Link"
+                value={item.label === "About Us" ? "The academy" : item.label}
+              />
+            </Link>
+          ))}
         </nav>
-
-        <div className="hidden items-center gap-2 xl:gap-3 lg:flex">
-          <Link
-            href={site.schedulePath}
-            className="button-secondary px-4 xl:px-5"
-            data-ingenium-event="booking_cta_click"
-            data-ingenium-label="View Timetable"
-            data-ingenium-location="header"
-          >
-            View Timetable
+        <div className="header-actions">
+          <Link href="/members" className="member-link">
+            <EditorText
+              editorId="r3de2e2ca7d-16v"
+              tag="Link"
+              value={"Members "}
+            />
           </Link>
-          <Link
+          <EditorLink
+            editorId="r3de2e2ca7d-17v"
             href="/#trial-form"
-            className="button-primary px-4 xl:px-5"
+            className="button-primary header-start"
             data-ingenium-event="contact_cta_click"
-            data-ingenium-label="Book a Free Trial"
+            data-ingenium-label="Start training"
             data-ingenium-location="header"
           >
-            Book a Free Trial
-          </Link>
+            <EditorText
+              editorId="r3de2e2ca7d-1f2"
+              tag="Link"
+              value={"Start training"}
+            />
+            <EditorText editorId="r3de2e2ca7d-1fg" tag="Link" value={" "} />
+          </EditorLink>
         </div>
-
-        <button
-          type="button"
-          className="inline-flex min-h-11 items-center justify-center rounded-[14px] border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.16em] text-[color:var(--chalk)] lg:hidden"
-          onClick={() => setOpen((value) => !value)}
+        <details
+          ref={menu}
+          className="mobile-menu"
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              closeMenu();
+              menu.current?.querySelector("summary")?.focus();
+            }
+          }}
         >
-          Menu
-        </button>
-      </div>
-
-      {open ? (
-        <div className="border-t border-white/10 bg-[color:var(--graphite)] lg:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-5 sm:px-6">
+          <summary aria-controls="mobile-navigation">
+            <EditorText
+              editorId="r3de2e2ca7d-1q0"
+              tag="summary"
+              value={"Menu "}
+            />
+            <span className="menu-mark" aria-hidden="true" />
+          </summary>
+          <nav id="mobile-navigation" aria-label="Mobile navigation">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="whitespace-nowrap text-sm uppercase tracking-[0.16em] text-[color:var(--fog)]"
-                data-ingenium-event="nav_click"
-                data-ingenium-label={item.label}
-                data-ingenium-location="mobile_menu"
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
+                aria-current={pathname === item.href ? "page" : undefined}
               >
-                {item.label}
+                <EditorText
+                  editorId="r3de2e2ca7d-21u"
+                  tag="Link"
+                  value={item.label}
+                />
               </Link>
             ))}
-            <Link
-              href={site.schedulePath}
-              className="button-secondary mt-2 text-center"
-              data-ingenium-event="booking_cta_click"
-              data-ingenium-label="View Timetable"
-              data-ingenium-location="mobile_menu"
-              onClick={() => setOpen(false)}
+            <EditorLink
+              editorId="r3de2e2ca7d-23l"
+              href="/classes#live-schedule"
+              onClick={closeMenu}
             >
-              View Timetable
-            </Link>
-            <Link
+              <EditorText
+                editorId="r3de2e2ca7d-25k"
+                tag="Link"
+                value={"View timetable "}
+              />
+            </EditorLink>
+            <EditorLink
+              editorId="r3de2e2ca7d-26v"
               href="/#trial-form"
-              className="button-primary text-center"
-              data-ingenium-event="contact_cta_click"
-              data-ingenium-label="Book a Free Trial"
-              data-ingenium-location="mobile_menu"
-              onClick={() => setOpen(false)}
+              className="button-primary"
+              onClick={closeMenu}
             >
-              Book a Free Trial
-            </Link>
-          </div>
-        </div>
-      ) : null}
+              <EditorText
+                editorId="r3de2e2ca7d-2au"
+                tag="Link"
+                value={"Start training"}
+              />
+              <EditorText editorId="r3de2e2ca7d-2b8" tag="Link" value={" "} />
+            </EditorLink>
+          </nav>
+        </details>
+      </div>
     </header>
   );
 }

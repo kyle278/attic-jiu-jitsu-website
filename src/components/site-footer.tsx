@@ -1,75 +1,145 @@
+import {
+  EditorImage,
+  EditorLink,
+  EditorText,
+} from "@/components/website-editor/Editable";
 import Link from "next/link";
-
 import { navigation, site } from "@/lib/site-data";
+import { CookiePreferencesButton } from "./portal-runtime";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[color:var(--ink)]">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
-        <div className="space-y-4">
-          <p className="eyebrow">Train In Carlow</p>
-          <h2 className="font-heading text-3xl uppercase tracking-[0.12em] text-[color:var(--chalk)]">
-            Friendly on your first day. Serious about your progress.
-          </h2>
-          <p className="max-w-xl text-base text-[color:var(--fog)]">
-            Build fitness, confidence, and real grappling skill with a team that welcomes beginners and supports long-term growth.
+    <footer className="site-footer">
+      <div className="site-container footer-grid">
+        <div>
+          <EditorLink editorId="r1cd012a34f-95" href="/" className="brand">
+            <EditorImage
+              editorId="r1cd012a34f-af"
+              src="/images/logo.png"
+              alt="Attic Jiu Jitsu home"
+              width={60}
+              height={60}
+            />
+            <span className="brand-name">
+              <EditorText
+                editorId="r1cd012a34f-g6"
+                tag="span"
+                value={"Attic"}
+              />
+              <span>
+                <EditorText
+                  editorId="r1cd012a34f-gh"
+                  tag="span"
+                  value={"Jiu Jitsu · Carlow"}
+                />
+              </span>
+            </span>
+          </EditorLink>
+          <p className="footer-description">
+            <EditorText
+              editorId="r1cd012a34f-ju"
+              tag="p"
+              value={"Serious jiu jitsu. "}
+            />
+            <br />
+            <EditorText
+              editorId="r1cd012a34f-kv"
+              tag="p"
+              value={"A place for everyone. "}
+            />
           </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/#trial-form"
-              className="button-primary"
-              data-ingenium-event="contact_cta_click"
-              data-ingenium-label="Book a Free Trial"
-              data-ingenium-location="footer"
-            >
-              Book a Free Trial
-            </Link>
-            <Link
-              href={site.schedulePath}
-              className="button-secondary"
-              data-ingenium-event="booking_cta_click"
-              data-ingenium-label="View Timetable"
-              data-ingenium-location="footer"
-            >
-              View Timetable
-            </Link>
-          </div>
         </div>
-
-        <div className="space-y-3">
-          <p className="eyebrow">Find Us</p>
-          <p className="text-[color:var(--chalk)]">{site.address}</p>
-          <a href={site.phoneHref} className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]">
-            {site.phone}
+        <div>
+          <h2 className="footer-label">
+            <EditorText
+              editorId="r1cd012a34f-ns"
+              tag="h2"
+              value={"Find the academy"}
+            />
+          </h2>
+          <address>{site.address}</address>
+          <a href={site.phoneHref}>
+            <EditorText editorId="r1cd012a34f-ql" tag="a" value={site.phone} />
           </a>
-          <a href={site.emailHref} className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]">
-            {site.email}
+          <a href={site.emailHref}>
+            <EditorText editorId="r1cd012a34f-s1" tag="a" value={site.email} />
           </a>
-          <div className="flex gap-4 pt-2 text-sm uppercase tracking-[0.22em] text-[color:var(--fog)]">
-            <a href={site.facebookUrl} target="_blank" rel="noreferrer">
-              Facebook
-            </a>
+          <div className="social-links">
             <a href={site.instagramUrl} target="_blank" rel="noreferrer">
-              Instagram
+              <EditorText
+                editorId="r1cd012a34f-w3"
+                tag="a"
+                value={"Instagram "}
+              />
+            </a>
+            <a href={site.facebookUrl} target="_blank" rel="noreferrer">
+              <EditorText
+                editorId="r1cd012a34f-z9"
+                tag="a"
+                value={"Facebook "}
+              />
             </a>
           </div>
         </div>
-
-        <div className="space-y-3">
-          <p className="eyebrow">Explore</p>
+        <nav aria-label="Footer navigation">
+          <h2 className="footer-label">
+            <EditorText
+              editorId="r1cd012a34f-137"
+              tag="h2"
+              value={"Find your way"}
+            />
+          </h2>
           {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block text-[color:var(--fog)] hover:text-[color:var(--chalk)]"
-              data-ingenium-event="nav_click"
-              data-ingenium-label={item.label}
-              data-ingenium-location="footer"
-            >
-              {item.label}
+            <Link key={item.href} href={item.href}>
+              <EditorText
+                editorId="r1cd012a34f-16m"
+                tag="Link"
+                value={item.label}
+              />
             </Link>
           ))}
-        </div>
+          <Link href="/members">
+            <EditorText
+              editorId="r1cd012a34f-18t"
+              tag="Link"
+              value={"Members"}
+            />
+          </Link>
+        </nav>
+      </div>
+      <div className="site-container footer-bottom">
+        <span>
+          <EditorText editorId="r1cd012a34f-1bv" tag="span" value={"© "} />
+          <EditorText
+            editorId="r1cd012a34f-1bx"
+            tag="span"
+            value={new Date().getFullYear()}
+          />{" "}
+          <EditorText
+            editorId="r1cd012a34f-1co"
+            tag="span"
+            value={"Attic Jiu Jitsu Carlow"}
+          />
+        </span>
+        <EditorLink editorId="r1cd012a34f-1dq" href="/privacy-policy">
+          <EditorText
+            editorId="r1cd012a34f-1ej"
+            tag="Link"
+            value={"Privacy policy"}
+          />
+        </EditorLink>
+        <CookiePreferencesButton />
+        <EditorLink
+          editorId="r1cd012a34f-1gd"
+          href="/#trial-form"
+          className="text-link"
+        >
+          <EditorText
+            editorId="r1cd012a34f-1i0"
+            tag="Link"
+            value={"Come train with us "}
+          />
+        </EditorLink>
       </div>
     </footer>
   );

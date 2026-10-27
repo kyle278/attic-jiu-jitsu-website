@@ -1,0 +1,51 @@
+{
+  "sourceDeployment": "Attic public rebuild based on 0895683d93f59fda3dac8196b4c0f3d5440464fc",
+  "registry": "ingenium-v1",
+  "files": [
+    {
+      "file": "src/app/(website)/about-us/page.tsx",
+      "sourceHash": "441130b0c91c24028844f27b642d3ebbd25db5720f51dbfced8d349524381365",
+      "regions": 25
+    },
+    {
+      "file": "src/app/(website)/classes/page.tsx",
+      "sourceHash": "8e3e710c11f6038cb7e466b7fa180c7324dd522c2e84d139282f5c1162aba36b",
+      "regions": 36
+    },
+    {
+      "file": "src/app/(website)/gallery/page.tsx",
+      "sourceHash": "4641183c90e8d5041752ac4b2fb78754fd40d9ec9b2e9190dc79ef366e42a1e7",
+      "regions": 2
+    },
+    {
+      "file": "src/app/(website)/memberships/page.tsx",
+      "sourceHash": "5c68001263196974fe1a5686c33dd4a8bcd8dcba2403676e3b14c883c528baf4",
+      "regions": 16
+    },
+    {
+      "file": "src/app/(website)/page.tsx",
+      "sourceHash": "bd92109ed3699753fbf47056194fba4fa1251ec2de243ccb51fb3ddcc99625ca",
+      "regions": 74
+    },
+    {
+      "file": "src/app/(website)/privacy-policy/page.tsx",
+      "sourceHash": "8edb813c88253eec668747acdb922d531584c186acbcfb912dfb8fa2bdc119a1",
+      "regions": 50
+    },
+    {
+      "file": "src/components/site-header.tsx",
+      "sourceHash": "12713046cf8ebce0eb245bac848c96cfd6d0bda4177256293036fbbf62aadac9",
+      "regions": 16
+    },
+    {
+      "file": "src/components/site-footer.tsx",
+      "sourceHash": "043ead2f3e893fe126a64856b715a3a0c3367056d0cc5f19a685b713ceeb53dd",
+      "regions": 21
+    },
+    {
+      "file": "src/components/public-site.tsx",
+      "sourceHash": "323e5cb3982a06c7cf96e9c328fbd7efc304c140a34df866bb6729db8216dd38",
+      "regions": 12
+    }
+  ]
+}
