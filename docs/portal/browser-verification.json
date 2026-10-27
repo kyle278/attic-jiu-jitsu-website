@@ -1,5 +1,5 @@
 {
-  "base": "http://localhost:3314",
+  "base": "https://attic-jiu-jitsu-website-hqw0wk677-kyle278s-projects.vercel.app",
   "passed": [
     "Pending consent sends no events or analytics identifiers",
     "Declined consent keeps analytics off",

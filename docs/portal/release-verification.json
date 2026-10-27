@@ -1,0 +1,57 @@
+{
+  "origin": "https://attic-jiu-jitsu-website.vercel.app",
+  "commit": "12c39bec3780ff20ceb3faea7fd81f4f42db3a79",
+  "deployment": "dpl_mfw78MvNJa5NN9jKTRkwQY6TTnPd",
+  "checks": [
+    "Production pending consent sends no optional batches",
+    "Real V2 analytics accepted with SPA route attribution",
+    "V2 duplicate event IDs create one record",
+    "A real anonymous enquiry is accepted with separate privacy and marketing choices",
+    "Withdrawal stops real optional events and clears identifiers",
+    "All six public HTTPS routes independently serve the exact published editor baseline",
+    "Signed editor delivery acknowledges the authoritative release; unsigned delivery is rejected",
+    "Normal Portal SEO publishing delivers a baseline and the public server independently renders its exact revision marker"
+  ],
+  "pending": [
+    "Private editor UI acceptance requires an Attic-authorised staff session.",
+    "V1 form receipt-loss retries are not server-idempotent.",
+    "Search Console was not requested."
+  ],
+  "errors": [],
+  "form": {
+    "status": 201,
+    "submissionId": "3c56dff5-bec3-415c-8b79-9b557f97910b",
+    "siteId": "8b0e89c9-3090-46b2-b008-4d5c46233647",
+    "organisationId": "66f8a0e7-ffaa-4415-8261-e898609bcc74",
+    "formId": "d4886e37-4c62-40eb-87e3-70f4fb5fe9a8",
+    "privacy": true,
+    "accuracy": true,
+    "marketing": false,
+    "utmSource": "integration-verification",
+    "utmCampaign": "attic-production-release",
+    "visitorLinked": true
+  },
+  "analytics": {
+    "storedEventCount": 8,
+    "correctTenant": true,
+    "duplicateEventRecords": 1
+  },
+  "editor": {
+    "releaseId": "5b03fd2c-0a38-47ef-8cbf-99a050012517",
+    "generation": 1,
+    "publicRoutesVerified": 6,
+    "privateEditing": "pending authorised staff session"
+  },
+  "seo": {
+    "connection": "acknowledged",
+    "releaseId": "362ceb91-7cde-4ed4-98b3-6a739c6cc8c7",
+    "delivery": {
+      "id": "362ceb91-7cde-4ed4-98b3-6a739c6cc8c7",
+      "status": "acknowledged"
+    },
+    "verification": {
+      "verified": true,
+      "failures": []
+    }
+  }
+}

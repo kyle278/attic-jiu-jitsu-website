@@ -1,0 +1,9 @@
+.git
+.next
+.vercel
+node_modules
+.env*
+docs
+scripts/verify-*.mjs
+scripts/*.test.mjs
+*.tsbuildinfo

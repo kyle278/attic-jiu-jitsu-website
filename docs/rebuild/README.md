@@ -29,7 +29,7 @@ The consolidated fix batch addresses carousel pause/hover/focus motion, query-on
 
 The first browser batch also identified an accessible-label problem after validation; errors are now separate from associated labels. Its member pixel comparisons initially compared a loading screen with a completed error screen, not a style regression. The confirming batch fixes transport state to the same isolated error fixture and excludes only the development badge region. Protected-file hashes remain the definitive scope check.
 
-Three optimised hero photos are loaded eagerly to keep carousel changes ready; no unmeasured performance or conversion improvement is claimed. The privacy page is based on observed functionality and verified business details; provider locations, transfer arrangements and operational retention need the academy’s confirmation before publication. Nothing has been deployed.
+Three optimised hero photos are loaded eagerly to keep carousel changes ready; no unmeasured performance or conversion improvement is claimed. The privacy page is based on observed functionality and verified business details; provider locations, transfer arrangements and operational retention still need the academy’s confirmation. The public rebuild is deployed at https://attic-jiu-jitsu-website.vercel.app. Portal release evidence and remaining staff-session checks are in [the connection report](../portal/README.md).
 
 ## Verification artifacts
 
@@ -39,4 +39,4 @@ Three optimised hero photos are loaded eagerly to keep carousel changes ready; n
 - [Motion behaviour](motion-verification.json)
 - [Confirming screenshots](screenshots/two/)
 
-The browser fixtures never send a production enquiry or live booking. Existing member-plan/proxy tests and the isolated member-app acceptance script are run without changing their source.
+The rebuild browser fixtures never send a production enquiry or live booking. The later Portal acceptance pass sent one explicitly labelled synthetic enquiry under the Forms skill; its receipt is recorded separately in [release verification](../portal/release-verification.json). No live booking was created. Existing member-plan/proxy tests and the isolated member-app acceptance script passed without changing their source. The confirming public-site batch passed 75 checks, with one benign desktop member-logo raster difference confined to the original 40px image; member layout and original files remained unchanged.
