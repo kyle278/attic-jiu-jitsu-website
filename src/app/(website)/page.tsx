@@ -15,6 +15,8 @@ import { planEnquiryHref } from "@/components/public-timetable";
 import { getGymCatalogue } from "@/lib/server/gym-catalogue";
 import { getMembershipCards } from "@/lib/gym-data";
 import { site } from "@/lib/site-data";
+import { ContentLinks } from "@/components/seo-content-page";
+import { beginnerLink, fitnessLink, kidsLink, over40Link, womenLink } from "@/lib/seo-content";
 
 export const dynamic = "force-dynamic";
 const questions = [
@@ -65,14 +67,14 @@ export default async function Home() {
               <EditorText
                 editorId="reddf82f326-1ur"
                 tag="span"
-                value={"Serious "}
+                value={"Jiu jitsu "}
               />
             </span>
             <span>
               <EditorText
                 editorId="reddf82f326-1vp"
                 tag="span"
-                value={"jiu jitsu."}
+                value={"in Carlow."}
               />
             </span>
           </h1>
@@ -88,7 +90,7 @@ export default async function Home() {
               editorId="reddf82f326-216"
               tag="p"
               value={
-                "Good coaching. A welcoming team. Gi and no-gi training for adults, kids and teens, from your first class onwards. "
+                "Brazilian jiu-jitsu in Carlow for adults, kids and teens. Build fitness and learn a martial art with black belt coaching, beginner classes, and gi and no-gi training. "
               }
             />
           </p>
@@ -196,7 +198,7 @@ export default async function Home() {
           <div className="programme-links">
             <EditorLink
               editorId="reddf82f326-39p"
-              href="/classes#beginners"
+              href="/beginners-bjj-carlow"
               className="programme-link"
             >
               <div>
@@ -244,7 +246,7 @@ export default async function Home() {
             </EditorLink>
             <EditorLink
               editorId="reddf82f326-3op"
-              href="/classes#youth"
+              href="/kids-martial-arts-carlow"
               className="programme-link"
             >
               <div>
@@ -552,6 +554,16 @@ export default async function Home() {
           </div>
         </div>
       </EditorSection>
+      <EditorSection editorId="seo-home-fitness" className="section-space section-chalk">
+        <div className="site-container programme-layout">
+          <div className="section-heading">
+            <p className="section-note">A new way to be active</p>
+            <h2>Getting fit starts with finding your thing.</h2>
+            <p>Looking for beginner fitness classes in Carlow, returning to exercise after 40 or searching for a sport your child can enjoy? Explore the options and find out what a first class involves.</p>
+          </div>
+          <ContentLinks links={[fitnessLink, over40Link, womenLink, beginnerLink, kidsLink]} label="Fitness and beginner training" />
+        </div>
+      </EditorSection>
       <EditorSection
         editorId="reddf82f326-7sk"
         className="enquiry-section section-space"
@@ -650,7 +662,7 @@ export default async function Home() {
 export async function generateMetadata() {
   return managedMetadata("/", {
     title: {
-      absolute: "Attic Jiu Jitsu Carlow | Brazilian Jiu Jitsu In Carlow",
+      absolute: "BJJ Carlow | Brazilian Jiu-Jitsu for All Ages | Attic",
     },
     description: site.description,
   });

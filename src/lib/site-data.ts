@@ -2,7 +2,7 @@ export const site = {
   name: "Attic Jiu Jitsu",
   title: "Attic Jiu Jitsu Carlow",
   description:
-    "Brazilian Jiu Jitsu in Carlow for adults, kids, teens, beginners, and competitors. Train with experienced coaches in a welcoming academy.",
+    "Brazilian jiu-jitsu in Carlow for adults, kids and teens. Beginner gi and no-gi classes, black belt coaching, fitness and family memberships on Charlotte Street.",
   phone: "085 844 7393",
   phoneHref: "tel:+353858447393",
   email: "bconnolly85@hotmail.com",
@@ -26,6 +26,7 @@ export const navigation = [
   { href: "/classes", label: "Classes" },
   { href: "/memberships", label: "Memberships" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/blog", label: "Guides" },
 ];
 
 export const heroPoints = [

@@ -12,9 +12,11 @@ import { PageIntro, StartBand } from "@/components/public-site";
 import { carlowDayKey } from "@/components/public-timetable";
 import { getClassCards } from "@/lib/gym-data";
 import { getGymCatalogue, getTimetable } from "@/lib/server/gym-catalogue";
+import { ContentLinks } from "@/components/seo-content-page";
+import { beginnerLink, familyLink, fitnessLink, kidsLink, womenLink } from "@/lib/seo-content";
 
 const baselineMetadata: Metadata = {
-  title: "Classes & timetable",
+  title: { absolute: "BJJ Classes & Timetable Carlow | Attic Jiu Jitsu" },
   description:
     "Explore beginner, adult, kids and teens jiu jitsu in Carlow. Gi and no-gi classes, upcoming times and help choosing your first session.",
 };
@@ -85,7 +87,7 @@ export default async function ClassesPage() {
     });
   return (
     <EditorFlow containerId="classes.content" style={{ display: "contents" }}>
-      <PageIntro label="Classes · Carlow" title="Find your place on the mats.">
+      <PageIntro label="Classes · Carlow" title="Jiu-jitsu classes in Carlow.">
         <div className="intro-bottom">
           <p>
             <EditorText
@@ -245,7 +247,7 @@ export default async function ClassesPage() {
             </p>
             <EditorLink
               editorId="r0d79884db0-3zb"
-              href="/#beginner-programme"
+              href="/beginners-bjj-carlow"
               className="text-link"
             >
               <EditorText
@@ -299,7 +301,7 @@ export default async function ClassesPage() {
               <EditorText
                 editorId="r0d79884db0-4me"
                 tag="h2"
-                value={"A place to learn and grow."}
+                value={"Kids and teen martial arts."}
               />
             </h2>
             <p>
@@ -313,13 +315,13 @@ export default async function ClassesPage() {
             </p>
             <EditorLink
               editorId="r0d79884db0-4tz"
-              href="/#trial-form"
+              href="/kids-martial-arts-carlow"
               className="text-link"
             >
               <EditorText
                 editorId="r0d79884db0-4vq"
                 tag="Link"
-                value={"Ask about youth classes "}
+                value={"Explore kids martial arts "}
               />
             </EditorLink>
           </div>
@@ -376,6 +378,12 @@ export default async function ClassesPage() {
           ) : null}
         </div>
       </EditorSection>
+      <section className="section-space section-chalk">
+        <div className="site-container">
+          <h2>Find the right route into training.</h2>
+          <ContentLinks links={[beginnerLink, kidsLink, { href: "/teens-jiu-jitsu-carlow", label: "Teen jiu-jitsu" }, familyLink, fitnessLink, womenLink, { href: "/students", label: "Student memberships" }, { href: "/self-defence-classes-carlow", label: "Jiu-jitsu and self-defence" }]} />
+        </div>
+      </section>
       <StartBand />
     </EditorFlow>
   );

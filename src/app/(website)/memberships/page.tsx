@@ -14,7 +14,7 @@ import { getMembershipCards } from "@/lib/gym-data";
 import { getGymCatalogue } from "@/lib/server/gym-catalogue";
 
 const baselineMetadata: Metadata = {
-  title: "Memberships",
+  title: { absolute: "BJJ Prices & Family Memberships Carlow | Attic" },
   description:
     "See Attic Jiu Jitsu’s published memberships, beginner programmes, student and family options in Carlow. Clear prices and plan details.",
 };
@@ -37,7 +37,7 @@ export default async function MembershipsPage() {
       containerId="memberships.content"
       style={{ display: "contents" }}
     >
-      <PageIntro label="Memberships" title="Make training part of your week.">
+      <PageIntro label="Memberships" title="Jiu-jitsu memberships in Carlow.">
         <div className="intro-bottom">
           <p>
             <EditorText

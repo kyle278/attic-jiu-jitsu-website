@@ -107,6 +107,34 @@ export function SiteFooter() {
           </Link>
         </nav>
       </div>
+      <div className="site-container footer-topics">
+        <nav aria-label="Classes and fitness">
+          <h2 className="footer-label">Classes & fitness</h2>
+          <Link href="/beginners-bjj-carlow">Beginner jiu-jitsu</Link>
+          <Link href="/kids-martial-arts-carlow">Kids martial arts</Link>
+          <Link href="/teens-jiu-jitsu-carlow">Teen classes</Link>
+          <Link href="/family-martial-arts-carlow">Family training</Link>
+          <Link href="/fitness-classes-carlow">Fitness in Carlow</Link>
+          <Link href="/womens-bjj-carlow">Jiu-jitsu for women</Link>
+          <Link href="/students">Student memberships</Link>
+          <Link href="/self-defence-classes-carlow">Self-defence & BJJ</Link>
+        </nav>
+        <nav aria-label="Fitness guides">
+          <h2 className="footer-label">Getting active</h2>
+          <Link href="/blog/how-to-get-fit-over-40">How to get fit over 40</Link>
+          <Link href="/blog/fitness-for-men-over-40">Fitness over 40 for men</Link>
+          <Link href="/blog/fitness-for-women-over-40">Fitness over 40 for women</Link>
+          <Link href="/blog/get-fit-without-a-gym">Alternatives to the gym</Link>
+          <Link href="/blog">All fitness & BJJ guides</Link>
+        </nav>
+        <nav aria-label="Visiting the Carlow academy">
+          <h2 className="footer-label">Visit us in Carlow</h2>
+          <Link href="/athy">Coming from Athy</Link>
+          <Link href="/kilkenny">Coming from Kilkenny</Link>
+          <Link href="/areas-we-serve">Tullow, Bagenalstown & nearby</Link>
+          <p>All classes take place at our Charlotte Street academy in Carlow.</p>
+        </nav>
+      </div>
       <div className="site-container footer-bottom">
         <span>
           <EditorText editorId="r1cd012a34f-1bv" tag="span" value={"© "} />

@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import { InteractiveGallery } from "@/components/interactive-gallery";
 import { PageIntro, StartBand } from "@/components/public-site";
 const baselineMetadata: Metadata = {
-  title: "Inside Attic",
+  title: { absolute: "Inside Attic: BJJ Training in Carlow | Gallery" },
   description:
     "A look inside Attic Jiu Jitsu Carlow. Real training partners, coaching and details on the mats.",
 };

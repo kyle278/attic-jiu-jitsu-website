@@ -60,6 +60,11 @@ export async function managedMetadata(
   path: string,
   baseline: Metadata,
 ): Promise<Metadata> {
+  const title = typeof baseline.title === "string"
+    ? baseline.title
+    : baseline.title && "absolute" in baseline.title
+      ? baseline.title.absolute
+      : "Attic Jiu Jitsu Carlow";
   baseline = {
     ...baseline,
     metadataBase: new URL(WEBSITE_ORIGIN),
@@ -69,14 +74,20 @@ export async function managedMetadata(
     },
     openGraph: {
       type: "website",
-      title:
-        typeof baseline.title === "string"
-          ? baseline.title
-          : "Attic Jiu Jitsu Carlow",
+      title,
       description: baseline.description || undefined,
+      siteName: "Attic Jiu Jitsu Carlow",
+      locale: "en_IE",
       images: [{ url: `${WEBSITE_ORIGIN}/images/hero.jpg` }],
       ...baseline.openGraph,
       url: new URL(path, WEBSITE_ORIGIN).href,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: baseline.description || undefined,
+      images: [`${WEBSITE_ORIGIN}/images/hero.jpg`],
+      ...baseline.twitter,
     },
   };
   const h = await headers();
@@ -99,6 +110,12 @@ export async function managedMetadata(
       ...(seo.ogDescription || seo.description
         ? { description: seo.ogDescription || seo.description }
         : {}),
+      ...(seo.ogImage ? { images: [seo.ogImage] } : {}),
+    },
+    twitter: {
+      ...baseline.twitter,
+      ...(seo.ogTitle || seo.title ? { title: seo.ogTitle || seo.title } : {}),
+      ...(seo.ogDescription || seo.description ? { description: seo.ogDescription || seo.description } : {}),
       ...(seo.ogImage ? { images: [seo.ogImage] } : {}),
     },
   };

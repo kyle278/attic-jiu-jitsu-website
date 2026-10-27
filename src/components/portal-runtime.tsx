@@ -1,5 +1,6 @@
 "use client";
 import Script from "next/script";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { PORTAL_ORIGIN, TRACKING_SITE_KEY } from "@/portal/public";
@@ -216,7 +217,7 @@ export function PortalRuntime() {
             <p>
               Optional analytics help us understand how the website is used.
               Enquiries and member bookings work without them.{" "}
-              <a href="/privacy-policy">Read our privacy policy</a>.
+              <Link href="/privacy-policy">Read our privacy policy</Link>.
             </p>
           </div>
           <div className="cookie-actions">

@@ -9,6 +9,8 @@ import { PublicAttribution } from "@/components/public-attribution";
 import { site } from "@/lib/site-data";
 import { WEBSITE_ORIGIN } from "@/portal/public";
 import { Suspense } from "react";
+import { headers } from "next/headers";
+import { contentSchemas } from "@/lib/content-schema";
 import "./website.css";
 import "@/components/website-editor/website-editor.css";
 export default async function WebsiteLayout({
@@ -16,10 +18,12 @@ export default async function WebsiteLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const path = (await headers()).get("x-ingenium-path") || "/";
   const schema = {
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
     name: site.title,
+    description: site.description,
     "@id": `${WEBSITE_ORIGIN}/#academy`,
     url: WEBSITE_ORIGIN,
     image: `${WEBSITE_ORIGIN}/images/hero.jpg`,
@@ -30,14 +34,14 @@ export default async function WebsiteLayout({
       postalCode: "R93 D431",
       addressCountry: "IE",
     },
-    telephone: site.phone,
+    telephone: "+353858447393",
     email: site.email,
     sameAs: [site.facebookUrl, site.instagramUrl],
   };
   const [editor, seo, schemas] = await Promise.all([
     getEditorRelease(),
     getSeoRevision(),
-    managedSchemas([schema]),
+    managedSchemas([schema, ...contentSchemas(path)]),
   ]);
   return (
     <>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 
 import { site } from "@/lib/site-data";
+import { WEBSITE_ORIGIN } from "@/portal/public";
 
 import "./globals.css";
 
@@ -18,17 +19,19 @@ const body = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.currentWebsite),
+  metadataBase: new URL(WEBSITE_ORIGIN),
   title: {
-    default: `${site.title} | Brazilian Jiu Jitsu In Carlow`,
+    default: "BJJ Carlow | Brazilian Jiu-Jitsu for All Ages | Attic",
     template: `%s | ${site.title}`,
   },
   description: site.description,
   openGraph: {
-    title: `${site.title} | Brazilian Jiu Jitsu In Carlow`,
+    title: "BJJ Carlow | Brazilian Jiu-Jitsu for All Ages | Attic",
     description: site.description,
     type: "website",
-    url: site.currentWebsite,
+    url: WEBSITE_ORIGIN,
+    siteName: site.title,
+    locale: "en_IE",
     images: [{ url: "/images/hero.jpg" }],
   },
 };
@@ -39,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${heading.variable} ${body.variable} h-full antialiased`}>
+    <html lang="en-IE" className={`${heading.variable} ${body.variable} h-full antialiased`}>
       <body className="min-h-full bg-[color:var(--ink)] font-body text-[color:var(--chalk)]">
         {children}
       </body>

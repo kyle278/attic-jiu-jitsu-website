@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import { PageIntro } from "@/components/public-site";
 import { site } from "@/lib/site-data";
 const baselineMetadata: Metadata = {
-  title: "Privacy policy",
+  title: { absolute: "Privacy Policy | Attic Jiu Jitsu Carlow" },
   description:
     "How Attic Jiu Jitsu Carlow uses information from website enquiries, optional academy updates and website attribution.",
 };

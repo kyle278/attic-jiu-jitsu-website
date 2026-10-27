@@ -11,7 +11,7 @@ import type { Metadata } from "next";
 import { CoachProfiles, PageIntro, StartBand } from "@/components/public-site";
 import { site } from "@/lib/site-data";
 const baselineMetadata: Metadata = {
-  title: "The academy & coaches",
+  title: { absolute: "Black Belt BJJ Coaches Carlow | About Attic Jiu Jitsu" },
   description:
     "Meet Darren Curtis and Brian Connolly. Experienced black belt coaching and a welcoming Brazilian jiu jitsu academy for adults, kids and teens in Carlow.",
 };
@@ -20,7 +20,7 @@ export default function AboutPage() {
     <EditorFlow containerId="about-us.content" style={{ display: "contents" }}>
       <PageIntro
         label="The academy · Attic Jiu Jitsu"
-        title="Good coaching. A welcoming room."
+        title="Black belt jiu-jitsu coaching in Carlow."
       >
         <p className="intro-copy">
           <EditorText
