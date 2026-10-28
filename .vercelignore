@@ -6,4 +6,6 @@ node_modules
 docs
 scripts/verify-*.mjs
 scripts/*.test.mjs
+scripts/configure-blog-connection.mjs
+scripts/export-guides-for-blog.mjs
 *.tsbuildinfo

@@ -26,8 +26,8 @@ try {
     assert.equal(url.origin, origin);
     return url.pathname;
   });
-  await check("Sitemap contains 26 distinct public routes and no private endpoints", async () => {
-    assert.equal(paths.length, 26);
+  await check("Sitemap enumerates the public site and current published articles without private endpoints", async () => {
+    assert.ok(paths.length >= 18, "Expected the core public pages and enabled guide index");
     assert.equal(new Set(paths).size, paths.length);
     assert.ok(!paths.some((entry) => /^\/(members(?:\/|$)|api(?:\/|$))/.test(entry)));
     assert.ok(!sitemap.includes(new Date().toISOString().slice(0, 19)), "Do not fabricate fresh lastmod timestamps");
@@ -75,6 +75,8 @@ try {
       const target = new URL(href, origin).pathname;
       if (target.startsWith("/images/")) {
         assert.equal((await fetch(base + target)).status, 200, `Missing gallery asset ${target}`);
+      } else if (/^\/blog\/(?:category|tag|author|page)\//.test(target) || target === "/blog/feed.xml") {
+        assert.equal((await fetch(base + target)).status, 200, `${entry.route} links to unavailable Blog discovery ${target}`);
       } else {
         assert.ok(paths.includes(target) || /^\/members(?:\/|$)/.test(target), `${entry.route} links to ${target}`);
       }
@@ -122,11 +124,12 @@ try {
   }
   await check("Article contents navigation and contact link work", async () => {
     await page.goto(`${base}/blog/fitness-for-men-over-40`, { waitUntil: "networkidle" });
-    const anchor = page.locator('.content-toc a[href="#social"]');
+    const anchor = page.locator(".content-toc").getByRole("link", { name: "Consider a group if training alone does not stick.", exact: true });
+    const href = await anchor.getAttribute("href");
     await anchor.click();
-    assert.ok(page.url().endsWith("#social"));
-    assert.equal(await page.locator("#social").count(), 1);
-    const contact = page.getByRole("link", { name: "Ask about getting started", exact: true });
+    assert.ok(page.url().endsWith(href));
+    assert.equal(await page.locator(href).count(), 1);
+    const contact = page.locator(".content-actions").getByRole("link", { name: "Ask about getting started", exact: true });
     assert.equal(await contact.getAttribute("href"), "/#trial-form");
     await contact.click();
     await page.waitForURL(`${base}/#trial-form`);

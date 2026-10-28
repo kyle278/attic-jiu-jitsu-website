@@ -1,0 +1,14 @@
+{
+  "configuredAt": "2026-10-28T21:24:05.805Z",
+  "siteId": "8b0e89c9-3090-46b2-b008-4d5c46233647",
+  "organisationId": "66f8a0e7-ffaa-4415-8261-e898609bcc74",
+  "websiteOrigin": "https://attic-jiu-jitsu-website.vercel.app",
+  "portalOrigin": "https://portal.ingeniumconsulting.net",
+  "adapterVersion": 1,
+  "publicKey": "blog_1bc91d3ed5524f49a38f5090c366e0b6",
+  "endpoint": "https://attic-jiu-jitsu-website.vercel.app/api/ingenium/blog",
+  "generation": 0,
+  "enabled": false,
+  "secretConfigured": true,
+  "deliveryVerified": false
+}

@@ -1,0 +1,7 @@
+export const BLOG_UNAVAILABLE_HTML = `<!doctype html><html lang="en-IE"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Guides temporarily unavailable | Attic</title><style>*{box-sizing:border-box}body{margin:0;background:#0f0c0d;color:#f7f3f1;font:18px/1.6 system-ui,sans-serif}main{max-width:720px;margin:12vh auto;padding:32px}h1{font-size:clamp(36px,6vw,60px);line-height:1.1}p{color:#bdb3b7}a{color:inherit;text-underline-offset:5px}nav{display:flex;flex-wrap:wrap;gap:24px;margin-top:32px}a:focus-visible{outline:3px solid #c43148;outline-offset:5px}</style></head><body><main><p>Attic Jiu Jitsu · Carlow</p><h1>Our guides are temporarily unavailable.</h1><p>Please try again shortly. You can still explore classes, memberships and training at the academy.</p><nav aria-label="Next steps"><a href="/">Home</a><a href="/classes">Classes</a><a href="/memberships">Memberships</a></nav></main></body></html>`;
+
+export function blogUnavailableResponse(status = 503) {
+  return new Response(status === 503 ? BLOG_UNAVAILABLE_HTML : status === 401 ? "Private preview access required." : "Guide not found.", {
+    status, headers: { "Cache-Control": "private, no-store", "X-Robots-Tag": "noindex, nofollow", "Referrer-Policy": "no-referrer", ...(status === 503 ? { "Content-Type": "text/html; charset=utf-8", "Retry-After": "60" } : {}) },
+  });
+}

@@ -11,6 +11,7 @@ import { WEBSITE_ORIGIN } from "@/portal/public";
 import { Suspense } from "react";
 import { headers } from "next/headers";
 import { contentSchemas } from "@/lib/content-schema";
+import { isBlogPath } from "@/lib/blog/routing";
 import "./website.css";
 import "@/components/website-editor/website-editor.css";
 export default async function WebsiteLayout({
@@ -40,7 +41,7 @@ export default async function WebsiteLayout({
   };
   const [editor, seo, schemas] = await Promise.all([
     getEditorRelease(),
-    getSeoRevision(),
+    isBlogPath(path) ? Promise.resolve(null) : getSeoRevision(),
     managedSchemas([schema, ...contentSchemas(path)]),
   ]);
   return (

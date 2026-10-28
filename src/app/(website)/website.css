@@ -1,4 +1,96 @@
 /* Every public style is gated by the website shell; member styles stay untouched. */
+.website-shell .blog-search {
+  max-width: 620px;
+  margin-top: 32px;
+}
+.website-shell .blog-search label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.website-shell .blog-search > div {
+  display: flex;
+  gap: 12px;
+}
+.website-shell .blog-search input {
+  min-width: 0;
+  flex: 1;
+  width: 100%;
+  border: 1px solid var(--site-field-line);
+  background: var(--site-panel);
+  color: var(--site-chalk);
+  padding: 12px 16px;
+  font: inherit;
+}
+.website-shell .blog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-top: 1px solid var(--site-line-dark);
+  padding-top: 28px;
+  margin-top: 48px;
+}
+.website-shell .blog-body > h2:not(:first-child) {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--site-line-dark);
+}
+.website-shell .blog-body :is(h2, h3, h4) { scroll-margin-top: 112px; }
+.website-shell .blog-body > :is(h3, h4) { margin-top: 28px; }
+.website-shell .blog-body a:not(.button-primary) {
+  color: var(--site-chalk);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.website-shell .blog-body :is(blockquote, .blog-callout, .blog-cta) {
+  padding: 24px;
+  background: var(--site-panel);
+  border-left: 3px solid var(--site-red);
+  margin-block: 24px;
+}
+.website-shell .blog-body blockquote { margin-inline: 0; }
+.website-shell .blog-body .blog-cta .button-primary { margin-top: 16px; }
+.website-shell .blog-body :is(img, figure),
+.website-shell .blog-cover img,
+.website-shell .guide-grid img { max-width: 100%; height: auto; }
+.website-shell .blog-body figure { margin-block: 28px; }
+.website-shell .blog-body figcaption {
+  font-size: 14px;
+  color: var(--site-muted);
+  margin-top: 12px;
+}
+.website-shell .blog-body pre {
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--site-panel);
+  padding: 20px;
+  font-size: 15px;
+}
+.website-shell .blog-body hr {
+  border: 0;
+  border-top: 1px solid var(--site-line-dark);
+  margin-block: 32px;
+}
+.website-shell .blog-table-scroll { max-width: 100%; overflow-x: auto; margin-block: 28px; }
+.website-shell .blog-table-scroll table { width: 100%; border-collapse: collapse; }
+.website-shell .blog-table-scroll :is(th, td) {
+  padding: 12px 16px;
+  border: 1px solid var(--site-line-dark);
+  text-align: left;
+  min-width: 120px;
+}
+.website-shell .blog-cover { margin-bottom: 48px; }
+.website-shell .blog-preview-banner {
+  border: 1px solid var(--site-red);
+  padding-block: 24px;
+  margin-block: 32px;
+}
+.website-shell .blog-preview-banner a { text-decoration: underline; }
+@media (max-width: 479px) {
+  .website-shell .blog-search > div { flex-direction: column; }
+}
 .website-shell .content-breadcrumb {
   padding-top: 32px;
   font-size: 14px;

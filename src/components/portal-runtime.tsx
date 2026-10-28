@@ -34,7 +34,7 @@ export function analyticsAllowed() {
   }
 }
 export function isEditorSession() {
-  return new URLSearchParams(location.search).get("__ingenium_editor") === "1";
+  return location.pathname.startsWith("/blog/preview/") || new URLSearchParams(location.search).get("__ingenium_editor") === "1";
 }
 export function CookiePreferencesButton() {
   return (
@@ -88,7 +88,7 @@ export function PortalRuntime() {
     lastPath.current = location.pathname;
   }, [ready, choice, preview]);
   useEffect(() => {
-    if (!ready || preview || choice !== "accepted") return;
+    if (!ready || preview || isEditorSession() || choice !== "accepted") return;
     if (lastPath.current !== path) {
       if (pop.current !== path) window.IngeniumSite?.track("page_view");
       lastPath.current = path;
@@ -128,7 +128,7 @@ export function PortalRuntime() {
         });
     };
     const finish = () => {
-      if (sent) return;
+      if (sent || isEditorSession()) return;
       sent = true;
       window.IngeniumSite?.track("scroll_depth", { depth_percent: depth });
       window.IngeniumSite?.track("time_on_page", {

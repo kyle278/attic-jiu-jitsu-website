@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import type { Metadata } from "next";
 import { pageSeo, type PublishedSeo } from "./seo-adapter";
 import { WEBSITE_ORIGIN } from "../public";
+import { isBlogPath } from "@/lib/blog/routing";
 export const SEO_TAG = "attic-managed-seo-v1";
 export type SeoRevision = {
   id: string;
@@ -93,6 +94,8 @@ export async function managedMetadata(
   const h = await headers();
   if (h.get("x-attic-editor-preview") === "1")
     return { ...baseline, robots: { index: false, follow: false } };
+  // Blog publishes body, SEO and route ownership together; stale SEO releases must not override it.
+  if (isBlogPath(path)) return baseline;
   const release = await getSeoRevision();
   if (!release) return baseline;
   const seo = pageSeo(release.snapshot, new URL(path, WEBSITE_ORIGIN).href);
@@ -121,8 +124,9 @@ export async function managedMetadata(
   };
 }
 export async function managedSchemas(baseline: Record<string, unknown>[]) {
-  const path = (await headers()).get("x-ingenium-path") || "/",
-    release = await getSeoRevision(),
+  const path = (await headers()).get("x-ingenium-path") || "/";
+  if (isBlogPath(path)) return baseline;
+  const release = await getSeoRevision(),
     override =
       release &&
       pageSeo(release.snapshot, new URL(path, WEBSITE_ORIGIN).href).schema;

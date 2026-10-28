@@ -44,3 +44,5 @@ next-env.d.ts
 /docs/rebuild/screenshots/
 /docs/portal/*.png
 /docs/seo/screenshots/
+/docs/blog/screenshots/
+/docs/blog/fixture-state.json

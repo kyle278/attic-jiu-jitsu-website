@@ -35,7 +35,7 @@ export function PublicAttribution() {
   const pathname = usePathname();
   const query = useSearchParams().toString();
   useEffect(() => {
-    if (new URLSearchParams(location.search).get("__ingenium_editor") === "1")
+    if (location.pathname.startsWith("/blog/preview/") || new URLSearchParams(location.search).get("__ingenium_editor") === "1")
       return;
     function capture() {
       if (

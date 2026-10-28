@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-28T21:29:26.004Z",
+  "base": "http://localhost:3330",
+  "environment": "isolated local HTTP fixture",
+  "realPortalPublications": false,
+  "checks": [
+    "/blog/how-to-get-fit-over-40: original URL, complete server HTML, SEO and immutable revision",
+    "/blog/fitness-for-men-over-40: original URL, complete server HTML, SEO and immutable revision",
+    "/blog/fitness-for-women-over-40: original URL, complete server HTML, SEO and immutable revision",
+    "/blog/get-fit-without-a-gym: original URL, complete server HTML, SEO and immutable revision",
+    "/blog/starting-bjj-over-40: original URL, complete server HTML, SEO and immutable revision",
+    "/blog/what-to-wear-first-bjj-class: original URL, complete server HTML, SEO and immutable revision",
+    "/blog/is-jiu-jitsu-good-for-kids: original URL, complete server HTML, SEO and immutable revision",
+    "/blog/how-much-does-bjj-cost-in-ireland: original URL, complete server HTML, SEO and immutable revision",
+    "Index, RSS and sitemap enumerate the published article set",
+    "Search and author/category archives use engine results and indexing settings",
+    "Unknown paths, malformed pagination and unowned namespace return correct status",
+    "New published slugs work without rebuilding the website",
+    "Private draft editing does not change public body or SEO",
+    "Explicit publication updates body, metadata and revision together",
+    "Historical article paths emit real 308 redirects",
+    "Withdrawal returns 410 and removes the article from index, feed and sitemap",
+    "Backend outage returns 503, retains the rest of the website and recovers",
+    "Signed refresh handles duplicate delivery and rejects stale, unsigned or cross-site events",
+    "Private preview requires a scoped session and returns no-store/noindex HTML"
+  ],
+  "failures": []
+}

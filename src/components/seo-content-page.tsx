@@ -4,7 +4,7 @@ import { EditorFlow, EditorLink, EditorSection, EditorText } from "@/components/
 import { getMembershipCards } from "@/lib/gym-data";
 import { getGymCatalogue } from "@/lib/server/gym-catalogue";
 import { planEnquiryHref } from "@/components/public-timetable";
-import { contentUpdated, type ContentLink, type SeoContent } from "@/lib/seo-content";
+import { type ContentLink, type SeoContent } from "@/lib/seo-content";
 
 export function ContentLinks({ links, label = "Explore related pages" }: { links: ContentLink[]; label?: string }) {
   return (
@@ -14,8 +14,7 @@ export function ContentLinks({ links, label = "Explore related pages" }: { links
   );
 }
 
-export async function SeoContentPage({ content, article = false }: { content: SeoContent; article?: boolean }) {
-  const root = article ? "/blog" : "";
+export async function SeoContentPage({ content }: { content: SeoContent }) {
   const editorId = `seo-${content.slug}`;
   const catalogue = content.planSlugs?.length ? await getGymCatalogue() : null;
   const plans = catalogue ? getMembershipCards(catalogue.plans).filter((plan) => content.planSlugs?.includes(plan.slug)) : [];
@@ -24,15 +23,13 @@ export async function SeoContentPage({ content, article = false }: { content: Se
       <div className="site-container content-breadcrumb">
         <nav aria-label="Breadcrumb">
           <Link href="/">Home</Link><span aria-hidden="true">/</span>
-          {article && <><Link href="/blog">Fitness & BJJ guides</Link><span aria-hidden="true">/</span></>}
           <span aria-current="page">{content.category}</span>
         </nav>
       </div>
       <PageIntro label={content.category} title={content.heading}>
         <p className="intro-copy"><EditorText editorId={`${editorId}-intro`} value={content.intro} tag="p" /></p>
-        {article ? <p className="content-byline">By <Link href="/about-us">Attic Jiu Jitsu</Link> · Updated <time dateTime={contentUpdated}>27 October 2026</time></p> : null}
         <div className="content-actions">
-          <Link href="/#trial-form" className="button-primary" data-ingenium-event="contact_cta_click" data-ingenium-label="Ask about getting started" data-ingenium-location={`${root}/${content.slug}`}>Ask about getting started</Link>
+          <Link href="/#trial-form" className="button-primary" data-ingenium-event="contact_cta_click" data-ingenium-label="Ask about getting started" data-ingenium-location={`/${content.slug}`}>Ask about getting started</Link>
           <Link href="/classes#live-schedule" className="text-link">View timetable</Link>
         </div>
       </PageIntro>
